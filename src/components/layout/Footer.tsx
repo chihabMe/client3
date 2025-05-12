@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import * as motion from "motion/react-m";
 import { fadeIn  } from "@/lib/motions";
 
 const Footer = () => {

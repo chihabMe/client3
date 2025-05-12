@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { motion } from "framer-motion";
+import * as motion from "motion/react-m";
 import { Check } from "lucide-react";
 import pricingData from "@/data/pricing.json";
 import { fadeIn, staggerContainer } from "@/lib/motions";

@@ -1,15 +1,15 @@
 "use client";
 
-import { useEffect  } from "react";
-import { useAnimation } from "framer-motion";
+import { useAnimation } from "motion/react";
+import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
 export const useScrollAnimation = (threshold = 0.1) => {
   const controls = useAnimation();
-  const [ref, inView] = useInView({ 
+  const [ref, inView] = useInView({
     threshold,
     triggerOnce: true, // Only trigger animation once
-    rootMargin: "0px 0px -100px 0px" 
+    rootMargin: "0px 0px -100px 0px",
   });
 
   useEffect(() => {

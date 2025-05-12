@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import * as motion from "motion/react-m";
+import { AnimatePresence } from "motion/react";
 import { fadeIn, cardFlip } from "@/lib/motions";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";

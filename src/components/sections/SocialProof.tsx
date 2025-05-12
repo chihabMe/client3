@@ -1,10 +1,12 @@
 "use client";
 
+import * as motion from "motion/react-m";
+import { AnimatePresence } from "motion/react";
 import React, { useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn } from "@/lib/motions";
 import { Card } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hook/use-scroll-animation";
+import Image from "next/image";
 
 const SocialProof = () => {
   const { ref, controls } = useScrollAnimation(0.2);
@@ -131,7 +133,9 @@ const SocialProof = () => {
                         <div className="bg-[#1F2C34] absolute top-0 left-0 right-0 px-6 py-3 flex items-center">
                           <div className="flex items-center gap-3">
                             <div className="w-8 h-8 rounded-full overflow-hidden">
-                              <img
+                              <Image
+                                width={320}
+                                height={180}
                                 src={message.avatar}
                                 alt={message.name}
                                 className="w-full h-full object-cover"

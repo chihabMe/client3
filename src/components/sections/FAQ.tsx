@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import * as motion from "motion/react-m";
 import { fadeIn, staggerContainer } from "@/lib/motions";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import faqData from "@/data/faq.json";

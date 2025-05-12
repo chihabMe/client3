@@ -2,18 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  AnimatePresence,
-} from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
-import { useIsMobile } from "@/hook/use-mobile";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const isMobile = useIsMobile();
   const { scrollY } = useScroll();
   const headerBg = useTransform(
     scrollY,
@@ -105,16 +98,17 @@ const Header = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6, type: "spring" }}
           >
-            <Button
-              className="bg-[#39ff14] text-black hover:bg-[#39ff14]/90 ml-4 rounded-2xl"
+            <motion.div
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0 0 15px rgba(57, 255, 20, 0.7)",
               }}
               whileTap={{ scale: 0.95 }}
             >
-              Get Started
-            </Button>
+              <Button className="bg-[#39ff14] text-black hover:bg-[#39ff14]/90 ml-4 rounded-2xl">
+                Get Started
+              </Button>
+            </motion.div>
           </motion.div>
         </nav>
 
@@ -173,7 +167,7 @@ const Header = () => {
                 },
               }}
             >
-              {navItems.map((item, index) => (
+              {navItems.map((item) => (
                 <motion.a
                   key={item.href}
                   href={item.href}
@@ -216,16 +210,17 @@ const Header = () => {
                   },
                 }}
               >
-                <Button
-                  className="bg-[#39ff14] text-black hover:bg-[#39ff14]/90 rounded-2xl w-64 h-14 text-lg mt-8"
+                <motion.div
                   whileHover={{
                     scale: 1.05,
                     boxShadow: "0 0 15px rgba(57, 255, 20, 0.8)",
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Get Started
-                </Button>
+                  <Button className="bg-[#39ff14] text-black hover:bg-[#39ff14]/90 rounded-2xl w-64 h-14 text-lg mt-8">
+                    Get Started
+                  </Button>
+                </motion.div>
               </motion.div>
             </motion.nav>
           </motion.div>

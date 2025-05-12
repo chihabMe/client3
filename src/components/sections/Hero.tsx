@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import * as motion from "motion/react-m";
 import { fadeIn } from "@/lib/motions";
 
 const Hero = () => {
@@ -89,7 +89,7 @@ const Hero = () => {
             animate="visible"
             transition={{ delay: 0.8, duration: 0.5 }}
           >
-            Explore the world's finest collection of films, series, TV channels,
+            Explore the worlds finest collection of films, series, TV channels,
             and sports events all in one place, available on any device, anytime
             you want.
           </motion.p>

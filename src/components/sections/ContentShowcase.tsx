@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
-import { motion  } from "framer-motion";
+import * as motion from "motion/react-m";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeIn, cardHover, staggerContainer } from "@/lib/motions";
 import showsData from "@/data/shows.json";
 import { useScrollAnimation } from "@/hook/use-scroll-animation";
+import Image from "next/image";
 
 const ContentShowcase = () => {
   const { ref, controls } = useScrollAnimation(0.2);
@@ -58,7 +59,10 @@ const ContentShowcase = () => {
   }, []);
 
   return (
-    <section id="features" className="py-20 bg-gradient-to-b from-black/60 to-black/40">
+    <section
+      id="features"
+      className="py-20 bg-gradient-to-b from-black/60 to-black/40"
+    >
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           ref={ref}
@@ -71,8 +75,8 @@ const ContentShowcase = () => {
             Featured Content
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Explore our vast collection of movies, TV shows, and exclusive content.
-            All available in stunning quality on any device.
+            Explore our vast collection of movies, TV shows, and exclusive
+            content. All available in stunning quality on any device.
           </p>
         </motion.div>
 
@@ -83,8 +87,10 @@ const ContentShowcase = () => {
           animate={controls}
           className="mt-16"
         >
-          <h3 className="text-xl font-semibold mb-6 px-4 text-white">Popular Movies & Shows</h3>
-          <div 
+          <h3 className="text-xl font-semibold mb-6 px-4 text-white">
+            Popular Movies & Shows
+          </h3>
+          <div
             ref={moviesScrollRef}
             className="flex overflow-x-scroll snap-x snap-mandatory scrollbar-none gap-4 pb-8 px-2 md:px-4 scroll-smooth"
           >
@@ -101,7 +107,9 @@ const ContentShowcase = () => {
                 <motion.div variants={cardHover}>
                   <Card className="overflow-hidden rounded-2xl border-0 shadow-lg bg-transparent h-[350px] md:h-[400px] card-hover [#39ff14]-glow-hover">
                     <CardContent className="p-0 h-full relative">
-                      <img
+                      <Image
+                        width={320}
+                        height={180}
                         src={show.image}
                         alt={show.title}
                         className="w-full h-full object-cover"
@@ -134,8 +142,10 @@ const ContentShowcase = () => {
           animate={controls}
           className="mt-16"
         >
-          <h3 className="text-xl font-semibold mb-6 px-4 text-white">Sports & Live Events</h3>
-          
+          <h3 className="text-xl font-semibold mb-6 px-4 text-white">
+            Sports & Live Events
+          </h3>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4">
             {showsData.sports.map((sport, index) => (
               <motion.div
@@ -144,12 +154,18 @@ const ContentShowcase = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
-                whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? 2 : -2, transition: { duration: 0.3 } }}
+                whileHover={{
+                  scale: 1.05,
+                  rotate: index % 2 === 0 ? 2 : -2,
+                  transition: { duration: 0.3 },
+                }}
                 className="overflow-hidden rounded-2xl aspect-video"
               >
                 <Card className="overflow-hidden rounded-2xl border-0 shadow-lg bg-transparent h-full [#39ff14]-glow-hover">
                   <CardContent className="p-0 h-full relative">
-                    <img
+                    <Image
+                      width={320}
+                      height={180}
                       src={sport.image}
                       alt={sport.title}
                       className="w-full h-full object-cover"
@@ -158,9 +174,7 @@ const ContentShowcase = () => {
                       <h4 className="text-white font-bold text-xl">
                         {sport.title}
                       </h4>
-                      <p className="text-[#39ff14] text-sm">
-                        {sport.category}
-                      </p>
+                      <p className="text-[#39ff14] text-sm">{sport.category}</p>
                     </div>
                   </CardContent>
                 </Card>
