@@ -1,25 +1,24 @@
-"use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion"; // Fixed import to use framer-motion
+import * as motion from "motion/react-m";
 import Image from "next/image";
 
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 const Hero = () => {
   // Animation variants
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
 
   return (
     <section
@@ -105,7 +104,7 @@ const Hero = () => {
             className="text-lg md:text-xl text-gray-300 mb-10"
             variants={fadeIn}
           >
-            Explore the world's finest collection of films, series, TV channels,
+            Explore the worlds finest collection of films, series, TV channels,
             and sports events all in one place, available on any device, anytime
             you want.
           </motion.p>
