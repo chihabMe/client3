@@ -1,0 +1,41 @@
+
+{
+  "logos": [
+    {
+      "id": 1,
+      "name": "ESPN",
+      "logo": "ESPN",
+      "imageUrl": "https://1000logos.net/wp-content/uploads/2021/05/ESPN-logo.png"
+    },
+    {
+      "id": 2,
+      "name": "NBC",
+      "logo": "NBC",
+      "imageUrl": "https://1000logos.net/wp-content/uploads/2017/04/NBC-Logo-768x483.png"
+    },
+    {
+      "id": 3,
+      "name": "Disney+",
+      "logo": "Disney+",
+      "imageUrl": "https://1000logos.net/wp-content/uploads/2021/02/Disney-Plus-logo-768x432.png"
+    },
+    {
+      "id": 4,
+      "name": "HBO",
+      "logo": "HBO",
+      "imageUrl": "https://1000logos.net/wp-content/uploads/2017/08/HBO-Logo-768x371.png"
+    },
+    {
+      "id": 5,
+      "name": "Netflix",
+      "logo": "Netflix",
+      "imageUrl": "https://1000logos.net/wp-content/uploads/2017/05/Netflix-Logo-768x432.png"
+    },
+    {
+      "id": 6,
+      "name": "Amazon Prime",
+      "logo": "Prime Video",
+      "imageUrl": "https://1000logos.net/wp-content/uploads/2023/01/Amazon-Prime-Video-logo-768x432.png"
+    }
+  ]
+}

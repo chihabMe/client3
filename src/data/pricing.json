@@ -1,0 +1,59 @@
+
+{
+  "plans": [
+    {
+      "id": "basic",
+      "name": "Basic",
+      "price": 29,
+      "period": "month",
+      "description": "Perfect for individuals",
+      "features": [
+        "HD streaming",
+        "2 devices at once",
+        "7-day replay",
+        "Cancel anytime",
+        "250+ channels"
+      ],
+      "highlighted": false,
+      "cta": "Get Started"
+    },
+    {
+      "id": "premium",
+      "name": "Premium",
+      "price": 59,
+      "period": "month",
+      "description": "Best value for families",
+      "features": [
+        "4K streaming",
+        "5 devices at once",
+        "30-day replay",
+        "Cancel anytime",
+        "500+ channels",
+        "Original content",
+        "Download to watch offline"
+      ],
+      "highlighted": true,
+      "cta": "Try Premium"
+    },
+    {
+      "id": "ultimate",
+      "name": "Ultimate",
+      "price": 99,
+      "period": "month",
+      "description": "For the true enthusiast",
+      "features": [
+        "8K streaming when available",
+        "10 devices at once",
+        "90-day replay",
+        "Cancel anytime",
+        "1000+ channels",
+        "Original content",
+        "Download to watch offline",
+        "Early access to new features",
+        "VIP customer support"
+      ],
+      "highlighted": false,
+      "cta": "Go Ultimate"
+    }
+  ]
+}

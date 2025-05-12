@@ -1,0 +1,35 @@
+
+{
+  "questions": [
+    {
+      "id": "devices",
+      "question": "How many devices can I watch on?",
+      "answer": "The number of devices you can watch on simultaneously depends on your plan. Basic allows 2 devices, Premium allows 5 devices, and Ultimate allows up to 10 devices streaming at the same time."
+    },
+    {
+      "id": "cancel",
+      "question": "Can I cancel my subscription anytime?",
+      "answer": "Yes! All our plans are flexible with no long-term commitments. You can cancel your subscription at any time, and you'll continue to have access until the end of your current billing period."
+    },
+    {
+      "id": "content",
+      "question": "What channels and content are included?",
+      "answer": "Our platform offers a wide range of channels including sports, entertainment, news, movies, and more. The exact channel lineup varies by plan and your geographic location. You can check the full channel list for your area during the signup process."
+    },
+    {
+      "id": "quality",
+      "question": "What streaming quality can I expect?",
+      "answer": "Streaming quality depends on your plan and internet connection. Our Basic plan offers HD quality, Premium offers 4K, and Ultimate offers up to 8K where available. A minimum internet speed of 5 Mbps is recommended for HD and 25 Mbps for 4K content."
+    },
+    {
+      "id": "trial",
+      "question": "Is there a free trial?",
+      "answer": "Yes, we offer a 7-day free trial on all our plans. You can experience all features of your chosen plan before your subscription begins. No charges will be made until the trial period ends."
+    },
+    {
+      "id": "payment",
+      "question": "What payment methods do you accept?",
+      "answer": "We accept all major credit cards (Visa, MasterCard, American Express, Discover), PayPal, digital wallets like Google Pay and Apple Pay, and in some regions, we also accept payment via mobile carrier billing."
+    }
+  ]
+}
