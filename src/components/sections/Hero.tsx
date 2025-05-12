@@ -1,8 +1,10 @@
 "use client";
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import * as motion from "motion/react-m";
+
+// import motion from "motion/react-client";
+
 import { fadeIn } from "@/lib/motions";
 
 const Hero = () => {
@@ -11,11 +13,10 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center pt-20 pb-16"
     >
-      {/* Background video/image */}
       <div className="absolute inset-0 z-0">
         <motion.div
           initial={{ scale: 1.1, opacity: 0.5 }}
-          animate={{ scale: 1, opacity: 1 }}
+          whileInView={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="w-full h-full bg-cover bg-center"
           style={{
@@ -29,7 +30,7 @@ const Hero = () => {
       <motion.div
         className="absolute inset-0 z-0 opacity-50"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.5 }}
+        whileInView={{ opacity: 0.5 }}
         transition={{ delay: 0.5, duration: 1 }}
       >
         {[...Array(15)].map((_, i) => (
@@ -41,7 +42,7 @@ const Hero = () => {
               top: `${Math.random() * 100}%`,
               opacity: Math.random() * 0.7 + 0.3,
             }}
-            animate={{
+            whileInView={{
               opacity: [0.3, 1, 0.3],
               scale: [1, 1.5, 1],
             }}
@@ -99,11 +100,13 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             transition={{ delay: 1.2 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row   gap-4 justify-center"
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              className="inline-block"
+              style={{ display: "inline-flex" }}
               animate={{
                 boxShadow: [
                   "0px 0px 0px rgba(57, 255, 20, 0)",
@@ -119,8 +122,9 @@ const Hero = () => {
               }}
             >
               <Button
-                className="bg-[#39ff14] text-black hover:bg-[#39ff14]/90 text-lg py-6 px-8 rounded-2xl"
+                className="bg-[#39ff14] text-black hover:bg-[#39ff14]/90 text-lg py-2 px-2 md:px-8 rounded-2xl"
                 size="lg"
+                style={{ width: "100%", height: "100%" }}
               >
                 Join Now
               </Button>
@@ -131,11 +135,12 @@ const Hero = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.4, duration: 0.5 }}
+              className="inline-block"
             >
               <Button
-                variant="outline"
                 size="lg"
-                className="border-white/20 hover:bg-white/10 text-white text-lg py-6 px-8 rounded-2xl"
+                className="bg-transparent text-white text-lg py-2 md:py-3 px-8 rounded-2xl"
+                style={{ width: "100%", height: "100%" }}
               >
                 Learn More
               </Button>
