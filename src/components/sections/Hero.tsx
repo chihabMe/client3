@@ -146,7 +146,7 @@ const Hero = () => {
             >
               <Button
                 size="lg"
-                className="bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg font-medium w-full px-8 py-6 rounded-lg"
+                className="bg-transparent   text-white hover:bg-white/10 text-lg font-medium w-full px-8 py-6 rounded-lg"
               >
                 Learn More
               </Button>
