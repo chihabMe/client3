@@ -85,29 +85,27 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          <motion.h1
-            className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
-            variants={fadeIn}
-          >
-            Cut the clutter
-            <motion.span variants={fadeIn} className="block mt-2">
-              <motion.div
-                initial={{ width: "0%" }}
-                animate={{ width: "100%" }}
-                transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
-                className="h-[3px] bg-[#39ff14] mb-2 mx-auto"
-              />
-              One subscription, endless entertainment.
-            </motion.span>
-          </motion.h1>
+  <motion.h1
+    className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
+    variants={fadeIn}
+  >
+    Dites adieu aux abonnements multiples
+    <motion.span variants={fadeIn} className="block mt-2">
+      <motion.div
+        initial={{ width: "0%" }}
+        animate={{ width: "100%" }}
+        transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
+        className="h-[3px] bg-[#39ff14] mb-2 mx-auto"
+      />
+      Vivez une expérience de divertissement complète avec un seul abonnement IPTV.
+    </motion.span>
+  </motion.h1>
 
           <motion.p
             className="text-lg md:text-xl text-gray-300 mb-10"
             variants={fadeIn}
           >
-            Explore the worlds finest collection of films, series, TV channels,
-            and sports events all in one place, available on any device, anytime
-            you want.
+Explorez la meilleure collection de films, séries, chaînes TV et événements sportifs, réunis en un seul endroit, disponible sur tous vos appareils, à tout moment.
           </motion.p>
 
           <motion.div
@@ -137,7 +135,7 @@ const Hero = () => {
                 className="bg-[#39ff14] cursor-pointer text-black hover:bg-[#39ff14]/90 text-lg font-medium w-full px-8 py-6 rounded-lg"
                 size="lg"
               >
-                Join Now
+              Profitez maintenant
               </Button>
             </Link>
             </motion.div>
@@ -151,7 +149,7 @@ const Hero = () => {
                 size="lg"
                 className="bg-transparent   text-white hover:bg-white/10 text-lg font-medium w-full px-8 py-6 rounded-lg"
               >
-                Learn More
+            Essai gratuit de 7 jours
               </Button>
             </motion.div>
           </motion.div>
