@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
+import SpecialOfferHeader from "@/components/layout/SpecialOfferHeader";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,7 +20,6 @@ const Header = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  // Close mobile menu on wider screens
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -31,9 +31,10 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { href: "#home", label: "Home" },
-    { href: "#features", label: "Features" },
-    { href: "#pricing", label: "Pricing" },
+    { href: "/", label: "Accueil" },
+    { href: "/channels", label: "Chaînes" },
+    { href: "#features", label: "Fonctionnalités" },
+    { href: "#pricing", label: "Tarifs" },
     { href: "#faq", label: "FAQ" },
   ];
 
@@ -45,6 +46,7 @@ const Header = () => {
         backdropFilter: `blur(${headerBlur}px)`,
       }}
     >
+      <SpecialOfferHeader />
       <div className="container mx-auto flex justify-between items-center">
         <motion.div
           className="flex items-center gap-2"
@@ -73,7 +75,7 @@ const Header = () => {
           </motion.span>
         </motion.div>
 
-        {/* Desktop Navigation */}
+        {/* Navigation Desktop */}
         <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item, index) => (
             <motion.a
@@ -106,17 +108,17 @@ const Header = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Button className="bg-[#39ff14] text-black hover:bg-[#39ff14]/90 ml-4 rounded-2xl">
-                Get Started
+                Commencer
               </Button>
             </motion.div>
           </motion.div>
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Bouton Menu Mobile */}
         <motion.button
           className="md:hidden text-white"
           onClick={toggleMobileMenu}
-          aria-label="Toggle Menu"
+          aria-label="Basculer le menu"
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3 }}
@@ -130,7 +132,7 @@ const Header = () => {
         </motion.button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Menu Mobile */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -218,7 +220,7 @@ const Header = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Button className="bg-[#39ff14] text-black hover:bg-[#39ff14]/90 rounded-2xl w-64 h-14 text-lg mt-8">
-                    Get Started
+                    Commencer
                   </Button>
                 </motion.div>
               </motion.div>

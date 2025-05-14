@@ -12,11 +12,10 @@ const ContentShowcase = () => {
   const { ref, controls } = useScrollAnimation(0.2);
   const moviesScrollRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll function for movies carousel
   useEffect(() => {
     let animationId: number;
     let scrollPosition = 0;
-    const maxScroll = 2000; // Adjust based on content width
+    const maxScroll = 2000;
     const scrollSpeed = 0.5;
 
     const scrollCarousel = () => {
@@ -27,12 +26,10 @@ const ContentShowcase = () => {
       animationId = requestAnimationFrame(scrollCarousel);
     };
 
-    // Start animation after a delay
     const timeoutId = setTimeout(() => {
       scrollCarousel();
     }, 2000);
 
-    // Pause scrolling when user interacts
     const handleMouseEnter = () => {
       cancelAnimationFrame(animationId);
     };
@@ -47,7 +44,6 @@ const ContentShowcase = () => {
       carousel.addEventListener("mouseleave", handleMouseLeave);
     }
 
-    // Cleanup
     return () => {
       clearTimeout(timeoutId);
       cancelAnimationFrame(animationId);
@@ -72,15 +68,15 @@ const ContentShowcase = () => {
           className="text-center mb-10"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
-            Featured Content
+            Contenu en vedette
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Explore our vast collection of movies, TV shows, and exclusive
-            content. All available in stunning quality on any device.
+            Explorez notre vaste collection de films, séries TV et contenus exclusifs.
+            Le tout disponible en qualité exceptionnelle sur tous vos appareils.
           </p>
         </motion.div>
 
-        {/* Movies Carousel */}
+        {/* Carrousel de films */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -88,7 +84,7 @@ const ContentShowcase = () => {
           className="mt-16"
         >
           <h3 className="text-xl font-semibold mb-6 px-4 text-white">
-            Popular Movies & Shows
+            Films & Séries Populaires
           </h3>
           <div
             ref={moviesScrollRef}
@@ -135,7 +131,7 @@ const ContentShowcase = () => {
           </div>
         </motion.div>
 
-        {/* Sports Content */}
+        {/* Contenu sportif */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -143,7 +139,7 @@ const ContentShowcase = () => {
           className="mt-16"
         >
           <h3 className="text-xl font-semibold mb-6 px-4 text-white">
-            Sports & Live Events
+            Sports & Événements en direct
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4">

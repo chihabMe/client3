@@ -1,85 +1,160 @@
 "use client";
-
-import React from "react";
-import * as motion from "motion/react-m";
-import { staggerContainer, fadeInRight } from "@/lib/motions";
+import React, { useEffect, useRef } from "react";
+import * as motion from "motion/react-m"
 import partnersData from "@/data/partners.json";
-import { useScrollAnimation } from "@/hook/use-scroll-animation";
 import Image from "next/image";
+import { useAnimationControls, useInView } from "motion/react";
+
 
 const Partners = () => {
-  const { ref, controls } = useScrollAnimation(0.2);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+  const controls = useAnimationControls();
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [isInView, controls]);
+
+  // Marquee animation with two duplicate sets for seamless looping
+  const marqueeVariants = {
+    animate: {
+      x: [0, -2000],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 60,
+          ease: "linear",
+        },
+      },
+    },
+  };
 
   return (
-    <section className="py-16 bg-black/40">
+    <section className="py-16 bg-black/40 overflow-hidden relative" ref={sectionRef}>
       <div className="container mx-auto px-6">
         <motion.div
-          ref={ref}
-          variants={staggerContainer}
           initial="hidden"
           animate={controls}
-          className="text-center mb-10"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2
+              }
+            }
+          }}
+          className="text-center mb-16"
         >
-          <h3 className="text-xl text-gray-300 mb-10">
+          <motion.h3
+            className="text-xl text-gray-300 mb-4"
+            variants={{
+              hidden: { opacity: 0, y: -20 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 0.6,
+                  ease: [0.22, 1, 0.36, 1]
+                }
+              }
+            }}
+          >
             Trusted by the worlds leading networks
-          </h3>
+          </motion.h3>
 
-          <motion.div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            {partnersData.logos.map((partner, index) => (
+          <motion.div
+            className="w-24 h-1 bg-gradient-to-r from-gray-700/0 via-gray-400 to-gray-700/0 mx-auto mb-16"
+            variants={{
+              hidden: { width: 0 },
+              visible: {
+                width: "6rem",
+                transition: {
+                  duration: 0.8,
+                  delay: 0.3
+                }
+              }
+            }}
+          />
+
+          {/* First row - visible partners with individual animations */}
+          <motion.div
+            className="flex flex-wrap justify-center items-center gap-8 md:gap-12 mb-12"
+          >
+            {partnersData.logos.slice(0, 6).map((partner, index) => (
               <motion.div
                 key={partner.id}
-                whileHover="hover"
-                whileTap="tap"
-                custom={index}
                 variants={{
-                  ...fadeInRight,
                   hidden: {
                     opacity: 0,
-                    x: -20,
-                    rotateY: -30,
+                    y: 20,
+                    scale: 0.8,
                   },
-                  visible: (i) => ({
+                  visible: {
                     opacity: 1,
-                    x: 0,
-                    rotateY: 0,
+                    y: 0,
+                    scale: 1,
                     transition: {
                       type: "spring",
                       damping: 12,
                       stiffness: 100,
-                      delay: i * 0.1,
+                      delay: index * 0.08,
                     },
-                  }),
-                  hover: {
-                    scale: 1.1,
-                    rotate: [0, -2, 2, -2, 0],
-                    transition: {
-                      rotate: {
-                        repeat: Infinity,
-                        repeatType: "reverse",
-                        duration: 0.6,
-                      },
-                    },
-                  },
-                  tap: {
-                    scale: 0.95,
-                    transition: { duration: 0.1 },
                   },
                 }}
-                className="bg-white/5 p-3 rounded-2xl glass-card"
+                className="bg-white/5 p-5 rounded-2xl border border-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
               >
-                <div className="w-24 h-12 relative">
+                <div className="w-28 h-16 relative">
                   <Image
                     fill
                     src={partner.imageUrl}
                     alt={partner.name}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain transition-all duration-300 filter grayscale hover:grayscale-0"
+                    sizes="(max-width: 768px) 100vw, 112px"
                   />
                 </div>
               </motion.div>
             ))}
           </motion.div>
+
+          {/* Second row - marquee animation for additional partners */}
+          <div className="relative w-full overflow-hidden py-4">
+            <div className="flex overflow-hidden relative w-full">
+              <motion.div
+                className="flex space-x-12 absolute whitespace-nowrap"
+                variants={marqueeVariants}
+                animate="animate"
+                style={{ width: "fit-content" }}
+              >
+                {/* Duplicate logos for seamless loop */}
+                {[...partnersData.logos, ...partnersData.logos, ...partnersData.logos].map((partner, index) => (
+                  <div
+                    key={`marquee-${partner.id}-${index}`}
+                    className="bg-white/5 p-4 rounded-xl border border-white/10 backdrop-blur-sm inline-block"
+                  >
+                    <div className="w-24 h-12 relative">
+                      <Image
+                        fill
+                        src={partner.imageUrl}
+                        alt={partner.name}
+                        className="w-full h-full object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0"
+                        sizes="(max-width: 768px) 100vw, 96px"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
         </motion.div>
       </div>
+
+      {/* Radial gradient background accent - now properly positioned */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-32 bg-[#00ff2a]/5 blur-3xl rounded-full pointer-events-none z-0"></div>
     </section>
   );
 };

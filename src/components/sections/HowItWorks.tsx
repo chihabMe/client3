@@ -7,12 +7,12 @@ import { useScrollAnimation } from "@/hook/use-scroll-animation";
 
 const HowItWorks = () => {
   const { ref, controls } = useScrollAnimation(0.2);
-  
+
   const steps = [
     {
       id: 1,
-      title: "Choose Your Plan",
-      description: "Select the subscription that suits your needs and budget.",
+      title: "Choisissez votre forfait",
+      description: "Sélectionnez l’abonnement qui correspond à vos besoins et à votre budget.",
       icon: (
         <svg className="w-8 h-8 text-[#39ff14]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
@@ -21,8 +21,8 @@ const HowItWorks = () => {
     },
     {
       id: 2,
-      title: "Download & Install",
-      description: "Download our app on your preferred device and sign in.",
+      title: "Téléchargez et installez",
+      description: "Téléchargez notre application sur votre appareil préféré et connectez-vous.",
       icon: (
         <svg className="w-8 h-8 text-[#39ff14]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
@@ -31,8 +31,8 @@ const HowItWorks = () => {
     },
     {
       id: 3,
-      title: "Start Streaming",
-      description: "Enjoy unlimited access to thousands of movies, shows, and live channels.",
+      title: "Commencez à streamer",
+      description: "Profitez d’un accès illimité à des milliers de films, séries et chaînes en direct.",
       icon: (
         <svg className="w-8 h-8 text-[#39ff14]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
@@ -53,10 +53,10 @@ const HowItWorks = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
-            How It Works
+            Comment ça marche
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Get started with IPTV King in just three simple steps and transform your entertainment experience today.
+            Commencez avec IPTV King en seulement trois étapes simples et transformez votre expérience de divertissement dès aujourd’hui.
           </p>
         </motion.div>
 
@@ -72,11 +72,11 @@ const HowItWorks = () => {
               variants={fadeIn}
               className="flex flex-col items-center text-center"
             >
-              <motion.div 
+              <motion.div
                 className="w-16 h-16 rounded-full flex items-center justify-center bg-white/5 border border-[#39ff14]/30 mb-6"
-                whileInView={{ 
+                whileInView={{
                   boxShadow: ['0 0 0px rgba(57, 255, 20, 0)', '0 0 20px rgba(57, 255, 20, 0.6)', '0 0 0px rgba(57, 255, 20, 0)'],
-                  transition: { 
+                  transition: {
                     duration: 2,
                     repeat: Infinity,
                     repeatType: "reverse"

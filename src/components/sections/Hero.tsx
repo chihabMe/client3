@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import * as motion from "motion/react-m";
 import Image from "next/image";
+import Link from "next/link"
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -131,12 +132,14 @@ const Hero = () => {
                 },
               }}
             >
+            <Link href="#pricing">
               <Button
-                className="bg-[#39ff14] text-black hover:bg-[#39ff14]/90 text-lg font-medium w-full px-8 py-6 rounded-lg"
+                className="bg-[#39ff14] cursor-pointer text-black hover:bg-[#39ff14]/90 text-lg font-medium w-full px-8 py-6 rounded-lg"
                 size="lg"
               >
                 Join Now
               </Button>
+            </Link>
             </motion.div>
 
             <motion.div
