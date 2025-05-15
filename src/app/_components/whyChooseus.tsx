@@ -26,7 +26,7 @@ function Feature({ title, description, icon, highlight, index }: FeatureProps) {
         delay: 0.1 * index,
         ease: [0.22, 1, 0.36, 1]
       }}
-      className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-800/50 hover:border-[#00ff2a]/30 transition-all duration-300 flex flex-col h-full"
+      className=" backdrop-blur-sm rounded-lg p-6 border border-gray-400/50 hover:border-[#00ff2a]/20 transition-all duration-300 flex flex-col h-full"
     >
       <motion.h3
         className="text-xl font-bold mb-3"
@@ -37,7 +37,7 @@ function Feature({ title, description, icon, highlight, index }: FeatureProps) {
         {title}
       </motion.h3>
       <motion.p
-        className="text-gray-400 mb-6 flex-grow"
+        className="text-gray-800 mb-6 flex-grow"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.3, delay: 0.1 * index + 0.3 }}
@@ -54,7 +54,7 @@ function Feature({ title, description, icon, highlight, index }: FeatureProps) {
       </motion.p>
       <div className="mt-auto flex justify-between items-end">
         <motion.div
-          className="w-6 h-6 text-gray-600"
+          className="w-6 h-6 text-gray-800"
           initial={{ x: -10, opacity: 0 }}
           animate={isInView ? { x: 0, opacity: 1 } : { x: -10, opacity: 0 }}
           transition={{
@@ -102,10 +102,9 @@ export default function WhyChooseUs() {
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
 
   return (
-    <section className="py-20 px-4 bg-black relative overflow-hidden" ref={sectionRef}>
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 to-black pointer-events-none"></div>
+    <section className="py-20 px-4  relative overflow-hidden" ref={sectionRef}>
 
-      <div className="container mx-auto relative z-10">
+      <div className="container text-black mx-auto relative z-10">
         <div className="text-center mb-16">
           <motion.p
             className="text-[#00ff2a] text-sm uppercase tracking-wider mb-3"

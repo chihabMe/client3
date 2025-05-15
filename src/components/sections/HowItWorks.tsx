@@ -5,10 +5,7 @@ import * as motion from "motion/react-m";
 import { fadeIn, staggerContainer } from "@/lib/motions";
 import { useScrollAnimation } from "@/hook/use-scroll-animation";
 
-const HowItWorks = () => {
-  const { ref, controls } = useScrollAnimation(0.2);
-
-  const steps = [
+const steps = [
     {
       id: 1,
       title: "Choisissez votre forfait",
@@ -42,8 +39,12 @@ const HowItWorks = () => {
     },
   ];
 
+const HowItWorks = () => {
+  const { ref, controls } = useScrollAnimation(0.2);
+
+
   return (
-    <section className="py-20 bg-gradient-to-b from-black/40 to-black/50">
+    <section className="py-20 ">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
@@ -55,7 +56,7 @@ const HowItWorks = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
             Comment ça marche
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-800 max-w-2xl mx-auto">
             Commencez avec IPTV King en seulement trois étapes simples et transformez votre expérience de divertissement dès aujourd’hui.
           </p>
         </motion.div>
@@ -86,8 +87,8 @@ const HowItWorks = () => {
                 <span className="text-2xl font-bold text-[#39ff14]">{step.id}</span>
               </motion.div>
               <div className="mt-2 mb-3">{step.icon}</div>
-              <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-              <p className="text-gray-300">{step.description}</p>
+              <h3 className="text-xl font-bold text-black mb-3">{step.title}</h3>
+              <p className="text-gray-800">{step.description}</p>
             </motion.div>
           ))}
         </motion.div>

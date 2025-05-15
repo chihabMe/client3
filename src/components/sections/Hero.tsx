@@ -34,7 +34,7 @@ const Hero = () => {
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="w-full h-full relative"
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/90 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-white/20 z-10" />
           <Image
             src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80"
             alt="Hero background"
@@ -102,7 +102,7 @@ const Hero = () => {
   </motion.h1>
 
           <motion.p
-            className="text-lg md:text-xl text-gray-300 mb-10"
+            className="text-lg md:text-xl text-gray-100 mb-10"
             variants={fadeIn}
           >
 Explorez la meilleure collection de films, séries, chaînes TV et événements sportifs, réunis en un seul endroit, disponible sur tous vos appareils, à tout moment.
@@ -147,9 +147,9 @@ Explorez la meilleure collection de films, séries, chaînes TV et événements 
             >
               <Button
                 size="lg"
-                className="bg-transparent   text-white hover:bg-white/10 text-lg font-medium w-full px-8 py-6 rounded-lg"
+                className="bg-transparent   text-black border border-1 bg-gray-50/60 border-gray-50/80 hover:bg-white/10 text-lg font-medium w-full px-8 py-6 rounded-lg"
               >
-            Essai gratuit de 7 jours
+            Essai gratuit de 1 jours
               </Button>
             </motion.div>
           </motion.div>

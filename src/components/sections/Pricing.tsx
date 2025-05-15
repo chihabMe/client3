@@ -21,7 +21,7 @@ const Pricing = () => {
   return (
     <section
       id="pricing"
-      className="py-20 bg-gradient-to-b from-black/40 to-black/60"
+      className="py-20 "
     >
       <div className="container mx-auto px-6">
         <motion.div
@@ -34,7 +34,7 @@ const Pricing = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
             Choisissez votre formule
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-800 max-w-2xl mx-auto">
             Sélectionnez l’abonnement parfait qui correspond à vos besoins.
             Toutes les formules incluent un streaming de haute qualité sans engagement à long terme.
           </p>
@@ -57,14 +57,14 @@ const Pricing = () => {
               }`}
             >
               <Card
-                className={`flex flex-col h-full bg-black/60 border ${
+                className={`flex flex-col h-full bg-white/10 border ${
                   plan.highlighted
                     ? "border-[#39ff14] shadow-[#39ff14]"
                     : "border-gray-800"
                 } rounded-2xl overflow-hidden`}
               >
                 {plan.highlighted && (
-                  <div className="bg-[#39ff14] py-1.5 text-black font-medium text-center text-sm">
+                  <div className="bg-[#39ff14] py-1.5 text-white font-medium text-center text-sm">
                     RECOMMANDÉ
                   </div>
                 )}
@@ -74,12 +74,12 @@ const Pricing = () => {
                     {plan.name}
                   </CardTitle>
                   <div className="mt-4 flex justify-center items-baseline">
-                    <span className="text-5xl font-extrabold text-white">
+                    <span className="text-5xl font-extrabold text-black">
                       ${plan.price}
                     </span>
-                    <span className="ml-1 text-gray-400">/{plan.period}</span>
+                    <span className="ml-1 text-gray-800">/{plan.period}</span>
                   </div>
-                  <p className="mt-2 text-gray-400">{plan.description}</p>
+                  <p className="mt-2 text-gray-800">{plan.description}</p>
                 </CardHeader>
 
                 <CardContent className="flex-grow">
@@ -95,7 +95,7 @@ const Pricing = () => {
                         <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#39ff14]/20 flex items-center justify-center mr-3">
                           <Check className="w-3 h-3 text-[#39ff14]" />
                         </span>
-                        <span className="text-gray-300">{feature}</span>
+                        <span className="text-gray-700">{feature}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -105,8 +105,8 @@ const Pricing = () => {
                   <Button
                     className={`w-full rounded-xl py-6 ${
                       plan.highlighted
-                        ? "bg-[#39ff14] text-black hover:bg-[#39ff14]/90"
-                        : "bg-white/10 text-white hover:bg-white/20"
+                        ? "bg-[#39ff14] text-white hover:bg-[#39ff14]/90"
+                        : "bg-black/60 text-white hover:bg-black/80"
                     }`}
                   >
                     {plan.cta}
@@ -122,7 +122,7 @@ const Pricing = () => {
           initial="hidden"
           animate={controls}
           transition={{ delay: 0.6 }}
-          className="text-center text-gray-400 mt-10"
+          className="text-center text-gray-800 mt-10"
         >
           Toutes les offres incluent 3 mois gratuits.
         </motion.p>

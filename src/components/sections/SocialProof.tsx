@@ -8,12 +8,7 @@ import { Card } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hook/use-scroll-animation";
 import Image from "next/image";
 
-const SocialProof = () => {
-  const { ref, controls } = useScrollAnimation(0.2);
-  const reviewsContainerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = React.useState(0);
-
-  const chatMessages = [
+const chatMessages = [
     {
       id: 1,
       name: "Sarah J.",
@@ -61,6 +56,12 @@ const SocialProof = () => {
     },
   ];
 
+const SocialProof = () => {
+  const { ref, controls } = useScrollAnimation(0.2);
+  const reviewsContainerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
+
   // Auto rotate through reviews
   useEffect(() => {
     const interval = setInterval(() => {
@@ -71,7 +72,7 @@ const SocialProof = () => {
   }, [chatMessages.length]);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-black/60 to-black/40">
+    <section className="py-20 ">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
@@ -83,7 +84,7 @@ const SocialProof = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
             What Our Customers Say
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-800 max-w-2xl mx-auto">
             Join over 150,000 satisfied subscribers who have transformed their
             entertainment experience.
           </p>
@@ -142,10 +143,10 @@ const SocialProof = () => {
                               />
                             </div>
                             <div>
-                              <h4 className="text-white font-medium text-sm">
+                              <h4 className="text-black font-medium text-sm">
                                 {message.name}
                               </h4>
-                              <p className="text-gray-400 text-xs">online</p>
+                              <p className="text-gray-800 text-xs">online</p>
                             </div>
                           </div>
                           <div className="flex gap-4 ml-auto">
@@ -157,7 +158,7 @@ const SocialProof = () => {
                         <div className="mt-16 pt-2">
                           {/* Date separator */}
                           <div className="flex justify-center my-4">
-                            <span className="bg-[#182229] text-gray-400 text-xs px-3 py-1 rounded-lg">
+                            <span className="bg-[#182229] text-gray-800 text-xs px-3 py-1 rounded-lg">
                               {message.time}
                             </span>
                           </div>
@@ -169,10 +170,10 @@ const SocialProof = () => {
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ duration: 0.5 }}
                           >
-                            <p className="text-white text-base">
+                            <p className="text-black text-base">
                               {message.message}
                             </p>
-                            <span className="text-xs text-gray-300 flex justify-end items-center gap-1 mt-2">
+                            <span className="text-xs text-gray-800 flex justify-end items-center gap-1 mt-2">
                               12:45 PM
                               <svg
                                 className="w-4 h-4 fill-gray-300"
@@ -193,11 +194,11 @@ const SocialProof = () => {
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ delay: 0.3, duration: 0.5 }}
                           >
-                            <p className="text-white text-base">
+                            <p className="text-black text-base">
                               Would definitely recommend to friends and family!
                               👍
                             </p>
-                            <span className="text-xs text-gray-300 flex justify-end items-center gap-1 mt-2">
+                            <span className="text-xs text-gray-800 flex justify-end items-center gap-1 mt-2">
                               12:46 PM
                               <svg
                                 className="w-4 h-4 fill-gray-300"

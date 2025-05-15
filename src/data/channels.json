@@ -1,0 +1,224 @@
+{
+  "countries": [
+    {
+      "name": "USA",
+      "channelTypes": {
+        "sports": ["NFL", "NBA", "MLB", "NHL", "Soccer", "College Sports"],
+        "movies": ["HBO", "Showtime", "Starz", "Premium Channels", "VOD"],
+        "news": ["CNN", "Fox News", "MSNBC", "Local News"],
+        "entertainment": ["ABC", "NBC", "CBS", "AMC", "Comedy Central"],
+        "documentaries": ["National Geographic", "Discovery Channel", "History Channel"],
+        "kids": ["Disney Channel", "Nickelodeon", "Cartoon Network"]
+      }
+    },
+    {
+      "name": "Canada",
+      "channelTypes": {
+        "sports": ["NHL", "CFL", "TSN", "Sportsnet"],
+        "movies": ["Movie Central", "Crave"],
+        "news": ["CBC News", "CTV News"],
+        "entertainment": ["CBC", "CTV", "Global"],
+        "documentaries": ["Documentary Channel"],
+        "kids": ["Family Channel", "YTV"]
+      }
+    },
+    {
+      "name": "UK",
+      "channelTypes": {
+        "sports": ["Sky Sports", "BT Sport", "Premier League", "BBC Sport"],
+        "movies": ["Sky Cinema", "BT TV Cinema"],
+        "news": ["BBC News", "Sky News"],
+        "entertainment": ["BBC One", "ITV", "Channel 4"],
+        "documentaries": ["BBC Documentary", "National Geographic UK"],
+        "kids": ["BBC Children's", "Nickelodeon UK"]
+      }
+    },
+    {
+      "name": "Germany",
+      "channelTypes": {
+        "sports": ["Sky Sport", "DAZN", "Bundesliga"],
+        "movies": ["Sky Cinema", "Prime Video Channels"],
+        "news": ["ARD", "ZDF", "DW News"],
+        "entertainment": ["ARD", "ZDF", "RTL"],
+        "documentaries": ["N24 Doku", "ZDFinfo"],
+        "kids": ["KiKA", "Nickelodeon Germany"]
+      }
+    },
+    {
+      "name": "France",
+      "channelTypes": {
+        "sports": ["beIN Sports", "Canal+ Sport", "Ligue 1"],
+        "movies": ["Canal+ Cinema", "OCS"],
+        "news": ["TF1", "France 2", "BFM TV"],
+        "entertainment": ["TF1", "France 2", "M6"],
+        "documentaries": ["RMC Découverte", "Arte"],
+        "kids": ["Gulli", "Disney Channel France"]
+      }
+    },
+    {
+      "name": "Australia",
+      "channelTypes": {
+        "sports": ["Fox Sports", "Kayo Sports", "AFL", "NRL"],
+        "movies": ["Foxtel Movies", "Stan"],
+        "news": ["ABC News", "Sky News Australia"],
+        "entertainment": ["ABC TV", "Nine Network", "Seven Network", "Ten Network"],
+        "documentaries": ["National Geographic Australia", "Discovery Channel Australia"],
+        "kids": ["ABC Kids", "Nickelodeon Australia", "Cartoon Network Australia"]
+      }
+    },
+    {
+      "name": "India",
+      "channelTypes": {
+        "sports": ["Star Sports", "Sony Sports Network", "IPL", "Cricket"],
+        "movies": ["Zee Cinema", "Star Gold", "Bollywood Movies"],
+        "news": ["Aaj Tak", "NDTV", "India Today"],
+        "entertainment": ["Star Plus", "Sony Entertainment Television", "Colors TV"],
+        "documentaries": ["National Geographic India", "Discovery Channel India"],
+        "kids": ["Pogo", "Cartoon Network India", "Disney India"]
+      }
+    },
+    {
+      "name": "Brazil",
+      "channelTypes": {
+        "sports": ["SporTV", "ESPN Brasil", "Campeonato Brasileiro"],
+        "movies": ["Telecine", "HBO Brasil"],
+        "news": ["GloboNews", "BandNews TV"],
+        "entertainment": ["Globo", "RecordTV", "SBT"],
+        "documentaries": ["National Geographic Brasil", "Discovery Brasil"],
+        "kids": ["Cartoon Network Brasil", "Disney Channel Brasil", "Nickelodeon Brasil"]
+      }
+    },
+    {
+      "name": "Japan",
+      "channelTypes": {
+        "sports": ["J Sports", "DAZN Japan", "J.League"],
+        "movies": ["WOWOW", "Star Channel"],
+        "news": ["NHK News", "JNN", "FNN"],
+        "entertainment": ["NTV", "TBS", "Fuji TV", "TV Asahi", "TV Tokyo"],
+        "documentaries": ["NHK Documentary", "National Geographic Japan"],
+        "kids": ["Animate", "Pokemon TV"]
+      }
+    },
+    {
+      "name": "China",
+      "channelTypes": {
+        "sports": ["CCTV Sports", "Super Sports"],
+        "movies": ["CCTV Movie Channel"],
+        "news": ["CCTV News", "Phoenix TV"],
+        "entertainment": ["CCTV", "Hunan TV", "Zhejiang TV"],
+        "documentaries": ["CCTV Documentary", "National Geographic China"],
+        "kids": ["CCTV Kids", "BTV Kaku"]
+      }
+    },
+    {
+      "name": "Mexico",
+      "channelTypes": {
+        "sports": ["Televisa Deportes", "TV Azteca Deportes", "ESPN Mexico", "Fox Sports Mexico"],
+        "movies": ["Cinecanal", "Las Estrellas", "Canal 5"],
+        "news": ["Noticieros Televisa", "Azteca Noticias", "Milenio TV"],
+        "entertainment": ["Las Estrellas", "Azteca Uno", "Canal 5", "Imagen Televisión"],
+        "documentaries": ["National Geographic Latin America", "Discovery Channel Latin America", "History Channel Latin America"],
+        "kids": ["Canal 5", "Cartoon Network Mexico", "Disney Channel Mexico", "Nickelodeon Latin America"]
+      }
+    },
+    {
+      "name": "South Korea",
+      "channelTypes": {
+        "sports": ["KBS Sports", "MBC Sports+", "SBS Sports", "SPOTV"],
+        "movies": ["OCN Movies", "CGV", "MegaBox"],
+        "news": ["KBS News", "MBC News", "SBS News", "YTN"],
+        "entertainment": ["KBS", "MBC", "SBS", "tvN", "JTBC"],
+        "documentaries": ["KBS Documentary", "MBC Documentary", "National Geographic Korea"],
+        "kids": ["KBS Kids", "MBC Kids", "Tooniverse", "Aniplus"]
+      }
+    },
+    {
+      "name": "Spain",
+      "channelTypes": {
+        "sports": ["Movistar LaLiga", "DAZN Spain", "Gol TV", "RTVE Deportes"],
+        "movies": ["Movistar Cine", "Canal+ Cine", "TCM Spain"],
+        "news": ["RTVE Noticias", "Antena 3 Noticias", "La Sexta Noticias", "24 Horas"],
+        "entertainment": ["La 1", "Antena 3", "Telecinco", "Cuatro", "La Sexta"],
+        "documentaries": ["Documental", "Historia", "National Geographic Spain"],
+        "kids": ["Clan", "Boing", "Disney Channel Spain", "Nickelodeon Spain"]
+      }
+    },
+    {
+      "name": "Italy",
+      "channelTypes": {
+        "sports": ["Sky Sport Italia", "DAZN Italia", "Serie A"],
+        "movies": ["Sky Cinema Italia", "Mediaset Premium Cinema"],
+        "news": ["Rai News24", "Sky TG24", "TGCOM24"],
+        "entertainment": ["Rai 1", "Canale 5", "Italia 1", "Sky Uno"],
+        "documentaries": ["Rai Storia", "Focus", "National Geographic Italy"],
+        "kids": ["Rai Yoyo", "Cartoonito", "Disney Channel Italy", "Nickelodeon Italy"]
+      }
+    },
+    {
+      "name": "Netherlands",
+      "channelTypes": {
+        "sports": ["ESPN Netherlands", "Ziggo Sport", "Eredivisie"],
+        "movies": ["Film1", "Ziggo Movies & Series"],
+        "news": ["NOS Nieuws", "RTL Nieuws"],
+        "entertainment": ["NPO 1", "RTL 4", "SBS 6"],
+        "documentaries": ["NPO Documentaires", "National Geographic Netherlands", "Discovery Channel Netherlands"],
+        "kids": ["Zappelin", "Nickelodeon Netherlands", "Disney Channel Netherlands"]
+      }
+    },
+    {
+      "name": "Sweden",
+      "channelTypes": {
+        "sports": ["Viaplay Sport", "C More", "SVT Sport"],
+        "movies": ["Viaplay Film", "C More Film"],
+        "news": ["SVT Nyheter", "TV4 Nyheterna"],
+        "entertainment": ["SVT1", "TV4", "TV3"],
+        "documentaries": ["SVT Dokumentär", "National Geographic Sweden", "Discovery Channel Sweden"],
+        "kids": ["SVT Barn", "Nickelodeon Sweden", "Disney Channel Sweden"]
+      }
+    },
+    {
+      "name": "Denmark",
+      "channelTypes": {
+        "sports": ["Viaplay Sport", "TV 2 Sport"],
+        "movies": ["Viaplay Film", "TV 2 Film"],
+        "news": ["DR Nyheder", "TV 2 Nyhederne"],
+        "entertainment": ["DR1", "TV 2"],
+        "documentaries": ["DR2 Dokumentar", "National Geographic Denmark", "Discovery Channel Denmark"],
+        "kids": ["DR Ramasjang", "Nickelodeon Denmark", "Disney Channel Denmark"]
+      }
+    },
+    {
+      "name": "Norway",
+      "channelTypes": {
+        "sports": ["Viaplay Sport", "TV 2 Sport"],
+        "movies": ["Viaplay Film", "TV 2 Film"],
+        "news": ["NRK Nyheter", "TV 2 Nyhetene"],
+        "entertainment": ["NRK1", "TV 2"],
+        "documentaries": ["NRK Dokumentar", "National Geographic Norway", "Discovery Channel Norway"],
+        "kids": ["NRK Super", "Nickelodeon Norway", "Disney Channel Norway"]
+      }
+    },
+    {
+      "name": "Finland",
+      "channelTypes": {
+        "sports": ["Viaplay Sport", "MTV Urheilu"],
+        "movies": ["Viaplay Film", "MTV Katsomo Film"],
+        "news": ["Yle Uutiset", "MTV Uutiset"],
+        "entertainment": ["Yle TV1", "MTV3"],
+        "documentaries": ["Yle Dokumentit", "National Geographic Finland", "Discovery Channel Finland"],
+        "kids": ["Yle Lapset", "Nickelodeon Finland", "Disney Channel Finland"]
+      }
+    },
+    {
+      "name": "Poland",
+      "channelTypes": {
+        "sports": ["Polsat Sport", "Canal+ Sport"],
+        "movies": ["Canal+ Film", "HBO Poland"],
+        "news": ["TVN24", "Polsat News", "TVP Info"],
+        "entertainment": ["TVP1", "TVN", "Polsat"],
+        "documentaries": ["Discovery Channel Poland", "National Geographic Poland"],
+        "kids": ["Nickelodeon Poland", "Disney Channel Poland", "Cartoon Network Poland"]
+      }
+    }
+  ]
+}

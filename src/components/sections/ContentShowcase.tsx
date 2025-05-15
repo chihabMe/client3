@@ -57,7 +57,7 @@ const ContentShowcase = () => {
   return (
     <section
       id="features"
-      className="py-20 bg-gradient-to-b from-black/60 to-black/40"
+      className="py-20 "
     >
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
@@ -70,7 +70,7 @@ const ContentShowcase = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
             Contenu en vedette
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-900 max-w-2xl mx-auto">
             Explorez notre vaste collection de films, séries TV et contenus exclusifs.
             Le tout disponible en qualité exceptionnelle sur tous vos appareils.
           </p>
@@ -110,7 +110,7 @@ const ContentShowcase = () => {
                         alt={show.title}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-6 flex flex-col justify-end">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/30 to-transparent p-6 flex flex-col justify-end">
                         <div className="flex items-center justify-between">
                           <h4 className="text-white font-bold text-xl">
                             {show.title}
@@ -119,7 +119,7 @@ const ContentShowcase = () => {
                             {show.rating}★
                           </span>
                         </div>
-                        <p className="text-gray-300 text-sm mt-1">
+                        <p className="text-gray-800 text-sm mt-1">
                           {show.category}
                         </p>
                       </div>

@@ -11,7 +11,7 @@ const FAQ = () => {
   const { ref, controls } = useScrollAnimation(0.2);
 
   return (
-    <section id="faq" className="py-20 bg-gradient-to-b from-black/50 to-black/60">
+    <section id="faq" className="py-20 ">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
@@ -23,7 +23,7 @@ const FAQ = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-800 max-w-2xl mx-auto">
             Find answers to the most common questions about our service, subscription plans, and features.
           </p>
         </motion.div>
@@ -43,10 +43,10 @@ const FAQ = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <AccordionItem value={faq.id} className="border border-gray-800 rounded-xl overflow-hidden bg-white/5">
-                  <AccordionTrigger className="px-6 py-4 hover:bg-white/5 transition-colors text-lg font-medium text-white data-[state=open]:text-[#39ff14]">
+                  <AccordionTrigger className="px-6 py-4 hover:bg-white/5 transition-colors text-lg font-medium text-black data-[state=open]:text-[#39ff14]">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-4 text-gray-300">
+                  <AccordionContent className="px-6 pb-4 text-gray-800">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>

@@ -20,7 +20,7 @@ const Compatibility = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-black/60 to-black/70">
+    <section className="py-20 ">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
@@ -32,7 +32,7 @@ const Compatibility = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
             Available On All Your Devices
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-800 max-w-2xl mx-auto">
             Enjoy seamless streaming on all your favorite devices with our cross-platform compatibility.
           </p>
         </motion.div>
@@ -54,7 +54,7 @@ const Compatibility = () => {
               <div className="w-20 h-20 rounded-full flex items-center justify-center bg-white/10 glass-card text-3xl mb-4">
                 {device.icon}
               </div>
-              <h3 className="text-white font-medium text-lg">{device.name}</h3>
+              <h3 className="text-black font-medium text-lg">{device.name}</h3>
             </motion.div>
           ))}
         </motion.div>

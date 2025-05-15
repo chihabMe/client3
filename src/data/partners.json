@@ -2,75 +2,39 @@
   "logos": [
     {
       "id": 1,
-      "name": "Netflix",
-      "logo": "Netflix",
-      "imageUrl": "/api/placeholder/200/100"
+      "name": "RMC sport",
+      "logo": "RMC sport",
+      "imageUrl": "/service1.png"
     },
     {
       "id": 2,
-      "name": "Amazon Prime",
-      "logo": "Prime Video",
-      "imageUrl": "/api/placeholder/200/100"
+      "name": "Bien sports",
+      "logo": "Bien sports",
+      "imageUrl": "/service2.png"
     },
     {
       "id": 3,
-      "name": "Disney+",
-      "logo": "Disney+",
-      "imageUrl": "/api/placeholder/200/100"
+      "name": "Netflix",
+      "logo": "Netflix",
+      "imageUrl": "/service3.png"
     },
     {
       "id": 4,
-      "name": "HBO Max",
-      "logo": "HBO Max",
-      "imageUrl": "/api/placeholder/200/100"
+      "name": "Disney +",
+      "logo": "Disney +",
+      "imageUrl": "/service4.png"
     },
     {
       "id": 5,
-      "name": "Hulu",
-      "logo": "Hulu",
-      "imageUrl": "/api/placeholder/200/100"
+      "name": "HBO Max",
+      "logo": "HBO Max",
+      "imageUrl": "/service5.png"
     },
     {
       "id": 6,
-      "name": "ESPN",
-      "logo": "ESPN",
-      "imageUrl": "/api/placeholder/200/100"
-    },
-    {
-      "id": 7,
-      "name": "NBC",
-      "logo": "NBC",
-      "imageUrl": "/api/placeholder/200/100"
-    },
-    {
-      "id": 8,
-      "name": "Apple TV+",
-      "logo": "Apple TV+",
-      "imageUrl": "/api/placeholder/200/100"
-    },
-    {
-      "id": 9,
-      "name": "Paramount+",
-      "logo": "Paramount+",
-      "imageUrl": "/api/placeholder/200/100"
-    },
-    {
-      "id": 10,
-      "name": "Peacock",
-      "logo": "Peacock",
-      "imageUrl": "/api/placeholder/200/100"
-    },
-    {
-      "id": 11,
-      "name": "YouTube TV",
-      "logo": "YouTube TV",
-      "imageUrl": "/api/placeholder/200/100"
-    },
-    {
-      "id": 12,
-      "name": "Sling TV",
-      "logo": "Sling TV",
-      "imageUrl": "/api/placeholder/200/100"
+      "name": "Amazon prime",
+      "logo": "Amazon Prime",
+      "imageUrl": "/service6.png"
     }
   ]
 }

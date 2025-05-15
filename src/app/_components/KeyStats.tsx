@@ -60,7 +60,7 @@ function Stat({ value, label, description }: StatProps) {
         {formattedCount}
       </motion.div>
       <motion.div
-        className="text-white font-medium mb-3"
+        className="text-black font-medium mb-3"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ delay: 0.3 }}
@@ -68,13 +68,13 @@ function Stat({ value, label, description }: StatProps) {
         {label}
       </motion.div>
       <motion.div
-        className="h-1 w-full max-w-[200px] mx-auto bg-gradient-to-r from-[#00ff2a]/0 via-[#00ff2a] to-[#00ff2a]/0 mb-4"
+        className="h-1 w-full  max-w-[200px] mx-auto bg-gradient-to-r from-[#00ff2a]/0 via-[#00ff2a] to-[#00ff2a]/0 mb-4"
         initial={{ width: 0 }}
         animate={isInView ? { width: "100%" } : { width: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
       ></motion.div>
       <motion.p
-        className="text-gray-400 text-sm max-w-xs mx-auto"
+        className="text-gray-800 text-sm max-w-xs mx-auto"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ delay: 0.5 }}

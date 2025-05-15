@@ -33,7 +33,7 @@ const Partners = () => {
   };
 
   return (
-    <section className="py-16 bg-black/40 overflow-hidden relative" ref={sectionRef}>
+    <section className="py-16  overflow-hidden relative" ref={sectionRef}>
       <div className="container mx-auto px-6">
         <motion.div
           initial="hidden"
@@ -50,22 +50,6 @@ const Partners = () => {
           }}
           className="text-center mb-16"
         >
-          <motion.h3
-            className="text-xl text-gray-300 mb-4"
-            variants={{
-              hidden: { opacity: 0, y: -20 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: {
-                  duration: 0.6,
-                  ease: [0.22, 1, 0.36, 1]
-                }
-              }
-            }}
-          >
-            Trusted by the worlds leading networks
-          </motion.h3>
 
           <motion.div
             className="w-24 h-1 bg-gradient-to-r from-gray-700/0 via-gray-400 to-gray-700/0 mx-auto mb-16"
@@ -106,14 +90,14 @@ const Partners = () => {
                     },
                   },
                 }}
-                className="bg-white/5 p-5 rounded-2xl border border-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
+                className=" p-5  rounded-2xl border border-white/10  transition-all duration-300 "
               >
-                <div className="w-28 h-16 relative">
+                <div className="w-40 h-20   relative">
                   <Image
                     fill
                     src={partner.imageUrl}
                     alt={partner.name}
-                    className="w-full h-full object-contain transition-all duration-300 filter grayscale hover:grayscale-0"
+                    className="w-full h-full object-contain transition-all duration-300 filter  "
                     sizes="(max-width: 768px) 100vw, 112px"
                   />
                 </div>
