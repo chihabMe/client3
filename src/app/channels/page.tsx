@@ -15,13 +15,6 @@ import channelsData from "@/data/channels.json"
 
 // Define types based on the JSON structure
 type ChannelType = "sports" | "movies" | "news" | "entertainment" | "documentaries" | "kids"
-type Country = {
-  name: string
-  channelTypes: {
-    [key in ChannelType]: string[]
-  }
-}
-
 
 export default function ChannelsPage() {
   const [selectedCountry, setSelectedCountry] = useState<string>("All")
