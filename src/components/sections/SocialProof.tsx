@@ -69,7 +69,7 @@ const SocialProof = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [chatMessages.length]);
+  }, []);
 
   return (
     <section className="py-20 ">

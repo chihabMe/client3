@@ -22,9 +22,6 @@ type Country = {
   }
 }
 
-type ChannelsData = {
-  countries: Country[]
-}
 
 export default function ChannelsPage() {
   const [selectedCountry, setSelectedCountry] = useState<string>("All")
