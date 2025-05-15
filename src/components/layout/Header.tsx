@@ -116,7 +116,7 @@ const Header = () => {
 
         {/* Bouton Menu Mobile */}
         <motion.button
-          className="md:hidden text-white"
+          className="md:hidden z-50 cursor-pointer hover:ring-[#39ff14] p-2 hover:ring-2 rounded-md transition-all duration-300 text-white"
           onClick={toggleMobileMenu}
           aria-label="Basculer le menu"
           initial={{ opacity: 0, scale: 0 }}
@@ -153,7 +153,7 @@ const Header = () => {
                 opacity: { duration: 0.2 },
               },
             }}
-            className="fixed inset-0 top-[72px] bg-black/95 backdrop-blur-lg md:hidden"
+            className="fixed inset-0  bg-black/95 backdrop-blur-lg md:hidden"
           >
             <motion.nav
               className="flex flex-col items-center justify-center h-full space-y-8 px-6 py-12"

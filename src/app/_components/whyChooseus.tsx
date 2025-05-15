@@ -134,25 +134,25 @@ export default function WhyChooseUs() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Feature
-            title="TV en Direct"
-            description="Regardez vos chaînes préférées avec un streaming en direct sans interruption. Profitez d'une diffusion stable avec 99,99 % de disponibilité, parfait pour ne jamais manquer vos événements sportifs et émissions préférés."
+            title="Protection Premium"
+            description="Grâce à nos serveurs haut de gamme équipés des dernières technologies anti-gel et anti-freeze, nous vous offrons l’expérience IPTV la plus stable et la plus fiable du marché."
             highlight="streaming"
             icon={<Tv className="w-full h-full text-[#00ff2a]" />}
             index={0}
           />
 
           <Feature
-            title="Contenu à la Demande"
-            description="Accédez à une vaste bibliothèque de films récents, séries populaires et documentaires directement via notre service VOD. Tout votre contenu préféré disponible instantanément."
+            title="Fonctionne avec"
+            description="Notre abonnement IPTV est entièrement compatible avec toutes les applications populaires, TV Box et appareils disponibles sur le marché. Que vous regardiez sur votre smartphone, tablette, ou télévision connectée, profitez d’une expérience fluide et sans interruption. Accédez à plus de 55 000 chaînes et à un large choix de films et séries en streaming, où que vous soyez et sur tous vos dispositifs."
             highlight=""
             icon={<Film className="w-full h-full text-[#00ff2a]" />}
             index={1}
           />
 
           <Feature
-            title="Qualité HD, UHD, 4K"
-            description="Avec IPTV Premium, bénéficiez de la meilleure qualité d’image en HD, UHD et 4K, idéal pour les passionnés de sport, de cinéma et de télévision."
-            highlight="IPTV Premium"
+            title="Performance Premium"
+            description="Grâce à nos serveurs de dernière génération, profitez de vos émissions et événements préférés avec une qualité et une performance exceptionnelles."
+            highlight="performance"
             icon={<Zap className="w-full h-full text-[#00ff2a]" />}
             index={2}
           />

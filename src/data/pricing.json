@@ -1,58 +1,58 @@
-
 {
   "plans": [
     {
-      "id": "basic",
-      "name": "Basic",
-      "price": 29,
-      "period": "month",
-      "description": "Perfect for individuals",
+      "id": "Free-Trial",
+      "name": "Essai Gratuit",
+      "price": 0,
+      "period": "1 jour",
+      "description": "Accès limité pendant 1 jour",
       "features": [
-        "HD streaming",
-        "2 devices at once",
-        "7-day replay",
-        "Cancel anytime",
-        "250+ channels"
+        "Qualité SD uniquement",
+        "Accès à une sélection de chaînes",
+        "Sans engagement",
+        "Durée limitée : 1 jour"
       ],
       "highlighted": false,
-      "cta": "Get Started"
+      "cta": "Essayer Gratuitement"
     },
     {
-      "id": "premium",
+      "id": "Premium",
       "name": "Premium",
-      "price": 59,
-      "period": "month",
-      "description": "Best value for families",
+      "price": 39.99,
+      "period": "12 mois",
+      "description": "12 mois +3 mois gratuit",
       "features": [
-        "4K streaming",
-        "5 devices at once",
-        "30-day replay",
-        "Cancel anytime",
-        "500+ channels",
-        "Original content",
-        "Download to watch offline"
+        "Full HD 4K streaming",
+        "+40 000 Chaînes TV & VOD",
+        "EPG (Guide TV)",
+        "15 jours replay",
+        "Compatibilité large",
+        "Mises à jour automatiques",
+        "Zapping rapide",
+        "Garantie 30 jours",
+        "+ 3 mois gratuits"
+      ],
+      "highlighted": false,
+      "cta": "Go Premium"
+    },
+    {
+      "id": "ultimate-pricing",
+      "name": "Ultimate",
+      "price": 50,
+      "period": "12 mois",
+      "description": "12 mois +3 mois gratuit",
+      "features": [
+        "+60 000 Chaînes TV & VOD",
+        "Résolutions : SD, HD, Full HD, 4K",
+        "EPG (Guide TV)",
+        "7 à 14 jours replay",
+        "Netflix, Disney+, Prime, beIN, Canal+",
+        "Mises à jour automatiques",
+        "VPN Premium inclus",
+        "Garantie 30 jours",
+        "+ 3 mois gratuits"
       ],
       "highlighted": true,
-      "cta": "Try Premium"
-    },
-    {
-      "id": "ultimate",
-      "name": "Ultimate",
-      "price": 99,
-      "period": "month",
-      "description": "For the true enthusiast",
-      "features": [
-        "8K streaming when available",
-        "10 devices at once",
-        "90-day replay",
-        "Cancel anytime",
-        "1000+ channels",
-        "Original content",
-        "Download to watch offline",
-        "Early access to new features",
-        "VIP customer support"
-      ],
-      "highlighted": false,
       "cta": "Go Ultimate"
     }
   ]

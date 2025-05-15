@@ -32,11 +32,11 @@ const Pricing = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
-            Choose Your Plan
+            Choisissez votre formule
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Select the perfect subscription that suits your needs. All plans
-            include high-quality streaming with no long-term commitments.
+            Sélectionnez l’abonnement parfait qui correspond à vos besoins.
+            Toutes les formules incluent un streaming de haute qualité sans engagement à long terme.
           </p>
         </motion.div>
 
@@ -64,7 +64,7 @@ const Pricing = () => {
               >
                 {plan.highlighted && (
                   <div className="bg-[#39ff14] py-1.5 text-black font-medium text-center text-sm">
-                    RECOMMENDED
+                    RECOMMANDÉ
                   </div>
                 )}
 
@@ -123,7 +123,7 @@ const Pricing = () => {
           transition={{ delay: 0.6 }}
           className="text-center text-gray-400 mt-10"
         >
-          All plans include a 7-day free trial. Cancel anytime. No contracts.
+          Toutes les offres incluent 3 mois gratuits.
         </motion.p>
       </div>
     </section>
