@@ -49,6 +49,7 @@ const Pricing = () => {
           {pricingData.plans.map((plan) => (
             <motion.div
               key={plan.id}
+              id={plan.id}
               variants={fadeIn}
               whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
               className={`flex flex-col h-full ${
