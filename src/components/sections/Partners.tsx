@@ -52,7 +52,7 @@ const Partners = () => {
         >
 
           <motion.div
-            className="w-24 h-1 bg-gradient-to-r from-gray-700/0 via-gray-400 to-gray-700/0 mx-auto  mb-16"
+            className="w-24 h-1 bg-gradient-to-r from-gray-700/0 via-gray-400 to-gray-700/0 mx-auto mb-16"
             variants={{
               hidden: { width: 0 },
               visible: {
