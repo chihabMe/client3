@@ -33,7 +33,7 @@ const Partners = () => {
   };
 
   return (
-    <section className="py-16  overflow-hidden relative" ref={sectionRef}>
+    <section className="py-1  overflow-hidden relative" ref={sectionRef}>
       <div className="container mx-auto px-6">
         <motion.div
           initial="hidden"
@@ -90,9 +90,9 @@ const Partners = () => {
                     },
                   },
                 }}
-                className=" p-5  rounded-2xl border border-white/10  transition-all duration-300 "
+                className=" md:p-5  rounded-2xl border border-white/10  transition-all duration-300 "
               >
-                <div className="w-40 h-20   relative">
+                <div className="w-24 md:w-40 h-20   relative">
                   <Image
                     fill
                     src={partner.imageUrl}

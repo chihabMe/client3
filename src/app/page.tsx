@@ -1,7 +1,6 @@
 import React from "react";
 
 import Hero from "@/components/sections/Hero";
-import Partners from "@/components/sections/Partners";
 import ContentShowcase from "@/components/sections/ContentShowcase";
 import Pricing from "@/components/sections/Pricing";
 import SocialProof from "@/components/sections/SocialProof";
@@ -19,7 +18,6 @@ const Index = () => {
     <div className="min-h-screen  text-white overflow-x-hidden">
       <main>
         <Hero />
-        <Partners />
         <KeyStats />
         <WhyChooseUs />
         <FeaturedContent

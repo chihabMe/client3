@@ -2,7 +2,8 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import * as motion from "motion/react-m";
 import Image from "next/image";
-import Link from "next/link"
+import Link from "next/link";
+import Partners from "./Partners";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -13,150 +14,109 @@ const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.2 },
   },
 };
-const Hero = () => {
-  // Animation variants
 
-  return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center pt-20 pb-16"
-    >
-      {/* Background with Next.js Image */}
-      <div className="absolute inset-0 z-0">
-        <motion.div
-          initial={{ opacity: 0.5 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="w-full h-full relative"
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-white/20 z-10" />
-          <Image
-            src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80"
-            alt="Hero background"
-            fill
-            priority
-            quality={85}
-            sizes="100vw"
-            className="object-cover"
-          />
-        </motion.div>
-      </div>
-
-      {/* Animated particles/stars effect */}
+const Hero = () => (
+  <section id="home" className="relative min-h-screen flex items-center pt-20 pb-16">
+    {/* Background */}
+    <div className="absolute inset-0    z-0">
       <motion.div
-        className="absolute inset-0 z-0 opacity-50"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.5 }}
-        transition={{ delay: 0.5, duration: 1 }}
+        initial={{ opacity: 0.5 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="w-full h-full relative"
       >
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-white rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.7 + 0.3,
-            }}
-            animate={{
-              opacity: [0.3, 1, 0.3],
-              scale: [1, 1.5, 1],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Infinity,
-              repeatType: "reverse",
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-white/10 z-10" />
+        <Image
+          src="/background.png"
+          alt="Hero background"
+          fill
+          priority
+          quality={85}
+          sizes="100vw"
+          className="object-cover"
+        />
       </motion.div>
+    </div>
 
-      {/* Content */}
-      <div className="container mx-auto px-6 relative z-10">
+    {/* Animated Stars */}
+    <motion.div className="absolute inset-0  z-0 opacity-50" initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} transition={{ delay: 0.5, duration: 1 }}>
+      {[...Array(20)].map((_, i) => (
         <motion.div
-          className="max-w-3xl mx-auto text-center"
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
+          key={i}
+          className="absolute w-1 h-1 bg-white rounded-full"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            opacity: Math.random() * 0.7 + 0.3,
+          }}
+          animate={{ opacity: [0.3, 1, 0.3], scale: [1, 1.5, 1] }}
+          transition={{
+            duration: Math.random() * 3 + 2,
+            repeat: Infinity,
+            repeatType: "reverse",
+            delay: Math.random() * 2,
+          }}
+        />
+      ))}
+    </motion.div>
+
+    {/* Main Content */}
+    <div className="container   mx-auto pt-30     px-6 relative z-10">
+      <motion.div className="max-w-3xl mx-auto  text-center" variants={staggerContainer} initial="hidden" animate="visible">
+        <motion.h1
+          className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
+          variants={fadeIn}
         >
-  <motion.h1
-    className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
-    variants={fadeIn}
-  >
-    Dites adieu aux abonnements multiples
-    <motion.span variants={fadeIn} className="block mt-2">
-      <motion.div
-        initial={{ width: "0%" }}
-        animate={{ width: "100%" }}
-        transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
-        className="h-[3px] bg-[#39ff14] mb-2 mx-auto"
-      />
-      Vivez une expérience de divertissement complète avec un seul abonnement IPTV.
-    </motion.span>
-  </motion.h1>
-
-          <motion.p
-            className="text-lg md:text-xl text-gray-100 mb-10"
-            variants={fadeIn}
-          >
-Explorez la meilleure collection de films, séries, chaînes TV et événements sportifs, réunis en un seul endroit, disponible sur tous vos appareils, à tout moment.
-          </motion.p>
-
-          <motion.div
-            variants={fadeIn}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
+          Un seul abonnement IPTV,
+          <motion.span variants={fadeIn} className="block mt-2">
+            tout le divertissement réuni.
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto"
-              animate={{
-                boxShadow: [
-                  "0px 0px 0px rgba(57, 255, 20, 0)",
-                  "0px 0px 20px rgba(57, 255, 20, 0.7)",
-                  "0px 0px 0px rgba(57, 255, 20, 0)",
-                ],
-              }}
-              transition={{
-                boxShadow: {
-                  repeat: Infinity,
-                  duration: 2,
-                },
-              }}
-            >
+              initial={{ width: "0%" }}
+              animate={{ width: "100%" }}
+              transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
+              className="h-[3px] bg-[#39ff14] mb-2 mx-auto"
+            />
+          </motion.span>
+        </motion.h1>
+
+        <motion.p className="text-lg md:text-xl text-gray-100 mb-10" variants={fadeIn}>
+          Explorez les meilleurs films, séries, chaînes TV et sports en un seul endroit, accessible à tout moment sur tous vos appareils.
+        </motion.p>
+
+        <motion.div className="flex flex-col sm:flex-row gap-4 justify-center" variants={fadeIn}>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto"
+            animate={{
+              boxShadow: [
+                "0px 0px 0px rgba(57, 255, 20, 0)",
+                "0px 0px 20px rgba(57, 255, 20, 0.7)",
+                "0px 0px 0px rgba(57, 255, 20, 0)",
+              ],
+            }}
+            transition={{ boxShadow: { repeat: Infinity, duration: 2 } }}
+          >
             <Link href="#pricing">
-              <Button
-                className="bg-[#39ff14] cursor-pointer text-black hover:bg-[#39ff14]/90 text-lg font-medium w-full px-8 py-6 rounded-lg"
-                size="lg"
-              >
-              Profitez maintenant
+              <Button className="bg-[#39ff14] text-black hover:bg-[#39ff14]/90 text-lg font-medium w-full px-8 py-6 rounded-lg" size="lg">
+                Profitez maintenant
               </Button>
             </Link>
-            </motion.div>
+          </motion.div>
 
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto"
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
+            <Button
+              size="lg"
+              className="bg-transparent text-white border  border-gray-50/80  text-lg font-medium w-full px-8 py-6 rounded-lg"
             >
-              <Button
-                size="lg"
-                className="bg-transparent   text-black border border-1 bg-gray-50/60 border-gray-50/80 hover:bg-white/10 text-lg font-medium w-full px-8 py-6 rounded-lg"
-              >
-            Essai gratuit de 1 jours
-              </Button>
-            </motion.div>
+              Essai gratuit de 1 jour
+            </Button>
           </motion.div>
         </motion.div>
-      </div>
-    </section>
-  );
-};
+      </motion.div>
+      <Partners />
+    </div>
+  </section>
+);
 
 export default Hero;
