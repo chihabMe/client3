@@ -33,7 +33,7 @@ const Partners = () => {
   };
 
   return (
-    <section className="py-1  overflow-hidden relative" ref={sectionRef}>
+    <section className="py-1   overflow-hidden relative" ref={sectionRef}>
       <div className="container mx-auto px-6">
         <motion.div
           initial="hidden"
@@ -48,11 +48,11 @@ const Partners = () => {
               }
             }
           }}
-          className="text-center mb-16"
+          className="text-center  md:mb-16"
         >
 
           <motion.div
-            className="w-24 h-1 bg-gradient-to-r from-gray-700/0 via-gray-400 to-gray-700/0 mx-auto mb-16"
+            className="w-24 h-1 bg-gradient-to-r from-gray-700/0 via-gray-400 to-gray-700/0 mx-auto  mb-16"
             variants={{
               hidden: { width: 0 },
               visible: {
@@ -67,7 +67,7 @@ const Partners = () => {
 
           {/* First row - visible partners with individual animations */}
           <motion.div
-            className="flex flex-wrap justify-center items-center gap-8 md:gap-12 mb-12"
+            className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 md:gap-12"
           >
             {partnersData.logos.slice(0, 6).map((partner, index) => (
               <motion.div
@@ -90,9 +90,9 @@ const Partners = () => {
                     },
                   },
                 }}
-                className=" md:p-5  rounded-2xl border border-white/10  transition-all duration-300 "
+                className=" md:p-5  rounded-2xl bg-white p-1 border-white/10  transition-all duration-300 "
               >
-                <div className="w-24 md:w-40 h-20   relative">
+                <div className="w-16 md:w-40 h-20   relative">
                   <Image
                     fill
                     src={partner.imageUrl}

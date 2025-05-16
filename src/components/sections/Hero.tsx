@@ -19,31 +19,32 @@ const staggerContainer = {
 };
 
 const Hero = () => (
-  <section id="home" className="relative min-h-screen flex items-center pt-20 pb-16">
-    {/* Background */}
-    <div className="absolute inset-0    z-0">
+  <section id="home" className="relative min-h-screen flex items-center py-12 md:py-16 overflow-hidden">
+    {/* Background - Improved for responsiveness */}
+    <div className="absolute inset-0 z-0">
       <motion.div
         initial={{ opacity: 0.5 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="w-full h-full relative"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-white/10 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/40 z-10" />
         <Image
           src="/background.png"
           alt="Hero background"
           fill
           priority
           quality={85}
-          sizes="100vw"
-          className="object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
+          className="object-cover object-center"
+          style={{ objectPosition: "center 30%" }}
         />
       </motion.div>
     </div>
 
-    {/* Animated Stars */}
-    <motion.div className="absolute inset-0  z-0 opacity-50" initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} transition={{ delay: 0.5, duration: 1 }}>
-      {[...Array(20)].map((_, i) => (
+    {/* Animated Stars - Reduced quantity for mobile */}
+    <motion.div className="absolute inset-0 z-0 opacity-50" initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} transition={{ delay: 0.5, duration: 1 }}>
+      {[...Array(10)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute w-1 h-1 bg-white rounded-full"
@@ -63,11 +64,16 @@ const Hero = () => (
       ))}
     </motion.div>
 
-    {/* Main Content */}
-    <div className="container   mx-auto pt-30     px-6 relative z-10">
-      <motion.div className="max-w-3xl mx-auto  text-center" variants={staggerContainer} initial="hidden" animate="visible">
+    {/* Main Content - Improved for mobile */}
+    <div className="container mx-auto px-4 sm:px-6 pt-10 relative z-10 mt-16 md:mt-0">
+      <motion.div
+        className="max-w-3xl mx-auto text-center"
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+      >
         <motion.h1
-          className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
           variants={fadeIn}
         >
           Un seul abonnement IPTV,
@@ -77,44 +83,51 @@ const Hero = () => (
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
               transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
-              className="h-[3px] bg-[#39ff14] mb-2 mx-auto"
+              className="h-[2px] md:h-[3px] bg-[#39ff14] mb-2 mx-auto"
             />
           </motion.span>
         </motion.h1>
 
-        <motion.p className="text-lg md:text-xl text-gray-100 mb-10" variants={fadeIn}>
+        <motion.p className="text-base sm:text-lg md:text-xl text-gray-100 mb-6 md:mb-10" variants={fadeIn}>
           Explorez les meilleurs films, séries, chaînes TV et sports en un seul endroit, accessible à tout moment sur tous vos appareils.
         </motion.p>
 
-        <motion.div className="flex flex-col sm:flex-row gap-4 justify-center" variants={fadeIn}>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto"
+        <motion.div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center" variants={fadeIn}>
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="w-full sm:w-auto"
             animate={{
               boxShadow: [
                 "0px 0px 0px rgba(57, 255, 20, 0)",
-                "0px 0px 20px rgba(57, 255, 20, 0.7)",
+                "0px 0px 15px rgba(57, 255, 20, 0.7)",
                 "0px 0px 0px rgba(57, 255, 20, 0)",
               ],
             }}
             transition={{ boxShadow: { repeat: Infinity, duration: 2 } }}
           >
-            <Link href="#pricing">
-              <Button className="bg-[#39ff14] text-black hover:bg-[#39ff14]/90 text-lg font-medium w-full px-8 py-6 rounded-lg" size="lg">
+            <Link href="#pricing" className="w-full block">
+              <Button className="bg-[#39ff14] text-black hover:bg-[#39ff14]/90 text-base md:text-lg font-medium w-full px-6 py-5 md:px-8 md:py-6 rounded-lg" size="lg">
                 Profitez maintenant
               </Button>
             </Link>
           </motion.div>
 
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
+          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full sm:w-auto">
             <Button
               size="lg"
-              className="bg-transparent text-white border  border-gray-50/80  text-lg font-medium w-full px-8 py-6 rounded-lg"
+              className="bg-transparent text-white border border-gray-50/80 text-base md:text-lg font-medium w-full px-6 py-5 md:px-8 md:py-6 rounded-lg"
             >
               Essai gratuit de 1 jour
             </Button>
           </motion.div>
         </motion.div>
       </motion.div>
-      <Partners />
+
+      {/* Partners section with proper spacing */}
+      <div className="mt-8 md:mt-12">
+        <Partners />
+      </div>
     </div>
   </section>
 );
