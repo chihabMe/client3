@@ -65,7 +65,7 @@ const Hero = () => (
     </motion.div>
 
     {/* Main Content - Improved for mobile */}
-    <div className="container mx-auto px-4 sm:px-6 pt-10 relative z-10 mt-16 md:mt-0">
+    <div className="container mx-auto px-4 sm:px-6 pt-10 relative z-10 mt-16 md:mt-20">
       <motion.div
         className="max-w-3xl mx-auto text-center"
         variants={staggerContainer}
@@ -73,7 +73,7 @@ const Hero = () => (
         animate="visible"
       >
         <motion.h1
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
+          className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
           variants={fadeIn}
         >
           Adieu aux abonnements multiples, vivez une expérience de divertissement complète avec un seul abonnement IPTV.
@@ -126,7 +126,7 @@ const Hero = () => (
       </motion.div>
 
       {/* Partners section with proper spacing */}
-      <div className="mt-8 md:mt-12">
+      <div className="mt-8 md:mt-24">
         <Partners />
       </div>
     </div>

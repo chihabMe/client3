@@ -11,8 +11,8 @@ export default function SpecialOfferHeader() {
       animate={{ opacity: 1 }}
       transition={{ delay: 0.2, duration: 0.5 }}
     >
-      <p className="text-sm md:text-base">
-        Offre spéciale : <span className="text-[#00ff2a] font-bold">3 mois offerts</span> en choisissant le plan annuel –{" "}
+      <p className="text-sm md:text-xl">
+        Offre spéciale : <span className="text-[#00ff2a]  font-bold">3 mois offerts</span> en choisissant le plan annuel –{" "}
         <Link href="/#ultimate-pricing" className="underline hover:text-[#00ff2a]">
           Profitez-en maintenant !
         </Link>

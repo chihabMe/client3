@@ -1,35 +1,34 @@
-
 {
   "questions": [
     {
       "id": "devices",
-      "question": "How many devices can I watch on?",
-      "answer": "The number of devices you can watch on simultaneously depends on your plan. Basic allows 2 devices, Premium allows 5 devices, and Ultimate allows up to 10 devices streaming at the same time."
+      "question": "Combien d'appareils puis-je utiliser pour regarder ?",
+      "answer": "Vous pouvez regarder sur un seul appareil à la fois. Notre service est limité à un seul appareil connecté simultanément pour garantir la meilleure qualité et sécurité."
     },
     {
       "id": "cancel",
-      "question": "Can I cancel my subscription anytime?",
-      "answer": "Yes! All our plans are flexible with no long-term commitments. You can cancel your subscription at any time, and you'll continue to have access until the end of your current billing period."
+      "question": "Puis-je annuler mon abonnement à tout moment ?",
+      "answer": "Oui ! Tous nos forfaits sont sans engagement. Vous pouvez annuler votre abonnement à tout moment, et vous continuerez à avoir accès au service jusqu’à la fin de votre période de facturation en cours."
     },
     {
       "id": "content",
-      "question": "What channels and content are included?",
-      "answer": "Our platform offers a wide range of channels including sports, entertainment, news, movies, and more. The exact channel lineup varies by plan and your geographic location. You can check the full channel list for your area during the signup process."
+      "question": "Quels sont les chaînes et contenus inclus ?",
+      "answer": "Notre plateforme propose un large éventail de chaînes : sports, divertissement, actualités, films et bien plus encore. La liste exacte des chaînes dépend de votre forfait et de votre localisation géographique. Vous pouvez consulter la liste complète des chaînes lors de l’inscription."
     },
     {
       "id": "quality",
-      "question": "What streaming quality can I expect?",
-      "answer": "Streaming quality depends on your plan and internet connection. Our Basic plan offers HD quality, Premium offers 4K, and Ultimate offers up to 8K where available. A minimum internet speed of 5 Mbps is recommended for HD and 25 Mbps for 4K content."
+      "question": "Quelle est la qualité de streaming proposée ?",
+      "answer": "La qualité de streaming dépend de votre connexion Internet. Nous offrons du contenu en qualité HD pour garantir une expérience fluide. Une connexion Internet d’au moins 5 Mbps est recommandée pour un visionnage optimal."
     },
     {
       "id": "trial",
-      "question": "Is there a free trial?",
-      "answer": "Yes, we offer a 7-day free trial on all our plans. You can experience all features of your chosen plan before your subscription begins. No charges will be made until the trial period ends."
+      "question": "Proposez-vous un essai gratuit ?",
+      "answer": "Oui, nous offrons un essai gratuit de 1 jour sur tous nos forfaits. Vous pouvez tester toutes les fonctionnalités avant le début de votre abonnement. Aucun frais ne sera facturé avant la fin de la période d’essai."
     },
     {
       "id": "payment",
-      "question": "What payment methods do you accept?",
-      "answer": "We accept all major credit cards (Visa, MasterCard, American Express, Discover), PayPal, digital wallets like Google Pay and Apple Pay, and in some regions, we also accept payment via mobile carrier billing."
+      "question": "Quels sont les moyens de paiement acceptés ?",
+      "answer": "Nous acceptons toutes les principales cartes bancaires (Visa, MasterCard, American Express, Discover), PayPal, ainsi que les portefeuilles numériques comme Google Pay et Apple Pay. Dans certaines régions, le paiement via opérateur mobile est également disponible."
     }
   ]
 }

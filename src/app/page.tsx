@@ -8,9 +8,6 @@ import HowItWorks from "@/components/sections/HowItWorks";
 import Compatibility from "@/components/sections/Compatibility";
 import FAQ from "@/components/sections/FAQ";
 import KeyStats from "./_components/KeyStats";
-import FeaturedContent from "./_components/FeaturedContent";
-
-import { featuredContent } from "@/data/contents"
 import WhyChooseUs from "./_components/whyChooseus";
 
 const Index = () => {
@@ -22,15 +19,8 @@ const Index = () => {
         <Pricing />
         <KeyStats />
         <WhyChooseUs />
-        <FeaturedContent
-          title="Featured Content"
-          description="Explore our handpicked selection of premium content available in your subscription"
-          contents={featuredContent}
-          viewAllLink="/channels"
-        />
         <HowItWorks />
         <SocialProof />
-        {/* <ProviderSelection /> */}
         <Compatibility />
         <FAQ />
       </main>
