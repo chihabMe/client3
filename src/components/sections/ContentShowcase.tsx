@@ -1,4 +1,3 @@
-import * as motion from "motion/react-m"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import SportEvents from "./ContentShowCase/SportEvents"
@@ -70,7 +69,7 @@ const ContentShowcase = async () => {
             Regardez vos films, séries TV et chaînes en direct
           </h2>
           <p className="text-slate-700 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            Profitez d'un abonnement IPTV haute qualité : films récents, séries populaires, chaînes TV du monde entier
+            Profitez d&rsquo;un abonnement IPTV haute qualité : films récents, séries populaires, chaînes TV du monde entier
             et événements sportifs en direct
           </p>
         </div>
@@ -156,7 +155,7 @@ const ContentShowcase = async () => {
 
         {/* Sports Section */}
         <div className="mt-20 ">
-          <SportEvents/>
+          <SportEvents />
         </div>
       </div>
     </section>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import {  useInView } from "motion/react";
+import { useInView } from "motion/react";
 import { useEffect, useRef } from "react";
 
 const sportImages = [
@@ -59,7 +59,7 @@ export default function SportEvents() {
         </h1>
         <div className="text-gray-900 py-2 px-4 rounded-md inline-block mb-10">
           <p className="text-sm md:text-base">
-            Toute l'action des grandes ligues sportives — en un seul abonnement IPTV.
+            Toute laction des grandes ligues sportives — en un seul abonnement IPTV.
           </p>
         </div>
 
