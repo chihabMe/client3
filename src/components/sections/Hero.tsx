@@ -76,7 +76,7 @@ const Hero = () => (
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
           variants={fadeIn}
         >
-          Un seul abonnement IPTV,
+          Adieu aux abonnements multiples, vivez une expérience de divertissement complète avec un seul abonnement IPTV.
           <motion.span variants={fadeIn} className="block mt-2">
             tout le divertissement réuni.
             <motion.div
@@ -89,7 +89,8 @@ const Hero = () => (
         </motion.h1>
 
         <motion.p className="text-base sm:text-lg md:text-xl text-gray-100 mb-6 md:mb-10" variants={fadeIn}>
-          Explorez les meilleurs films, séries, chaînes TV et sports en un seul endroit, accessible à tout moment sur tous vos appareils.
+          Avec MEDIA FRANCE IPTV,
+          Accédez à plus de 55 000 chaînes TV et 90 000 VOD et séries en qualité 4K sur tous vos appareils
         </motion.p>
 
         <motion.div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center" variants={fadeIn}>
@@ -118,7 +119,7 @@ const Hero = () => (
               size="lg"
               className="bg-transparent text-white border border-gray-50/80 text-base md:text-lg font-medium w-full px-6 py-5 md:px-8 md:py-6 rounded-lg"
             >
-              Essai gratuit de 1 jour
+              1 jour d’essai gratuit
             </Button>
           </motion.div>
         </motion.div>
