@@ -1,152 +1,147 @@
-"use client"
-import { Button } from "@/components/ui/button"
+import React from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import * as motion from "motion/react-m"
-import Image from "next/image"
-import Link from "next/link"
-import Partners from "./Partners"
-import { useMediaQuery } from "@/hook/use-mobile" // Using the hook for responsive behavior
+import { Check } from "lucide-react";
+import pricingData from "@/data/pricing.json";
 
-const fadeIn = {
+export const fadeIn = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-}
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
 
-const staggerContainer = {
+export const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2 },
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
+    },
   },
-}
+};
 
-const Hero = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)")
-
+const Pricing = () => {
   return (
-    <section id="home" className="relative min-h-[100svh] flex items-center py-16 md:py-24 overflow-hidden">
-      {/* Background with optimized image loading */}
-      <div className="absolute inset-0 z-0">
+    <section
+      id="ultimate-pricing"
+      className="py-20"
+    >
+      <div className="container mx-auto  px-6">
         <motion.div
-          initial={{ opacity: 0.5 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="w-full h-full relative"
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="text-center mb-16"
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/40 z-10" />
-          <Image
-            src="/background.png"
-            alt="Hero background"
-            fill
-
-            priority
-            quality={85}
-            sizes="(max-width: 768px) 100vw, 100vw"
-            className="object-cover object-cover"
-          />
+          <h2 className="text-3xl text-black md:text-4xl font-bold mb-4 text-gradient">
+            Paiement rapide via PayPal – aucun risque, aucune complication.
+          </h2>
+          <p className="text-gray-800 max-w-2xl mx-auto">
+            Ne ratez pas cette offre ! Abonnez-vous pour 12 mois et recevez 3 mois offerts.
+          </p>
         </motion.div>
-      </div>
 
-      {/* Animated Stars - Reduced count for mobile */}
-      <motion.div
-        className="absolute inset-0 z-0 opacity-50"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.5 }}
-        transition={{ delay: 0.5, duration: 1 }}
-      >
-        {[...Array(isMobile ? 10 : 20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-white rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.7 + 0.3,
-            }}
-            animate={{
-              opacity: [0.3, 1, 0.3],
-              scale: [1, 1.5, 1],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </motion.div>
-
-      {/* Main Content - Improved responsive layout */}
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
-          className="max-w-3xl mx-auto text-center"
           variants={staggerContainer}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8"
         >
-          <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
-            variants={fadeIn}
-          >
-            Un seul abonnement IPTV,
-            <motion.span variants={fadeIn} className="block mt-2">
-              tout le divertissement réuni.
-              <motion.div
-                initial={{ width: "0%" }}
-                animate={{ width: "100%" }}
-                transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
-                className="h-[2px] sm:h-[3px] bg-[#39ff14] mb-2 mx-auto"
-              />
-            </motion.span>
-          </motion.h1>
-
-          <motion.p
-            className="text-base sm:text-lg md:text-xl text-gray-100 mb-6 sm:mb-8 md:mb-10 px-2"
-            variants={fadeIn}
-          >
-            Explorez les meilleurs films, séries, chaînes TV et sports en un seul endroit, accessible à tout moment sur
-            tous vos appareils.
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0"
-            variants={fadeIn}
-          >
+          {pricingData.plans.map((plan) => (
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto"
-              animate={{
-                boxShadow: [
-                  "0px 0px 0px rgba(57, 255, 20, 0)",
-                  "0px 0px 20px rgba(57, 255, 20, 0.7)",
-                  "0px 0px 0px rgba(57, 255, 20, 0)",
-                ],
-              }}
-              transition={{ boxShadow: { repeat: Number.POSITIVE_INFINITY, duration: 2 } }}
+              key={plan.id}
+              variants={fadeIn}
+              whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
+              className={`flex flex-col h-full ${plan.highlighted ? "relative z-10 scale-105 md:scale-110" : ""
+                }`}
             >
-              <Link href="#pricing" className="block w-full">
-                <Button className="bg-[#39ff14] text-black hover:bg-[#39ff14]/90 text-base sm:text-lg font-medium w-full px-4 sm:px-8 py-5 sm:py-6 rounded-lg h-auto">
-                  Profitez maintenant
-                </Button>
-              </Link>
-            </motion.div>
+              <Card
+                className={`flex flex-col h-full bg-white/10 border ${plan.highlighted
+                  ? "border-[#39ff14] shadow-[#39ff14]"
+                  : "border-gray-800"
+                  } rounded-2xl overflow-hidden`}
+              >
+                {plan.highlighted && (
+                  <div className="bg-[#19ff14] py-1.5 text-gray-900 font-medium text-center text-sm">
+                    Profitez de 25% de Réduction
+                  </div>
+                )}
 
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
-              <Button className="bg-transparent text-white border border-gray-50/80 text-base sm:text-lg font-medium w-full px-4 sm:px-8 py-5 sm:py-6 rounded-lg h-auto">
-                Essai gratuit de 1 jour
-              </Button>
+                <CardHeader className="text-center pt-8">
+                  <CardTitle className="text-2xl font-bold">
+                    {plan.name}
+                  </CardTitle>
+                  <div className="mt-4 flex justify-center items-baseline">
+                    <span className="text-5xl font-extrabold text-black">
+                      ${plan.price}
+                    </span>
+                    <span className="ml-1 text-gray-800">/{plan.period}</span>
+                  </div>
+                  <p className="mt-2 text-gray-800">{plan.description}</p>
+                </CardHeader>
+
+                <CardContent className="flex-grow">
+                  <ul className="space-y-3 mt-6">
+                    {plan.features.map((feature, index) => (
+                      <motion.li
+                        key={index}
+                        className="flex items-center"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 * index }}
+                      >
+                        <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#39ff14]/20 flex items-center justify-center mr-3">
+                          <Check className="w-3 h-3 text-[#39ff14]" />
+                        </span>
+                        <span className="text-gray-700">{feature}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </CardContent>
+
+                <CardFooter className="pt-4 pb-8 px-6">
+                  <Button
+                    className={`w-full cursor-pointer  rounded-xl py-6 ${plan.highlighted
+                      ? "bg-[#39ff14] text-white hover:bg-[#39ff14]/90"
+                      : "bg-black text-white hover:bg-black/80"
+                      }`}
+                  >
+                    {plan.cta}
+                  </Button>
+                </CardFooter>
+              </Card>
             </motion.div>
-          </motion.div>
+          ))}
         </motion.div>
 
-        {/* Partners section with proper spacing */}
-        <div className="mt-8 sm:mt-12 md:mt-16">
-          <Partners />
-        </div>
+        <motion.p
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ delay: 0.6 }}
+          className="text-center text-gray-800 mt-10"
+        >
+          Toutes les offres incluent 3 mois gratuits.
+        </motion.p>
       </div>
     </section>
-  )
-}
-
-export default Hero
+  );
+};
+export default Pricing;

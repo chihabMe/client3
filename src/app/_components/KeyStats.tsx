@@ -46,13 +46,13 @@ function Stat({ value, label, description }: StatProps) {
   return (
     <motion.div
       ref={ref}
-      className="text-center px-4"
+      className="  text-center px-4"
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
     >
       <motion.div
-        className="text-[#00ff2a] text-4xl md:text-5xl lg:text-6xl font-bold mb-2"
+        className="text-[#00ff4a] text-4xl md:text-5xl lg:text-6xl font-bold mb-2"
         initial={{ scale: 0.8 }}
         animate={isInView ? { scale: 1 } : { scale: 0.8 }}
         transition={{ type: "spring", stiffness: 100, delay: 0.2 }}

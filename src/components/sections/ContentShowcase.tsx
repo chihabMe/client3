@@ -1,186 +1,166 @@
-"use client";
+import * as motion from "motion/react-m"
+import { Card, CardContent } from "@/components/ui/card"
+import Image from "next/image"
+import SportEvents from "./ContentShowCase/SportEvents"
 
-import React, { useRef, useEffect } from "react";
-import * as motion from "motion/react-m";
-import { Card, CardContent } from "@/components/ui/card";
-import { fadeIn, cardHover, staggerContainer } from "@/lib/motions";
-import showsData from "@/data/shows.json";
-import { useScrollAnimation } from "@/hook/use-scroll-animation";
-import Image from "next/image";
+// Movie + TV interfaces
+export interface TopRatedMoviesResponse {
+  page: number
+  results: Movie[]
+  total_pages: number
+  total_results: number
+}
+export interface Movie {
+  adult: boolean
+  backdrop_path: string | null
+  genre_ids: number[]
+  id: number
+  original_language: string
+  original_title: string
+  overview: string
+  popularity: number
+  poster_path: string | null
+  release_date: string
+  title: string
+  video: boolean
+  vote_average: number
+  vote_count: number
+}
 
-const ContentShowcase = () => {
-  const { ref, controls } = useScrollAnimation(0.2);
-  const moviesScrollRef = useRef<HTMLDivElement>(null);
+const API_KEY =
+  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNjE4NzE4YTM1ZGY1NDExNjkxMWZmZjk3MmJjMDk4ZCIsIm5iZiI6MTYyMTk3MzQzMC4xNjgsInN1YiI6IjYwYWQ1OWI2ZmNlYzJlMDA3OTNkNmQ3NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.NGMKU3fb0QRQS55iFpeuf6jqrClvdNrn7K49qPwy2rU"
 
-  useEffect(() => {
-    let animationId: number;
-    let scrollPosition = 0;
-    const maxScroll = 2000;
-    const scrollSpeed = 0.5;
+const BASE_URL = "https://api.themoviedb.org/3"
 
-    const scrollCarousel = () => {
-      if (moviesScrollRef.current) {
-        scrollPosition = (scrollPosition + scrollSpeed) % maxScroll;
-        moviesScrollRef.current.scrollLeft = scrollPosition;
-      }
-      animationId = requestAnimationFrame(scrollCarousel);
-    };
+export const getTopRatedMovies = async (): Promise<TopRatedMoviesResponse> => {
+  const response = await fetch(`${BASE_URL}/movie/top_rated?language=fr-FR&page=1`, {
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${API_KEY}`,
+    },
+  })
+  if (!response.ok) {
+    throw new Error(`Failed to fetch movies: ${response.statusText}`)
+  }
+  return await response.json()
+}
 
-    const timeoutId = setTimeout(() => {
-      scrollCarousel();
-    }, 2000);
+export const getTopRatedTVShows = async (): Promise<TopRatedMoviesResponse> => {
+  const response = await fetch(`${BASE_URL}/tv/top_rated?language=fr-FR&page=1`, {
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${API_KEY}`,
+    },
+  })
+  if (!response.ok) {
+    throw new Error(`Failed to fetch TV shows: ${response.statusText}`)
+  }
+  return await response.json()
+}
 
-    const handleMouseEnter = () => {
-      cancelAnimationFrame(animationId);
-    };
-
-    const handleMouseLeave = () => {
-      scrollCarousel();
-    };
-
-    const carousel = moviesScrollRef.current;
-    if (carousel) {
-      carousel.addEventListener("mouseenter", handleMouseEnter);
-      carousel.addEventListener("mouseleave", handleMouseLeave);
-    }
-
-    return () => {
-      clearTimeout(timeoutId);
-      cancelAnimationFrame(animationId);
-      if (carousel) {
-        carousel.removeEventListener("mouseenter", handleMouseEnter);
-        carousel.removeEventListener("mouseleave", handleMouseLeave);
-      }
-    };
-  }, []);
+const ContentShowcase = async () => {
+  const movies = await getTopRatedMovies()
+  const tvShows = await getTopRatedTVShows()
 
   return (
-    <section
-      id="features"
-      className="py-20 "
-    >
-      <div className="container mx-auto px-4 md:px-6">
-        <motion.div
-          ref={ref}
-          variants={fadeIn}
-          initial="hidden"
-          animate={controls}
-          className="text-center mb-10"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
-            Contenu en vedette
+    <section id="features" className="py-20 bg-white">
+      <div className="max-w-screen-3xl mx-auto px-4 md:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6  text-black    leading-tight">
+            Regardez vos films, séries TV et chaînes en direct
           </h2>
-          <p className="text-gray-900 max-w-2xl mx-auto">
-            Explorez notre vaste collection de films, séries TV et contenus exclusifs.
-            Le tout disponible en qualité exceptionnelle sur tous vos appareils.
+          <p className="text-slate-700 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+            Profitez d'un abonnement IPTV haute qualité : films récents, séries populaires, chaînes TV du monde entier
+            et événements sportifs en direct
           </p>
-        </motion.div>
+        </div>
 
-        {/* Carrousel de films */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate={controls}
-          className="mt-16"
-        >
-          <h3 className="text-xl font-semibold mb-6 px-4 text-white">
-            Films & Séries Populaires
-          </h3>
-          <div
-            ref={moviesScrollRef}
-            className="flex overflow-x-scroll snap-x snap-mandatory scrollbar-none gap-4 pb-8 px-2 md:px-4 scroll-smooth"
-          >
-            {showsData.featured.map((show) => (
-              <motion.div
-                key={show.id}
-                variants={fadeIn}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-                whileHover="hover"
-                className="snap-start flex-shrink-0 w-64 md:w-80"
-              >
-                <motion.div variants={cardHover}>
-                  <Card className="overflow-hidden rounded-2xl border-0 shadow-lg bg-transparent h-[350px] md:h-[400px] card-hover [#39ff14]-glow-hover">
+        {/* Movies Section */}
+        <div className="mt-20">
+          <div className="flex items-center justify-between mb-8 px-2">
+            <h3 className="text-2xl md:text-3xl font-bold text-slate-800 border-l-4 border-purple-600 pl-4">
+              Films populaires
+            </h3>
+          </div>
+
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 px-2 md:px-4 scroll-smooth hide-scrollbar">
+            {movies.results
+              .filter((show) => !show.adult)
+              .slice(0, 10)
+              .map((show) => (
+                <div key={show.id} className="snap-start flex-shrink-0 w-64 md:w-80">
+                  <Card className="overflow-hidden rounded-xl border border-slate-200 shadow-md bg-white h-[400px] md:h-[450px] transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
                     <CardContent className="p-0 h-full relative">
                       <Image
                         width={320}
-                        height={180}
-                        src={show.image}
+                        height={480}
+                        src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
                         alt={show.title}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/30 to-transparent p-6 flex flex-col justify-end">
-                        <div className="flex items-center justify-between">
-                          <h4 className="text-white font-bold text-xl">
-                            {show.title}
-                          </h4>
-                          <span className="text-[#39ff14] font-semibold">
-                            {show.rating}★
-                          </span>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 flex flex-col justify-end">
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between">
+                            <h4 className="text-white font-bold text-xl line-clamp-1">{show.title}</h4>
+                            <span className="bg-blue-500 text-white font-semibold px-2 py-1 rounded-md text-sm">
+                              {show.vote_average.toFixed(1)}★
+                            </span>
+                          </div>
+                          <p className="text-slate-200 text-sm line-clamp-2">{show.overview}</p>
                         </div>
-                        <p className="text-gray-800 text-sm mt-1">
-                          {show.category}
-                        </p>
                       </div>
                     </CardContent>
                   </Card>
-                </motion.div>
-              </motion.div>
-            ))}
+                </div>
+              ))}
           </div>
-        </motion.div>
+        </div>
 
-        {/* Contenu sportif */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate={controls}
-          className="mt-16"
-        >
-          <h3 className="text-xl font-semibold mb-6 px-4 text-white">
-            Sports & Événements en direct
-          </h3>
+        {/* TV Shows Section */}
+        <div className="mt-20">
+          <div className="flex items-center justify-between mb-8 px-2">
+            <h3 className="text-2xl md:text-3xl font-bold text-slate-800 border-l-4 border-blue-500 pl-4">
+              Séries les mieux notées
+            </h3>
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4">
-            {showsData.sports.map((sport, index) => (
-              <motion.div
-                key={sport.id}
-                variants={fadeIn}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-                whileHover={{
-                  scale: 1.05,
-                  rotate: index % 2 === 0 ? 2 : -2,
-                  transition: { duration: 0.3 },
-                }}
-                className="overflow-hidden rounded-2xl aspect-video"
-              >
-                <Card className="overflow-hidden rounded-2xl border-0 shadow-lg bg-transparent h-full [#39ff14]-glow-hover">
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 px-2 md:px-4 scroll-smooth hide-scrollbar">
+            {tvShows.results.slice(0, 10).map((show) => (
+              <div key={show.id} className="snap-start flex-shrink-0 w-64 md:w-72">
+                <Card className="overflow-hidden rounded-xl border border-slate-200 shadow-md bg-white h-[400px] md:h-[450px] transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
                   <CardContent className="p-0 h-full relative">
                     <Image
                       width={320}
-                      height={180}
-                      src={sport.image}
-                      alt={sport.title}
+                      height={480}
+                      src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
+                      alt={show.title}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-4 flex flex-col justify-end">
-                      <h4 className="text-white font-bold text-xl">
-                        {sport.title}
-                      </h4>
-                      <p className="text-[#39ff14] text-sm">{sport.category}</p>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 flex flex-col justify-end">
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <h4 className="text-white font-bold text-xl line-clamp-1">{show.title}</h4>
+                          <span className="bg-blue-500 text-white font-semibold px-2 py-1 rounded-md text-sm">
+                            {show.vote_average.toFixed(1)}★
+                          </span>
+                        </div>
+                        <p className="text-slate-200 text-sm line-clamp-2">{show.overview}</p>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
+
+        {/* Sports Section */}
+        <div className="mt-20 ">
+          <SportEvents/>
+        </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ContentShowcase;
+export default ContentShowcase

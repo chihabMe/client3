@@ -17,6 +17,11 @@ const nextConfig: NextConfig = {
         hostname: "i.pravatar.cc",
         pathname: "/**",
       },
+      {
+        protocol:"https",
+        hostname:"image.tmdb.org",
+        pathname:"/**"
+      }
     ],
   },
 };

@@ -18,6 +18,8 @@ const Index = () => {
     <div className="min-h-screen  text-white overflow-x-hidden">
       <main>
         <Hero />
+        <ContentShowcase />
+        <Pricing />
         <KeyStats />
         <WhyChooseUs />
         <FeaturedContent
@@ -26,9 +28,7 @@ const Index = () => {
           contents={featuredContent}
           viewAllLink="/channels"
         />
-        <ContentShowcase />
         <HowItWorks />
-        <Pricing />
         <SocialProof />
         {/* <ProviderSelection /> */}
         <Compatibility />
