@@ -1,6 +1,6 @@
 "use client"
 import React, { useRef } from "react"
-import { Tv, Film, Smartphone, Headphones, Zap, MonitorSmartphone } from "lucide-react"
+import { Tv, Film, Zap, MonitorSmartphone } from "lucide-react"
 import * as motion from "motion/react-m"
 import { useInView } from "motion/react"
 
@@ -131,7 +131,7 @@ export default function WhyChooseUs() {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           <Feature
             title="Protection Premium"
             description="Grâce à nos serveurs haut de gamme équipés des dernières technologies anti-gel et anti-freeze, nous vous offrons l’expérience IPTV la plus stable et la plus fiable du marché."
@@ -156,25 +156,10 @@ export default function WhyChooseUs() {
             index={2}
           />
 
-          <Feature
-            title="Service Client 24/7"
-            description="Notre équipe est disponible 24h/24 et 7j/7 pour répondre à toutes vos questions, vous guider dans l’installation et résoudre rapidement les problèmes techniques."
-            highlight=""
-            icon={<Headphones className="w-full h-full text-[#00ff2a]" />}
-            index={3}
-          />
 
           <Feature
-            title="Interface Simple & Intuitive"
-            description="Notre interface utilisateur est conçue pour une utilisation simple et rapide. Naviguez entre les chaînes et contenus en quelques clics, même pour les débutants."
-            highlight=""
-            icon={<Smartphone className="w-full h-full text-[#00ff2a]" />}
-            index={4}
-          />
-
-          <Feature
-            title="Compatibilité Multi-Appareils"
-            description="Profitez de votre abonnement IPTV sur tous vos appareils : Smart TV, PC, tablette, smartphone, Firestick et bien plus encore."
+            title="Contenu Premium Illimité"
+            description="Accédez aux meilleures chaînes premium du monde entier, ainsi qu’aux films et séries les plus populaires, le tout en illimité et à portée de clic."
             highlight="abonnement IPTV"
             icon={<MonitorSmartphone className="w-full h-full text-[#00ff2a]" />}
             index={5}
