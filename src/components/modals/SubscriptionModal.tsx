@@ -82,8 +82,7 @@ const SubscriptionModal = ({
 
       form.reset();
       onClose();
-    } catch () {
-
+    } catch {
       toast({
         title: "Erreur",
         description: "Une erreur s'est produite. Veuillez réessayer.",
