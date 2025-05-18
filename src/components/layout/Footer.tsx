@@ -3,6 +3,7 @@
 import React from "react";
 import * as motion from "motion/react-m";
 import { fadeIn } from "@/lib/motions";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -18,8 +19,13 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-2xl font-bold text-[#0055A4]">IPTV</span>
-              <span className="text-2xl font-bold text-white">King</span>
+              <Image
+                src="/logo.png"
+                width={150}
+                height={150}
+                className="w-24 h-24 sm:w-30 sm:h-30 md:w-34 md:h-34"
+                alt="logo image"
+              />
             </div>
             <p className="text-gray-400 text-sm mb-4">
               The ultimate streaming experience with unlimited entertainment

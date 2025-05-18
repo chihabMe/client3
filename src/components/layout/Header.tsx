@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import SpecialOfferHeader from "@/components/layout/SpecialOfferHeader";
 import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -41,39 +42,27 @@ const Header = () => {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12"
+      className="fixed top-0 left-0  right-0 z-50 py-4 px-6 md:px-12"
       style={{
         backgroundColor: headerBg,
         backdropFilter: `blur(${headerBlur}px)`,
       }}
     >
       <SpecialOfferHeader />
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container  mx-auto flex justify-between items-center">
         <motion.div
-          className="flex items-center gap-2"
+          className=""
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <motion.span
-            className="text-2xl font-bold text-[#0055A4]"
-            whileHover={{
-              scale: 1.1,
-              textShadow: "0 0 8px rgba(57, 255, 20, 0.8)",
-              transition: { duration: 0.2 },
-            }}
-          >
-            IPTV
-          </motion.span>
-          <motion.span
-            className="text-2xl font-bold text-white"
-            whileHover={{
-              scale: 1.1,
-              transition: { duration: 0.2 },
-            }}
-          >
-            King
-          </motion.span>
+          <Image
+            src="/logo.png"
+            width={150}
+            height={150}
+            className="w-24 h-24 sm:w-30 sm:h-30 md:w-40 md:h-40"
+            alt="logo image"
+          />
         </motion.div>
 
         {/* Navigation Desktop */}
