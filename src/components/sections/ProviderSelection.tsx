@@ -121,7 +121,7 @@ const ProviderSelection = () => {
                     <CardFooter className="px-8 pb-8 pt-0">
                       <Button
                         onClick={() => setFlipped(true)}
-                        className="w-full bg-[#39ff14] text-black hover:bg-[#39ff14]/90 rounded-xl"
+                        className="w-full bg-[#0055A4] text-black hover:bg-[#0055A4]/90 rounded-xl"
                       >
                         View Available Content
                       </Button>
@@ -160,7 +160,7 @@ const ProviderSelection = () => {
                       </p>
 
                       <div className="mt-6">
-                        <h4 className="text-[#39ff14] font-semibold mb-2">
+                        <h4 className="text-[#0055A4] font-semibold mb-2">
                           Highlights:
                         </h4>
                         <ul className="list-disc list-inside text-gray-300 space-y-1">

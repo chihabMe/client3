@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import * as motion from "motion/react-m"
+import * as motion from "motion/react-m";
 import { Check } from "lucide-react";
 import pricingData from "@/data/pricing.json";
 
@@ -36,10 +36,7 @@ export const staggerContainer = {
 
 const Pricing = () => {
   return (
-    <section
-      id="ultimate-pricing"
-      className="py-20"
-    >
+    <section id="ultimate-pricing" className="py-20">
       <div className="container mx-auto  px-6">
         <motion.div
           variants={fadeIn}
@@ -52,7 +49,8 @@ const Pricing = () => {
             Paiement rapide via PayPal – aucun risque, aucune complication.
           </h2>
           <p className="text-gray-800 max-w-2xl mx-auto">
-            Ne ratez pas cette offre ! Abonnez-vous pour 12 mois et recevez 3 mois offerts.
+            Ne ratez pas cette offre ! Abonnez-vous pour 12 mois et recevez 3
+            mois offerts.
           </p>
         </motion.div>
 
@@ -68,17 +66,19 @@ const Pricing = () => {
               key={plan.id}
               variants={fadeIn}
               whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
-              className={`flex flex-col h-full ${plan.highlighted ? "relative z-10 scale-105 md:scale-110" : ""
-                }`}
+              className={`flex flex-col h-full ${
+                plan.highlighted ? "relative z-10 scale-105 md:scale-110" : ""
+              }`}
             >
               <Card
-                className={`flex flex-col h-full bg-white/10 border ${plan.highlighted
-                  ? "border-[#39ff14] shadow-[#39ff14]"
-                  : "border-gray-800"
-                  } rounded-2xl overflow-hidden`}
+                className={`flex flex-col h-full bg-white/10 border ${
+                  plan.highlighted
+                    ? "border-[#0055A4] shadow-[#0055A4]"
+                    : "border-gray-800"
+                } rounded-2xl overflow-hidden`}
               >
                 {plan.highlighted && (
-                  <div className="bg-[#19ff14] py-1.5 text-gray-900 font-medium text-center text-sm">
+                  <div className="bg-[#0055A4] py-1.5 text-white font-medium text-center text-sm">
                     Profitez de 25% de Réduction
                   </div>
                 )}
@@ -106,8 +106,8 @@ const Pricing = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 * index }}
                       >
-                        <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#39ff14]/20 flex items-center justify-center mr-3">
-                          <Check className="w-3 h-3 text-[#39ff14]" />
+                        <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#0055A4]/20 flex items-center justify-center mr-3">
+                          <Check className="w-3 h-3 text-[#0055A4]" />
                         </span>
                         <span className="text-gray-700">{feature}</span>
                       </motion.li>
@@ -117,10 +117,11 @@ const Pricing = () => {
 
                 <CardFooter className="pt-4 pb-8 px-6">
                   <Button
-                    className={`w-full cursor-pointer  rounded-xl py-6 ${plan.highlighted
-                      ? "bg-[#39ff14] text-white hover:bg-[#39ff14]/90"
-                      : "bg-black text-white hover:bg-black/80"
-                      }`}
+                    className={`w-full cursor-pointer  rounded-xl py-6 ${
+                      plan.highlighted
+                        ? "bg-[#0055A4] text-white hover:bg-[#0055A4]/90"
+                        : "bg-black text-white hover:bg-black/80"
+                    }`}
                   >
                     {plan.cta}
                   </Button>

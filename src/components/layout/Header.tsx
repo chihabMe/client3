@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import SpecialOfferHeader from "@/components/layout/SpecialOfferHeader";
+import Link from "next/link";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -55,7 +56,7 @@ const Header = () => {
           transition={{ duration: 0.5 }}
         >
           <motion.span
-            className="text-2xl font-bold text-[#39ff14]"
+            className="text-2xl font-bold text-[#0055A4]"
             whileHover={{
               scale: 1.1,
               textShadow: "0 0 8px rgba(57, 255, 20, 0.8)",
@@ -81,13 +82,13 @@ const Header = () => {
             <motion.a
               key={item.href}
               href={item.href}
-              className="text-white hover:text-[#39ff14] transition-colors"
+              className="text-white hover:text-[#0055A4] transition-colors"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 + 0.2 }}
               whileHover={{
                 scale: 1.1,
-                color: "#39ff14",
+                color: "#0055A4",
                 transition: { duration: 0.2 },
               }}
               whileTap={{ scale: 0.95 }}
@@ -100,23 +101,17 @@ const Header = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6, type: "spring" }}
           >
-            <motion.div
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 15px rgba(57, 255, 20, 0.7)",
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button className="bg-[#39ff14] text-black hover:bg-[#39ff14]/90 ml-4 rounded-2xl">
+            <Link href={"/#ultimate-pricing"}>
+              <Button className="bg-[#0055A4] cursor-pointer text-white hover:bg-[#0055A4]/90 ml-4 rounded-2xl">
                 Commencer
               </Button>
-            </motion.div>
+            </Link>
           </motion.div>
         </nav>
 
         {/* Bouton Menu Mobile */}
         <motion.button
-          className="md:hidden z-50 cursor-pointer hover:ring-[#39ff14] p-2 hover:ring-2 rounded-md transition-all duration-300 text-white"
+          className="md:hidden z-50 cursor-pointer hover:ring-[#0055A4] p-2 hover:ring-2 rounded-md transition-all duration-300 text-white"
           onClick={toggleMobileMenu}
           aria-label="Basculer le menu"
           initial={{ opacity: 0, scale: 0 }}
@@ -125,9 +120,9 @@ const Header = () => {
           whileTap={{ scale: 0.9 }}
         >
           {mobileMenuOpen ? (
-            <X className="h-6 w-6 text-[#39ff14]" />
+            <X className="h-6 w-6 text-[#0055A4]" />
           ) : (
-            <Menu className="h-6 w-6 text-[#39ff14]" />
+            <Menu className="h-6 w-6 text-[#0055A4]" />
           )}
         </motion.button>
       </div>
@@ -173,7 +168,7 @@ const Header = () => {
                 <motion.a
                   key={item.href}
                   href={item.href}
-                  className="text-white text-2xl font-medium hover:text-[#39ff14] transition-colors"
+                  className="text-white text-2xl font-medium hover:text-[#0055A4] transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                   variants={{
                     hidden: { opacity: 0, y: 20 },
@@ -189,7 +184,7 @@ const Header = () => {
                   }}
                   whileHover={{
                     scale: 1.1,
-                    color: "#39ff14",
+                    color: "#0055A4",
                     textShadow: "0 0 5px rgba(57, 255, 20, 0.5)",
                   }}
                   whileTap={{ scale: 0.95 }}
@@ -212,17 +207,11 @@ const Header = () => {
                   },
                 }}
               >
-                <motion.div
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: "0 0 15px rgba(57, 255, 20, 0.8)",
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Button className="bg-[#39ff14] text-black hover:bg-[#39ff14]/90 rounded-2xl w-64 h-14 text-lg mt-8">
+                <Link href={"/#ultimate-pricing"}>
+                  <Button className="bg-[#0055A4] text-white hover:bg-[#0055A4]/90 rounded-2xl w-64 h-14 text-lg mt-8">
                     Commencer
                   </Button>
-                </motion.div>
+                </Link>
               </motion.div>
             </motion.nav>
           </motion.div>

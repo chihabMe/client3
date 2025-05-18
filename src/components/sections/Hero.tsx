@@ -19,7 +19,10 @@ const staggerContainer = {
 };
 
 const Hero = () => (
-  <section id="home" className="relative min-h-screen flex items-center py-12 md:py-16 overflow-hidden">
+  <section
+    id="home"
+    className="relative min-h-screen flex items-center py-12 md:py-16 overflow-hidden"
+  >
     {/* Background - Improved for responsiveness */}
     <div className="absolute inset-0 z-0">
       <motion.div
@@ -43,7 +46,12 @@ const Hero = () => (
     </div>
 
     {/* Animated Stars - Reduced quantity for mobile */}
-    <motion.div className="absolute inset-0 z-0 opacity-50" initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} transition={{ delay: 0.5, duration: 1 }}>
+    <motion.div
+      className="absolute inset-0 z-0 opacity-50"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 0.5 }}
+      transition={{ delay: 0.5, duration: 1 }}
+    >
       {[...Array(10)].map((_, i) => (
         <motion.div
           key={i}
@@ -76,51 +84,60 @@ const Hero = () => (
           className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
           variants={fadeIn}
         >
-          Adieu aux abonnements multiples, vivez une expérience de divertissement complète avec un seul abonnement IPTV.
+          Adieu aux abonnements multiples, vivez une expérience de
+          divertissement complète avec un seul abonnement IPTV.
           <motion.span variants={fadeIn} className="block mt-2">
             tout le divertissement réuni.
             <motion.div
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
               transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
-              className="h-[2px] md:h-[3px] bg-[#39ff14] mb-2 mx-auto"
+              className="h-[2px] md:h-[3px] bg-[#0055A4] mb-2 mx-auto"
             />
           </motion.span>
         </motion.h1>
 
-        <motion.p className="text-base sm:text-lg md:text-xl text-gray-100 mb-6 md:mb-10" variants={fadeIn}>
-          Avec MEDIA FRANCE IPTV,
-          Accédez à plus de 55 000 chaînes TV et 90 000 VOD et séries en qualité 4K sur tous vos appareils
+        <motion.p
+          className="text-base sm:text-lg md:text-xl text-gray-100 mb-6 md:mb-10"
+          variants={fadeIn}
+        >
+          Avec MEDIA FRANCE IPTV, Accédez à plus de 55 000 chaînes TV et 90 000
+          VOD et séries en qualité 4K sur tous vos appareils
         </motion.p>
 
-        <motion.div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center" variants={fadeIn}>
+        <motion.div
+          className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center"
+          variants={fadeIn}
+        >
+          <Link href="#ultimate-pricing" className="">
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="w-full sm:w-auto"
+              transition={{ boxShadow: { repeat: Infinity, duration: 2 } }}
+            >
+              <Button
+                className="bg-[#0055A4] text-white hover:bg-[#0055A4]/90 text-base md:text-lg font-medium w-full px-6 py-5 md:px-8 md:py-6 rounded-lg"
+                size="lg"
+              >
+                Profitez maintenant
+              </Button>
+            </motion.div>
+          </Link>
+
           <motion.div
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             className="w-full sm:w-auto"
-            animate={{
-              boxShadow: [
-                "0px 0px 0px rgba(57, 255, 20, 0)",
-                "0px 0px 15px rgba(57, 255, 20, 0.7)",
-                "0px 0px 0px rgba(57, 255, 20, 0)",
-              ],
-            }}
-            transition={{ boxShadow: { repeat: Infinity, duration: 2 } }}
           >
-            <Link href="#pricing" className="w-full block">
-              <Button className="bg-[#39ff14] text-black hover:bg-[#39ff14]/90 text-base md:text-lg font-medium w-full px-6 py-5 md:px-8 md:py-6 rounded-lg" size="lg">
-                Profitez maintenant
+            <Link href="#ultimate-pricing">
+              <Button
+                size="lg"
+                className="bg-transparent text-white border border-gray-50/80 text-base md:text-lg font-medium w-full px-6 py-5 md:px-8 md:py-6 rounded-lg"
+              >
+                1 jour d’essai gratuit
               </Button>
             </Link>
-          </motion.div>
-
-          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} className="w-full sm:w-auto">
-            <Button
-              size="lg"
-              className="bg-transparent text-white border border-gray-50/80 text-base md:text-lg font-medium w-full px-6 py-5 md:px-8 md:py-6 rounded-lg"
-            >
-              1 jour d’essai gratuit
-            </Button>
           </motion.div>
         </motion.div>
       </motion.div>

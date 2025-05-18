@@ -3,7 +3,12 @@
 import React from "react";
 import * as motion from "motion/react-m";
 import { fadeIn, staggerContainer } from "@/lib/motions";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import faqData from "@/data/faq.json";
 import { useScrollAnimation } from "@/hook/use-scroll-animation";
 
@@ -24,7 +29,8 @@ const FAQ = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-gray-800 max-w-2xl mx-auto">
-            Find answers to the most common questions about our service, subscription plans, and features.
+            Find answers to the most common questions about our service,
+            subscription plans, and features.
           </p>
         </motion.div>
 
@@ -42,8 +48,11 @@ const FAQ = () => {
                 custom={index}
                 transition={{ delay: index * 0.1 }}
               >
-                <AccordionItem value={faq.id} className="border border-gray-800 rounded-xl overflow-hidden bg-white/5">
-                  <AccordionTrigger className="px-6 py-4 hover:bg-white/5 transition-colors text-lg font-medium text-black data-[state=open]:text-[#39ff14]">
+                <AccordionItem
+                  value={faq.id}
+                  className="border border-gray-800 rounded-xl overflow-hidden bg-white/5"
+                >
+                  <AccordionTrigger className="px-6 py-4 hover:bg-white/5 transition-colors text-lg font-medium text-black data-[state=open]:text-[#0055A4]">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="px-6 pb-4 text-gray-800">

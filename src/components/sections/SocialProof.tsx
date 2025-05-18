@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import * as motion from "motion/react-m"
-import { AnimatePresence } from "motion/react"
-import React, { useEffect, useRef } from "react"
-import { fadeIn } from "@/lib/motions"
-import { Card } from "@/components/ui/card"
-import { useScrollAnimation } from "@/hook/use-scroll-animation"
-import Image from "next/image"
+import * as motion from "motion/react-m";
+import { AnimatePresence } from "motion/react";
+import React, { useEffect, useRef } from "react";
+import { fadeIn } from "@/lib/motions";
+import { Card } from "@/components/ui/card";
+import { useScrollAnimation } from "@/hook/use-scroll-animation";
+import Image from "next/image";
 
 const chatMessages = [
   {
@@ -54,35 +54,45 @@ const chatMessages = [
     color: "bg-pink-500",
     avatar: "https://i.pravatar.cc/150?img=23",
   },
-]
+];
 
 const SocialProof = () => {
-  const { ref, controls } = useScrollAnimation(0.2)
-  const reviewsContainerRef = useRef<HTMLDivElement>(null)
-  const [activeIndex, setActiveIndex] = React.useState(0)
+  const { ref, controls } = useScrollAnimation(0.2);
+  const reviewsContainerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = React.useState(0);
 
   // Auto rotate through reviews
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % chatMessages.length)
-    }, 3000)
+      setActiveIndex((prevIndex) => (prevIndex + 1) % chatMessages.length);
+    }, 3000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="py-20 ">
       <div className="container mx-auto px-6">
-        <motion.div ref={ref} variants={fadeIn} initial="hidden" animate={controls} className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#39ff14] to-[#00bfff]">
+        <motion.div
+          ref={ref}
+          variants={fadeIn}
+          initial="hidden"
+          animate={controls}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#0055A4] to-[#00bfff]">
             Ce Que Disent Nos Clients
           </h2>
           <p className="text-gray-800 max-w-2xl mx-auto">
-            Rejoignez plus de 150 000 abonnés satisfaits qui ont transformé leur expérience de divertissement.
+            Rejoignez plus de 150 000 abonnés satisfaits qui ont transformé leur
+            expérience de divertissement.
           </p>
         </motion.div>
 
-        <div className="relative overflow-hidden max-w-5xl mx-auto" ref={reviewsContainerRef}>
+        <div
+          className="relative overflow-hidden max-w-5xl mx-auto"
+          ref={reviewsContainerRef}
+        >
           <div className="flex justify-center max-w-full overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.div
@@ -133,7 +143,9 @@ const SocialProof = () => {
                               />
                             </div>
                             <div>
-                              <h4 className="text-white font-medium text-sm">{message.name}</h4>
+                              <h4 className="text-white font-medium text-sm">
+                                {message.name}
+                              </h4>
                               <p className="text-gray-300 text-xs">en ligne</p>
                             </div>
                           </div>
@@ -158,10 +170,15 @@ const SocialProof = () => {
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ duration: 0.5 }}
                           >
-                            <p className="text-white text-base">{message.message}</p>
+                            <p className="text-white text-base">
+                              {message.message}
+                            </p>
                             <span className="text-gray-200 text-xs flex justify-end items-center gap-1 mt-2">
                               12:45 PM
-                              <svg className="w-4 h-4 fill-gray-200" viewBox="0 0 16 15">
+                              <svg
+                                className="w-4 h-4 fill-gray-200"
+                                viewBox="0 0 16 15"
+                              >
                                 <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.879a.32.32 0 0 1-.484.033l-.358-.325a.319.319 0 0 0-.484.032l-.378.483a.418.418 0 0 0 .036.541l1.32 1.266c.143.14.361.125.484-.033l6.272-8.048a.366.366 0 0 0-.064-.512z" />
                               </svg>
                             </span>
@@ -178,11 +195,15 @@ const SocialProof = () => {
                             transition={{ delay: 0.3, duration: 0.5 }}
                           >
                             <p className="text-white text-base">
-                              Je le recommanderais certainement à mes amis et à ma famille ! 👍
+                              Je le recommanderais certainement à mes amis et à
+                              ma famille ! 👍
                             </p>
                             <span className="text-gray-200 text-xs flex justify-end items-center gap-1 mt-2">
                               12:46 PM
-                              <svg className="w-4 h-4 fill-gray-200" viewBox="0 0 16 15">
+                              <svg
+                                className="w-4 h-4 fill-gray-200"
+                                viewBox="0 0 16 15"
+                              >
                                 <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.879a.32.32 0 0 1-.484.033l-.358-.325a.319.319 0 0 0-.484.032l-.378.483a.418.418 0 0 0 .036.541l1.32 1.266c.143.14.361.125.484-.033l6.272-8.048a.366.366 0 0 0-.064-.512z" />
                               </svg>
                             </span>
@@ -193,12 +214,14 @@ const SocialProof = () => {
                           {/* User rating */}
                           <div className="flex justify-center mt-12">
                             <div className="bg-[#182229] rounded-xl p-3 inline-flex flex-col items-center">
-                              <div className="text-white text-sm font-medium mb-1">Évaluation Client</div>
+                              <div className="text-white text-sm font-medium mb-1">
+                                Évaluation Client
+                              </div>
                               <div className="flex mt-1">
                                 {[...Array(5)].map((_, i) => (
                                   <motion.svg
                                     key={i}
-                                    className="w-5 h-5 fill-[#39ff14]"
+                                    className="w-5 h-5 fill-[#0055A4]"
                                     viewBox="0 0 20 20"
                                     initial={{ scale: 0 }}
                                     animate={{ scale: 1 }}
@@ -225,8 +248,9 @@ const SocialProof = () => {
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all ${activeIndex === index ? "bg-[#39ff14] w-6" : "bg-gray-400/50"
-                  }`}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  activeIndex === index ? "bg-[#0055A4] w-6" : "bg-gray-400/50"
+                }`}
                 aria-label={`Aller à l'avis ${index + 1}`}
               />
             ))}
@@ -234,7 +258,7 @@ const SocialProof = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default SocialProof
+export default SocialProof;

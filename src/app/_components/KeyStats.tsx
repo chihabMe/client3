@@ -1,47 +1,47 @@
-"use client"
-import { useState, useEffect, useRef } from 'react'
-import * as motion from "motion/react-m"
-import { useInView } from 'motion/react'
+"use client";
+import { useState, useEffect, useRef } from "react";
+import * as motion from "motion/react-m";
+import { useInView } from "motion/react";
 
 interface StatProps {
-  value: string
-  label: string
-  description: string
+  value: string;
+  label: string;
+  description: string;
 }
 
 function Stat({ value, label, description }: StatProps) {
-  const [count, setCount] = useState(0)
-  const finalValue = parseInt(value.replace(/\D/g, ''))
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const [count, setCount] = useState(0);
+  const finalValue = parseInt(value.replace(/\D/g, ""));
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   useEffect(() => {
-    if (!isInView) return
+    if (!isInView) return;
 
     // let start = 0
-    const duration = 2000
-    const startTime = Date.now()
+    const duration = 2000;
+    const startTime = Date.now();
 
     const timer = setInterval(() => {
-      const elapsedTime = Date.now() - startTime
-      const progress = Math.min(elapsedTime / duration, 1)
+      const elapsedTime = Date.now() - startTime;
+      const progress = Math.min(elapsedTime / duration, 1);
 
-      const easeOut = (t: number) => 1 - Math.pow(1 - t, 3)
-      const easedProgress = easeOut(progress)
+      const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+      const easedProgress = easeOut(progress);
 
-      setCount(Math.floor(easedProgress * finalValue))
+      setCount(Math.floor(easedProgress * finalValue));
 
       if (progress === 1) {
-        clearInterval(timer)
+        clearInterval(timer);
       }
-    }, 16)
+    }, 16);
 
-    return () => clearInterval(timer)
-  }, [finalValue, isInView])
+    return () => clearInterval(timer);
+  }, [finalValue, isInView]);
 
-  const formattedCount = value.includes(',')
-    ? count.toLocaleString() + (value.includes('+') ? '+' : '')
-    : count + (value.includes('+') ? '+' : '')
+  const formattedCount = value.includes(",")
+    ? count.toLocaleString() + (value.includes("+") ? "+" : "")
+    : count + (value.includes("+") ? "+" : "");
 
   return (
     <motion.div
@@ -52,7 +52,7 @@ function Stat({ value, label, description }: StatProps) {
       transition={{ duration: 0.5 }}
     >
       <motion.div
-        className="text-[#00ff4a] text-4xl md:text-5xl lg:text-6xl font-bold mb-2"
+        className="text-[#0055A4] text-4xl md:text-5xl lg:text-6xl font-bold mb-2"
         initial={{ scale: 0.8 }}
         animate={isInView ? { scale: 1 } : { scale: 0.8 }}
         transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
@@ -68,7 +68,7 @@ function Stat({ value, label, description }: StatProps) {
         {label}
       </motion.div>
       <motion.div
-        className="h-1 w-full  max-w-[200px] mx-auto bg-gradient-to-r from-[#00ff2a]/0 via-[#00ff2a] to-[#00ff2a]/0 mb-4"
+        className="h-1 w-full  max-w-[200px] mx-auto bg-gradient-to-r from-[#0055A4]/0 via-[#0055A4] to-[#0055A4]/0 mb-4"
         initial={{ width: 0 }}
         animate={isInView ? { width: "100%" } : { width: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
@@ -82,7 +82,7 @@ function Stat({ value, label, description }: StatProps) {
         {description}
       </motion.p>
     </motion.div>
-  )
+  );
 }
 
 export default function KeyStats() {
@@ -113,5 +113,5 @@ export default function KeyStats() {
         </div>
       </div>
     </section>
-  )
+  );
 }

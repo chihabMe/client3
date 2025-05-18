@@ -1,20 +1,20 @@
-"use client"
-import React, { useRef } from "react"
-import { Tv, Film, Zap, MonitorSmartphone } from "lucide-react"
-import * as motion from "motion/react-m"
-import { useInView } from "motion/react"
+"use client";
+import React, { useRef } from "react";
+import { Tv, Film, Zap, MonitorSmartphone } from "lucide-react";
+import * as motion from "motion/react-m";
+import { useInView } from "motion/react";
 
 interface FeatureProps {
-  title: string
-  description: string
-  icon: React.ReactNode
-  highlight?: string
-  index: number
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  highlight?: string;
+  index: number;
 }
 
 function Feature({ title, description, icon, highlight, index }: FeatureProps) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
     <motion.div
@@ -24,7 +24,7 @@ function Feature({ title, description, icon, highlight, index }: FeatureProps) {
       transition={{
         duration: 0.6,
         delay: 0.1 * index,
-        ease: [0.22, 1, 0.36, 1]
+        ease: [0.22, 1, 0.36, 1],
       }}
       className=" backdrop-blur-sm rounded-lg p-6 border border-gray-400/50 hover:border-[#00ff2a]/20 transition-all duration-300 flex flex-col h-full"
     >
@@ -43,13 +43,13 @@ function Feature({ title, description, icon, highlight, index }: FeatureProps) {
         transition={{ duration: 0.3, delay: 0.1 * index + 0.3 }}
       >
         {description.split(highlight || "").map((part, i, arr) => {
-          if (i === arr.length - 1) return part
+          if (i === arr.length - 1) return part;
           return (
             <React.Fragment key={i}>
               {part}
-              <span className="text-[#00ff2a]">{highlight}</span>
+              <span className="text-[#0055A4]">{highlight}</span>
             </React.Fragment>
-          )
+          );
         })}
       </motion.p>
       <div className="mt-auto flex justify-between items-end">
@@ -61,7 +61,7 @@ function Feature({ title, description, icon, highlight, index }: FeatureProps) {
             type: "spring",
             stiffness: 300,
             damping: 20,
-            delay: 0.1 * index + 0.4
+            delay: 0.1 * index + 0.4,
           }}
         >
           <svg
@@ -82,38 +82,31 @@ function Feature({ title, description, icon, highlight, index }: FeatureProps) {
         <motion.div
           className="text-[#ff3e3e] w-12 h-12 flex items-center justify-center"
           initial={{ scale: 0, rotate: -30 }}
-          animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -30 }}
+          animate={
+            isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -30 }
+          }
           transition={{
             type: "spring",
             stiffness: 260,
             damping: 20,
-            delay: 0.1 * index + 0.5
+            delay: 0.1 * index + 0.5,
           }}
         >
           {icon}
         </motion.div>
       </div>
     </motion.div>
-  )
+  );
 }
 
 export default function WhyChooseUs() {
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
   return (
     <section className="py-20 px-4  relative overflow-hidden" ref={sectionRef}>
-
       <div className="container text-black mx-auto relative z-10">
         <div className="text-center mb-16">
-          <motion.p
-            className="text-[#00ff2a] text-sm uppercase tracking-wider mb-3"
-            initial={{ opacity: 0, y: -20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-          >
-            Nos Services
-          </motion.p>
           <motion.h2
             className="text-3xl md:text-4xl font-bold"
             initial={{ opacity: 0, y: -20 }}
@@ -124,7 +117,7 @@ export default function WhyChooseUs() {
           </motion.h2>
 
           <motion.div
-            className="w-24 h-1 bg-gradient-to-r from-[#00ff2a]/0 via-[#00ff2a] to-[#00ff2a]/0 mx-auto mt-6"
+            className="w-24 h-1 bg-gradient-to-r from-[#0055A4]/0 via-[#0055A4] to-[#0055A4]/0 mx-auto mt-6"
             initial={{ width: 0 }}
             animate={isInView ? { width: "6rem" } : { width: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -136,7 +129,7 @@ export default function WhyChooseUs() {
             title="Protection Premium"
             description="Grâce à nos serveurs haut de gamme équipés des dernières technologies anti-gel et anti-freeze, nous vous offrons l’expérience IPTV la plus stable et la plus fiable du marché."
             highlight="streaming"
-            icon={<Tv className="w-full h-full text-[#00ff2a]" />}
+            icon={<Tv className="w-full h-full text-[#0055A4]" />}
             index={0}
           />
 
@@ -144,7 +137,7 @@ export default function WhyChooseUs() {
             title="Fonctionne avec"
             description="Notre abonnement IPTV est entièrement compatible avec toutes les applications populaires, TV Box et appareils disponibles sur le marché. Que vous regardiez sur votre smartphone, tablette, ou télévision connectée, profitez d’une expérience fluide et sans interruption. Accédez à plus de 55 000 chaînes et à un large choix de films et séries en streaming, où que vous soyez et sur tous vos dispositifs."
             highlight=""
-            icon={<Film className="w-full h-full text-[#00ff2a]" />}
+            icon={<Film className="w-full h-full text-[#0055A4]" />}
             index={1}
           />
 
@@ -152,20 +145,21 @@ export default function WhyChooseUs() {
             title="Performance Premium"
             description="Grâce à nos serveurs de dernière génération, profitez de vos émissions et événements préférés avec une qualité et une performance exceptionnelles."
             highlight="performance"
-            icon={<Zap className="w-full h-full text-[#00ff2a]" />}
+            icon={<Zap className="w-full h-full text-[#0055A4]" />}
             index={2}
           />
-
 
           <Feature
             title="Contenu Premium Illimité"
             description="Accédez aux meilleures chaînes premium du monde entier, ainsi qu’aux films et séries les plus populaires, le tout en illimité et à portée de clic."
             highlight="abonnement IPTV"
-            icon={<MonitorSmartphone className="w-full h-full text-[#00ff2a]" />}
+            icon={
+              <MonitorSmartphone className="w-full h-full text-[#0055A4]" />
+            }
             index={5}
           />
         </div>
       </div>
     </section>
-  )
+  );
 }

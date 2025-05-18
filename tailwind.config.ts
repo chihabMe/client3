@@ -63,7 +63,7 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         neon: {
-          DEFAULT: "#39ff14", // Bright neon green
+          DEFAULT: "#0055A4", // Bright neon green
           muted: "#2bbd0f",
         },
       },
