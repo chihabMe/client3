@@ -27,7 +27,7 @@ export const subscribeActions = publicActionsClient
     const whatsappNumber = process.env.WHATSUP_NUMBER || "";
     const siteName = process.env.SITE_NAME ?? "";
 
-    const result = await resend.emails.send({
+     await resend.emails.send({
       to: email,
       from: process.env.EMAIL_FROM ?? "",
       subject: "Confirmation d'abonnement",
@@ -169,7 +169,6 @@ export const subscribeActions = publicActionsClient
 </html>`,
     });
 
-    console.log(result);
 
     return {
       status: "success",
