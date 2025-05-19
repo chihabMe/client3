@@ -3,17 +3,12 @@
     {
       "id": "devices",
       "question": "Combien d'appareils puis-je utiliser pour regarder ?",
-      "answer": "Vous pouvez regarder sur un seul appareil à la fois. Notre service est limité à un seul appareil connecté simultanément pour garantir la meilleure qualité et sécurité."
-    },
-    {
-      "id": "cancel",
-      "question": "Puis-je annuler mon abonnement à tout moment ?",
-      "answer": "Oui ! Tous nos forfaits sont sans engagement. Vous pouvez annuler votre abonnement à tout moment, et vous continuerez à avoir accès au service jusqu’à la fin de votre période de facturation en cours."
+      "answer": "les abonnés a notre service ne peuvent regarder les chaines que sur 1 appareil a la fois."
     },
     {
       "id": "content",
-      "question": "Quels sont les chaînes et contenus inclus ?",
-      "answer": "Notre plateforme propose un large éventail de chaînes : sports, divertissement, actualités, films et bien plus encore. La liste exacte des chaînes dépend de votre forfait et de votre localisation géographique. Vous pouvez consulter la liste complète des chaînes lors de l’inscription."
+      "question": "Puis-je annuler mon abonnement à tout moment ?",
+      "answer": "Oui ! Tous nos forfaits sont sans engagement. Vous pouvez annuler votre abonnement à tout moment, et vous continuerez à avoir accès au service jusqu’à la fin de votre période de facturation en cour"
     },
     {
       "id": "quality",
