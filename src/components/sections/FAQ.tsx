@@ -29,8 +29,7 @@ const FAQ = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-gray-800 max-w-2xl mx-auto">
-            Find answers to the most common questions about our service,
-            subscription plans, and features.
+            Trouvez des réponses aux questions les plus fréquentes concernant notre service, nos forfaits d’abonnement et nos fonctionnalités.
           </p>
         </motion.div>
 

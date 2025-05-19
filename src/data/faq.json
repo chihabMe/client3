@@ -16,6 +16,11 @@
       "answer": "La qualité de streaming dépend de votre connexion Internet. Nous offrons du contenu en qualité HD pour garantir une expérience fluide. Une connexion Internet d’au moins 5 Mbps est recommandée pour un visionnage optimal."
     },
     {
+      "id":"compatible",
+      "question":"Est-ce compatible avec mon appareil ?",
+      "answer":"Notre service IPTV est accessible à tous les appareils"
+    },
+    {
       "id": "trial",
       "question": "Proposez-vous un essai gratuit ?",
       "answer": "Oui, nous offrons un essai gratuit de 1 jour sur tous nos forfaits. Vous pouvez tester toutes les fonctionnalités avant le début de votre abonnement. Aucun frais ne sera facturé avant la fin de la période d’essai."
@@ -23,7 +28,7 @@
     {
       "id": "payment",
       "question": "Quels sont les moyens de paiement acceptés ?",
-      "answer": "Nous acceptons toutes les principales cartes bancaires (Visa, MasterCard, American Express, Discover), PayPal, ainsi que les portefeuilles numériques comme Google Pay et Apple Pay. Dans certaines régions, le paiement via opérateur mobile est également disponible."
+      "answer": "Nous acceptons toutes les principales cartes bancaires (Visa, MasterCard ), PayPal, ainsi que les portefeuilles numériques comme Google Pay et Apple Pay. Dans certaines régions, le paiement via opérateur mobile est également disponible."
     }
   ]
 }
