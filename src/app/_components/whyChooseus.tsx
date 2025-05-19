@@ -135,7 +135,7 @@ export default function WhyChooseUs() {
 
           <Feature
             title="Fonctionne avec"
-            description="Notre abonnement IPTV est entièrement compatible avec toutes les applications populaires, TV Box et appareils disponibles sur le marché. Que vous regardiez sur votre smartphone, tablette, ou télévision connectée, profitez d’une expérience fluide et sans interruption. Accédez à plus de 55 000 chaînes et à un large choix de films et séries en streaming, où que vous soyez et sur tous vos dispositifs."
+            description="Notre abonnement IPTV est entièrement compatible avec toutes les applications populaires, TV Box et appareils disponibles sur le marché. Que vous regardiez sur votre smartphone, tablette ou télévision connectée, profitez d’une connection fluide et sans interruption. Accédez à plus de 55 000 chaînes et à un large choix de films et séries en streaming sur tous vos dispositifs où que vous soyez."
             highlight=""
             icon={<Film className="w-full h-full text-[#0055A4]" />}
             index={1}
@@ -151,7 +151,7 @@ export default function WhyChooseUs() {
 
           <Feature
             title="Contenu Premium Illimité"
-            description="Accédez aux meilleures chaînes premium du monde entier, ainsi qu’aux films et séries les plus populaires, le tout en illimité et à portée de clic."
+            description="Accédez aux meilleures chaînes premium du monde entier, ainsi qu’aux films et séries les plus populaires, le tout en illimité ."
             highlight="abonnement IPTV"
             icon={
               <MonitorSmartphone className="w-full h-full text-[#0055A4]" />

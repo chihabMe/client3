@@ -18,25 +18,25 @@ const Compatibility = () => {
     {
       id: 2,
       name: "iPhone & iPad",
-      icon: (props: any) => <Apple strokeWidth={1.5} {...props} />,
-      color: "from-gray-400 to-gray-600",
+      icon: () => <Image width={150} height={150} alt="image apple" src="/apple.png" />,
+      color: "",
     },
     {
       id: 3,
       name: "Amazon Fire TV",
-      icon: (props: any) => <Tv strokeWidth={1.5} {...props} />,
-      color: "from-orange-400 to-orange-600",
+      icon: () => <Image width={150} height={150} alt="image amazon" src="/amazon.png" />,
+      color: "",
     },
     {
       id: 4,
       name: "Samsung Smart TV",
-      icon: (props: any) => <Tv strokeWidth={1.5} {...props} />,
+      icon: () => <Image width={150} height={150} alt="image samsung" src="/samsung.png" />,
       color: "from-blue-400 to-blue-600",
     },
     {
       id: 5,
       name: "LG WebOS",
-      icon: (props: any) => <Tv strokeWidth={1.5} {...props} />,
+      icon: () => <Image width={150} height={150} alt="image lg" src="/lg.png" />,
       color: "from-red-400 to-red-600",
     },
     {
@@ -54,8 +54,8 @@ const Compatibility = () => {
     {
       id: 8,
       name: "Mac",
-      icon: (props: any) => <Apple strokeWidth={1.5} {...props} />,
-      color: "from-gray-400 to-gray-600",
+      icon: () => <Image width={150} height={150} alt="image mac" src="/apple.png" />,
+      color: "",
     },
   ]
 
@@ -90,7 +90,7 @@ const Compatibility = () => {
               className="flex flex-col items-center"
             >
               <div
-                className={`w-32 h-32 rounded-2xl flex items-center justify-center bg-gradient-to-br ${device.color} shadow-lg mb-6 p-6 transform transition-all duration-300`}
+                className={`w-32 h-32 rounded-2xl flex items-center justify-center bg-gradient-to-br ${device.color}  mb-6 p-6 transform transition-all duration-300`}
               >
                 {device.icon({ className: "w-full h-full text-white" })}
               </div>
