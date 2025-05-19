@@ -71,14 +71,9 @@ const SubscriptionModal = ({
       // Here you would send the data to your API
       const response = await subscribeActions({
         ...data,
-        orderNumber: Date.now().toString(),
         planName: plan.name,
         duration: plan.period,
         price: plan.price.toString(),
-        paypalLink: "https://paypal.me/yourlink",
-        contactEmail: process.env.CONTACT_EMAIL || "",
-        whatsappNumber: process.env.WHATSUP_NUMBER || "",
-        siteName: process.env.SITE_NAME ?? "",
       });
       if (response?.data?.status !== "success") {
         throw new Error("Subscription failed");

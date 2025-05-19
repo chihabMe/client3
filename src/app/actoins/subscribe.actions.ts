@@ -13,31 +13,19 @@ const subscribeSchema = z.object({
   phoneNumber: z
     .string()
     .min(10, { message: "Veuillez entrer un numéro de téléphone valide." }),
-  orderNumber: z.string(),
   planName: z.string(),
   duration: z.string(),
   price: z.string(),
-  paypalLink: z.string().url(),
-  contactEmail: z.string().email(),
-  whatsappNumber: z.string(),
-  siteName: z.string(),
 });
 
 export const subscribeActions = publicActionsClient
   .schema(subscribeSchema)
   .action(async ({ parsedInput }) => {
-    const {
-      fullName,
-      email,
-      orderNumber,
-      planName,
-      duration,
-      price,
-      paypalLink,
-      contactEmail,
-      whatsappNumber,
-      siteName,
-    } = parsedInput;
+    const { fullName, email, planName, duration, price } = parsedInput;
+    const paypalLink = process.env.PAYMENT_LINK ?? "";
+    const contactEmail = process.env.CONTACT_EMAIL || "";
+    const whatsappNumber = process.env.WHATSUP_NUMBER || "";
+    const siteName = process.env.SITE_NAME ?? "";
 
     await resend.emails.send({
       to: email,
@@ -160,6 +148,7 @@ export const subscribeActions = publicActionsClient
                 padding: 15px;
             }
             .contact-info {
+                display:flex;
                 flex-direction: column;
                 align-items: center;
                 gap: 10px;
@@ -170,14 +159,13 @@ export const subscribeActions = publicActionsClient
 <body>
     <div class="email-container">
         <div class="header">
-            <div class="logo">${siteName} IPTV</div>
             <div>Confirmation de votre commande</div>
         </div>
         
         <div class="content">
             <p>Bonjour <strong>${fullName}</strong>,</p>
             
-            <p>Merci d'avoir choisi notre service IPTV! Votre commande <strong>${orderNumber}</strong> a été reçue avec succès.</p>
+            <p>Merci d'avoir choisi notre service IPTV! Votre commande  a été reçue avec succès.</p>
             
             <div class="order-details">
                 <h2>📦 Détails de votre commande</h2>
@@ -185,7 +173,6 @@ export const subscribeActions = publicActionsClient
                     <li><strong>Forfait:</strong> ${planName}</li>
                     <li><strong>Durée:</strong> ${duration}</li>
                     <li><strong>Prix:</strong> ${price} €</li>
-                    <li><strong>Numéro de commande:</strong> ${orderNumber}</li>
                 </ul>
             </div>
             
@@ -198,7 +185,7 @@ export const subscribeActions = publicActionsClient
                     <li>Votre compte sera activé immédiatement après confirmation</li>
                 </ol>
                 <div style="text-align: center;">
-                    <a href="${paypalLink}" class="btn" target="_blank">Payer maintenant via PayPal</a>
+                    <a href="${paypalLink}" style="color:white" class="btn" target="_blank">Payer maintenant via PayPal</a>
                 </div>
                 <p style="font-size: 14px; color: #666; text-align: center;">PayPal vous offre sécurité, protection acheteur et activation instantanée de votre service.</p>
             </div>
@@ -208,12 +195,11 @@ export const subscribeActions = publicActionsClient
             
             <div class="contact-info">
                 <div class="contact-method">
-                    <div class="contact-icon">✉️</div>
                     <a href="mailto:${contactEmail}">${contactEmail}</a>
                 </div>
-                <div class="contact-method">
-                    <div class="contact-icon">📱</div>
-                    <a href="https://wa.me/${whatsappNumber}">WhatsApp: ${whatsappNumber}</a>
+
+                <div class="contact-method" style="margin-left: 20px;">
+                    <a href="https://wa.me/${whatsappNumber}"> WhatsApp: ${whatsappNumber}</a>
                 </div>
             </div>
         </div>
