@@ -3,7 +3,7 @@ import * as motion from "motion/react-m"
 import { fadeIn, staggerContainer } from "@/lib/motions"
 import { useScrollAnimation } from "@/hook/use-scroll-animation"
 import Image from "next/image"
-import { Smartphone, Tv, Apple } from "lucide-react"
+import { Smartphone} from "lucide-react"
 
 const Compatibility = () => {
   const { ref, controls } = useScrollAnimation(0.2)
