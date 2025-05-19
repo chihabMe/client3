@@ -40,7 +40,7 @@ const PricingCard = ({ plan }: PricingCardProps) => {
         } rounded-2xl overflow-hidden`}
       >
         {plan.highlighted && (
-          <div className="bg-[#0055A4] py-1.5 text-white font-medium text-center text-sm">
+          <div className="bg-[#eb2c36] py-1.5 text-white font-medium text-center text-sm">
             Profitez de 25% de Réduction
           </div>
         )}
@@ -80,7 +80,7 @@ const PricingCard = ({ plan }: PricingCardProps) => {
             onClick={onSubscribe}
             className={`w-full cursor-pointer rounded-xl py-6 ${
               plan.highlighted
-                ? "bg-[#0055A4] text-white hover:bg-[#0055A4]/90"
+                ? "bg-[#eb2c36] text-white hover:bg-[#eb2c36]/90"
                 : "bg-black text-white hover:bg-black/80"
             }`}
           >
