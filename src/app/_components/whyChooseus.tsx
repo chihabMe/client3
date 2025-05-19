@@ -127,7 +127,7 @@ export default function WhyChooseUs() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           <Feature
             title="Protection Premium"
-            description="Grâce à nos serveurs haut de gamme équipés des dernières technologies anti-gel et anti-freeze, nous vous offrons l’expérience IPTV la plus stable et la plus fiable du marché."
+            description='Grâce à nos serveurs haut de gamme équipés des dernières technologies "anti-gel et anti-freeze", nous vous offrons l’expérience IPTV la plus stable et la plus fiable du marché.'
             highlight="streaming"
             icon={<Tv className="w-full h-full text-[#0055A4]" />}
             index={0}

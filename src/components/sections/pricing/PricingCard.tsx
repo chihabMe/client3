@@ -33,10 +33,10 @@ const PricingCard = ({ plan }: PricingCardProps) => {
       }`}
     >
       <Card
-        className={`flex flex-col h-full bg-white/10 border ${
+        className={`flex flex-col border-2 h-full bg-white/10 border ${
           plan.highlighted
             ? "border-[#0055A4] shadow-[#0055A4]"
-            : "border-gray-800"
+            : "border-blue-500"
         } rounded-2xl overflow-hidden`}
       >
         {plan.highlighted && (
