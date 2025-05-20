@@ -27,7 +27,7 @@ export const subscribeActions = publicActionsClient
     const whatsappNumber = process.env.WHATSUP_NUMBER || "";
     const siteName = process.env.SITE_NAME ?? "";
 
-     await resend.emails.send({
+    await resend.emails.send({
       to: email,
       from: process.env.EMAIL_FROM ?? "",
       subject: "Confirmation d'abonnement",
@@ -117,58 +117,57 @@ export const subscribeActions = publicActionsClient
 <body>
   <div class="email-container">
     <div class="header">
-      <div>Confirmation de votre commande</div>
+      <h1>Confirmation de votre commande</h1>
     </div>
 
     <div class="content">
       <p>Bonjour <strong>${fullName}</strong>,</p>
-      <p>Merci d'avoir choisi notre service ! Votre commande a été reçue avec succès.</p>
+      <p>Merci d’avoir choisi notre service ! Votre commande a bien été reçue.</p>
 
       <div class="order-details">
         <h2>📦 Détails de votre commande</h2>
         <ul>
-          <li><strong>Forfait:</strong> ${planName}</li>
-          <li><strong>Durée:</strong> ${duration}</li>
-          <li><strong>Prix:</strong> ${price} €</li>
+          <li><strong>Forfait :</strong> ${planName}</li>
+          <li><strong>Durée :</strong> ${duration}</li>
+          <li><strong>Prix :</strong> ${price} €</li>
         </ul>
       </div>
 
       <div class="payment-section">
         <h2>💳 Finalisez votre paiement</h2>
-        <p>Pour une activation rapide de votre abonnement, veuillez suivre ces étapes :</p>
+        <p>Pour activer votre abonnement rapidement, suivez ces étapes :</p>
         <ol>
           <li>Cliquez sur le bouton ci-dessous</li>
-          <li>Complétez votre paiement en toute sécurité</li>
-          <li>Votre compte sera activé après confirmation</li>
+          <li>Effectuez votre paiement en toute sécurité</li>
+          <li>Votre compte sera activé dès confirmation</li>
         </ol>
         <div style="text-align: center;">
-          <a href="${paypalLink}" style="color:white" class="btn" target="_blank">Payer maintenant via PayPal</a>
+          <a href="${paypalLink}" class="btn" target="_blank">Payer maintenant via PayPal</a>
         </div>
-        <p style="font-size: 14px; color: #666; text-align: center;">PayPal vous offre sécurité, protection acheteur et traitement rapide.</p>
+        <p style="font-size: 14px; color: #666; text-align: center;">
+          Pour éviter tout blocage, indiquez « Service numérique 12 mois » en motif de paiement.
+        </p>
       </div>
 
-      <h3>Besoin d'aide ?</h3>
-      <p>Notre équipe de support est disponible pour répondre à toutes vos questions.</p>
+      <h3>Besoin d'aide ?</h3>
+      <p>Notre équipe reste à votre disposition pour toute question :</p>
       <div class="contact-info">
-        <div>
-          <a href="mailto:${contactEmail}">${contactEmail}</a>
-        </div>
-        <div>
-          <a href="https://wa.me/${whatsappNumber}">WhatsApp: ${whatsappNumber}</a>
-        </div>
+        <a href="mailto:${contactEmail}">${contactEmail}</a>
+        <a href="https://wa.me/${whatsappNumber}">WhatsApp : ${whatsappNumber}</a>
       </div>
     </div>
 
     <div class="footer">
-      <p>Merci pour votre confiance !</p>
-      <p>L'équipe <strong>${siteName}</strong></p>
-      <p style="font-size: 12px; margin-top: 15px;">© 2025 ${siteName}. Tous droits réservés.</p>
+      <p>Merci pour votre confiance !</p>
+      <p>L’équipe <strong>${siteName}</strong></p>
+      <p style="font-size: 12px; margin-top: 15px;">
+        © 2025 <strong>${siteName}</strong>. Tous droits réservés.
+      </p>
     </div>
   </div>
 </body>
 </html>`,
     });
-
 
     return {
       status: "success",
