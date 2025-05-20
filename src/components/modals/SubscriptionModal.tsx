@@ -70,6 +70,7 @@ const SubscriptionModal = ({ isOpen, onClose, plan }: SubscriptionModalProps) =>
       });
     } finally {
       setIsSubmitting(false);
+      handleWhatsApp()
     }
   };
 
