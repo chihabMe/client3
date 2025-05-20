@@ -87,7 +87,6 @@ const Hero = () => (
           Adieu aux abonnements multiples, vivez une expérience de
           divertissement complète avec un seul abonnement IPTV.
           <motion.span variants={fadeIn} className="block mt-2">
-            tout le divertissement réuni.
             <motion.div
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
