@@ -57,10 +57,10 @@ const Header = () => {
           transition={{ duration: 0.5 }}
         >
           <Image
-            src="/logo.png"
-            width={150}
-            height={150}
-            className="w-24 h-24 sm:w-30 sm:h-30 md:w-40 md:h-40"
+            src="/logo.webp"
+            width={100}
+            height={100}
+            className="w-24 h-24 "
             alt="logo image"
           />
         </motion.div>

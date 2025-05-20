@@ -20,10 +20,10 @@ const Footer = () => {
           >
             <div className="flex items-center gap-2 mb-4">
               <Image
-                src="/logo.png"
-                width={150}
-                height={150}
-                className="w-24 h-24 sm:w-30 sm:h-30 md:w-34 md:h-34"
+                src="/logo.webp"
+                width={100}
+                height={100}
+                className="w-20 h-20 "
                 alt="logo image"
               />
             </div>
