@@ -1,34 +1,34 @@
 {
   "questions": [
     {
+      "id": "compatible",
+      "question": "EST-CE COMPATIBLE AVEC MON APPAREIL ?",
+      "answer": "Notre service IPTV est accessible avec tous les appareils."
+    },
+    {
       "id": "devices",
-      "question": "Combien d'appareils puis-je utiliser pour regarder ?",
-      "answer": "les abonnés a notre service ne peuvent regarder les chaines que sur 1 appareil a la fois."
-    },
-    {
-      "id": "content",
-      "question": "Puis-je annuler mon abonnement à tout moment ?",
-      "answer": "Oui ! Tous nos forfaits sont sans engagement. Vous pouvez annuler votre abonnement à tout moment, et vous continuerez à avoir accès au service jusqu’à la fin de votre période de facturation en cour"
-    },
-    {
-      "id": "quality",
-      "question": "Quelle est la qualité de streaming proposée ?",
-      "answer": "La qualité de streaming dépend de votre connexion Internet. Nous offrons du contenu en qualité HD pour garantir une expérience fluide. Une connexion Internet d’au moins 5 Mbps est recommandée pour un visionnage optimal."
-    },
-    {
-      "id":"compatible",
-      "question":"Est-ce compatible avec mon appareil ?",
-      "answer":"Notre service IPTV est accessible à tous les appareils"
+      "question": "COMBIEN D’APPAREILS PUIS-JE UTILISER POUR REGARDER ?",
+      "answer": "Les abonnés à notre service ne peuvent regarder les chaînes que sur 1 appareil à la fois."
     },
     {
       "id": "trial",
-      "question": "Proposez-vous un essai gratuit ?",
+      "question": "PROPOSEZ-VOUS UN ESSAI GRATUIT ?",
       "answer": "Oui, nous offrons un essai gratuit de 1 jour sur tous nos forfaits. Vous pouvez tester toutes les fonctionnalités avant le début de votre abonnement. Aucun frais ne sera facturé avant la fin de la période d’essai."
     },
     {
-      "id": "payment",
-      "question": "Quels sont les moyens de paiement acceptés ?",
-      "answer": "Nous acceptons toutes les principales cartes bancaires (Visa, MasterCard ), PayPal, ainsi que les portefeuilles numériques comme Google Pay et Apple Pay. Dans certaines régions, le paiement via opérateur mobile est également disponible."
+      "id": "installation",
+      "question": "COMMENT INSTALLER MON ABONNEMENT IPTV ?",
+      "answer": "Après avoir effectué le paiement de votre abonnement IPTV, un message WhatsApp ou un email de confirmation avec vos infos d’accès et les instructions d’activation vous sera adressé."
+    },
+    {
+      "id": "activation",
+      "question": "COMMENT ACTIVER MON ABONNEMENT ?",
+      "answer": "Une fois le paiement confirmé, un message WhatsApp ou un email sera envoyé dans l’heure qui suit."
+    },
+    {
+      "id": "support",
+      "question": "COMMENT AVOIR DES RÉPONSES À MES QUESTIONS ?",
+      "answer": "Veuillez nous contacter par WhatsApp : +213773941700 ou par email : bourouznadir@gmail.com"
     }
   ]
 }
