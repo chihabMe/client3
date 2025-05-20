@@ -60,7 +60,7 @@ const Header = () => {
             src="/logo.webp"
             width={130}
             height={130}
-            className=" w-24 h-20 md:w-40 md:h-30 "
+            className=" w-30 h-20 md:w-40 md:h-30 "
             alt="logo image"
           />
         </motion.div>

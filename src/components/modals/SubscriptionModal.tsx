@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -11,8 +9,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { PricingPlan } from "../sections/pricing/PricingSection";
-import { subscribeActions } from "@/app/actoins/subscribe.actions";
 import { whatsupNumber } from "@/constants";
+import { subscribeActions } from "@/app/actoins/subscribe.actions";
 
 export const subscribeSchema = z.object({
   fullName: z.string().min(2, { message: "Le nom doit contenir au moins 2 caractères." }),
@@ -32,6 +30,7 @@ const SubscriptionModal = ({ isOpen, onClose, plan }: SubscriptionModalProps) =>
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [userEmail, setUserEmail] = useState("");
+  const [whatsAppMessage, setWhatsAppMessage] = useState("");
   const { toast } = useToast();
 
   const form = useForm<FormValues>({
@@ -42,21 +41,41 @@ const SubscriptionModal = ({ isOpen, onClose, plan }: SubscriptionModalProps) =>
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     setUserEmail(data.email);
+    // Prepare WhatsApp message template
+    const message = `Bonjour, je m'appelle ${data.fullName}. \nJe souhaite souscrire au forfait *${plan.name}* (${plan.period}) pour *${plan.price}$*. \nMon email : ${data.email} \nMon téléphone : ${data.phoneNumber}`;
+    setWhatsAppMessage(message);
+
     try {
-      const response = await subscribeActions({ ...data, planName: plan.name, duration: plan.period, price: plan.price.toString() });
+      const response = await subscribeActions({
+        ...data,
+        planName: plan.name,
+        duration: plan.period,
+        price: plan.price.toString(),
+      });
+
       if (response?.data?.status !== "success") throw new Error("Subscription failed");
-      toast({ title: "Abonnement réussi!", description: `Merci de vous être abonné au forfait ${plan.name}.`, variant: "default" });
-    } catch {
-      toast({ title: "Erreur", description: "Une erreur s'est produite. Veuillez réessayer.", variant: "destructive" });
+
+      toast({
+        title: "Abonnement réussi!",
+        description: `Merci de vous être abonné au forfait ${plan.name}.`,
+        variant: "default",
+      });
+
+      setIsSuccess(true);
+    } catch (error) {
+      toast({
+        title: "Erreur",
+        description: "Une erreur s'est produite. Veuillez réessayer.",
+        variant: "destructive",
+      });
     } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-       handleWhatsApp()
     }
   };
 
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/${whatsupNumber}`, '_blank');
+    const encoded = encodeURIComponent(whatsAppMessage);
+    window.open(`https://wa.me/${whatsupNumber}?text=${encoded}`, '_blank');
   };
 
   const handleClose = () => {
@@ -79,6 +98,7 @@ const SubscriptionModal = ({ isOpen, onClose, plan }: SubscriptionModalProps) =>
                 <p className="mt-4">Entrez vos informations ci-dessous pour recevoir les instructions de paiement par email.</p>
               </DialogDescription>
             </DialogHeader>
+
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                 <FormField control={form.control} name="fullName" render={({ field }) => (
@@ -124,7 +144,7 @@ const SubscriptionModal = ({ isOpen, onClose, plan }: SubscriptionModalProps) =>
             </DialogDescription>
             <div className="mt-6 flex space-x-4 flex space-y-2 sm:space-y-0 flex-col sm:flex-row">
               <Button onClick={handleWhatsApp} className="bg-[#25D366] w-full md:w-auto hover:bg-[#25D366]/90 text-white py-2 px-4 rounded-xl">
-                Nous contacter sur WhatsApp
+                Envoyer via WhatsApp
               </Button>
               <Button variant="outline" onClick={handleClose} className="py-2 w-full md:w-auto  px-4 rounded-xl">
                 Fermer
