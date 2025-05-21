@@ -4,15 +4,9 @@ import { z } from "zod";
 import { publicActionsClient } from "@/lib/safe-actions";
 
 const subscribeSchema = z.object({
-  fullName: z
-    .string()
-    .min(2, { message: "Le nom doit contenir au moins 2 caractères." }),
-  email: z
-    .string()
-    .email({ message: "Veuillez entrer une adresse email valide." }),
-  phoneNumber: z
-    .string()
-    .min(10, { message: "Veuillez entrer un numéro de téléphone valide." }),
+  fullName: z.string().min(2, { message: "Le nom doit contenir au moins 2 caractères." }),
+  email: z.string().email({ message: "Veuillez entrer une adresse email valide." }),
+  phoneNumber: z.string().min(10, { message: "Veuillez entrer un numéro de téléphone valide." }),
   planName: z.string(),
   duration: z.string(),
   price: z.string(),
@@ -22,15 +16,12 @@ export const subscribeActions = publicActionsClient
   .schema(subscribeSchema)
   .action(async ({ parsedInput }) => {
     const { fullName, email, planName, duration, price } = parsedInput;
-    const paypalLink = process.env.PAYMENT_LINK ?? "";
-    const contactEmail = process.env.CONTACT_EMAIL || "";
-    const whatsappNumber = process.env.WHATSUP_NUMBER || "";
-    const siteName = process.env.SITE_NAME ?? "";
+    const orderId = Math.floor(Math.random() * 900000 + 100000); // Ex: 6 chiffres aléatoires
 
     await resend.emails.send({
       to: email,
       from: process.env.EMAIL_FROM ?? "",
-      subject: "Confirmation d'abonnement",
+      subject: `Confirmation de commande #${orderId}`,
       html: `
 <!DOCTYPE html>
 <html lang="fr">
@@ -64,15 +55,12 @@ export const subscribeActions = publicActionsClient
     .content {
       padding: 30px;
     }
-    .order-details, .payment-section {
+    .section {
       background-color: #f0f7ff;
       border-radius: 8px;
       padding: 20px;
       margin: 20px 0;
       border-left: 4px solid #1a73e8;
-    }
-    .payment-section {
-      background-color: #e8f0fe;
     }
     .btn {
       display: inline-block;
@@ -96,20 +84,9 @@ export const subscribeActions = publicActionsClient
       font-size: 14px;
       border-top: 1px solid #e0e0e0;
     }
-    .contact-info {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin: 20px 0;
-      flex-wrap: wrap;
-    }
     @media only screen and (max-width: 600px) {
       .content, .header, .footer {
         padding: 15px;
-      }
-      .contact-info {
-        flex-direction: column;
-        align-items: center;
       }
     }
   </style>
@@ -122,10 +99,10 @@ export const subscribeActions = publicActionsClient
 
     <div class="content">
       <p>Bonjour <strong>${fullName}</strong>,</p>
-      <p>Merci d’avoir choisi notre service ! Votre commande a bien été reçue.</p>
+      <p>Votre commande <strong>#${orderId}</strong> a été reçue avec succès. Nous allons activer votre abonnement très prochainement.</p>
 
-      <div class="order-details">
-        <h2>📦 Détails de votre commande</h2>
+      <div class="section">
+        <h2>📦 Votre commande</h2>
         <ul>
           <li><strong>Forfait :</strong> ${planName}</li>
           <li><strong>Durée :</strong> ${duration}</li>
@@ -133,40 +110,35 @@ export const subscribeActions = publicActionsClient
         </ul>
       </div>
 
-      <div class="payment-section">
-        <h2>💳 Finalisez votre paiement</h2>
-        <p>Pour activer votre abonnement rapidement, suivez ces étapes :</p>
+      <div class="section" style="background-color:#e8f0fe;">
+        <h2>💳 Finaliser votre paiement</h2>
+        <p>Pour une activation rapide, nous vous recommandons PayPal qui vous offre sécurité, protection et activation instantanée de votre service.</p>
         <ol>
-          <li>Cliquez sur le bouton ci-dessous</li>
-          <li>Effectuez votre paiement en toute sécurité</li>
-          <li>Votre compte sera activé dès confirmation</li>
+          <li>Accédez à PayPal</li>
+          <li>Dans le souci d’éviter la suspension de notre site ainsi que le blocage de tout abonnement, nous vous invitons à saisir la formule « <strong>Service numérique 12 mois</strong> » dans la case de justification du paiement (« Pourquoi ce paiement »).</li>
+          <li>Notre adresse email PayPal : <strong>yacinezitouni94@yahoo.fr</strong></li>
+          <li>Votre compte sera activé immédiatement</li>
         </ol>
         <div style="text-align: center;">
-          <a href="${paypalLink}" class="btn" target="_blank">Payer maintenant via PayPal</a>
+          <a href="${process.env.PAYMENT_LINK ?? "#"}" class="btn" target="_blank">Payer maintenant via PayPal</a>
         </div>
-        <p style="font-size: 14px; color: #666; text-align: center;">
-          Pour éviter tout blocage, indiquez « Service numérique 12 mois » en motif de paiement.
-        </p>
       </div>
 
-      <h3>Besoin d'aide ?</h3>
-      <p>Notre équipe reste à votre disposition pour toute question :</p>
-      <div class="contact-info">
-        <a href="mailto:${contactEmail}">${contactEmail}</a>
-        <a href="https://wa.me/${whatsappNumber}">WhatsApp : ${whatsappNumber}</a>
-      </div>
+      <h3>📩 Pour toute question, contactez-nous :</h3>
+      <p>Email : <a href="mailto:bourouznadir@gmail.com">bourouznadir@gmail.com</a><br>
+      WhatsApp : <a href="https://wa.me/213773941700">+213773941700</a></p>
+
+      <p>Merci de votre compréhension.</p>
     </div>
 
     <div class="footer">
-      <p>Merci pour votre confiance !</p>
-      <p>L’équipe <strong>${siteName}</strong></p>
-      <p style="font-size: 12px; margin-top: 15px;">
-        © 2025 <strong>${siteName}</strong>. Tous droits réservés.
-      </p>
+      <p>L’équipe <strong>MEDIA FRANCE</strong></p>
+      <p style="font-size: 12px; margin-top: 15px;">© 2025 MEDIA FRANCE. Tous droits réservés.</p>
     </div>
   </div>
 </body>
-</html>`,
+</html>
+      `,
     });
 
     return {
