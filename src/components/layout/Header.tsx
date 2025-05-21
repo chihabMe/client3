@@ -57,7 +57,7 @@ const Header = () => {
           transition={{ duration: 0.5 }}
         >
           <Image
-            src="/logo.webp"
+            src="/logo.png"
             width={130}
             height={130}
             className=" w-30 h-20 md:w-40 md:h-30 "

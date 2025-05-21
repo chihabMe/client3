@@ -23,7 +23,7 @@ const Footer = () => {
             <div className="mb-8 md:mb-0">
               <div className="flex items-center gap-2 mb-4">
                 <Image
-                  src="/logo.webp"
+                  src="/logo.png"
                   width={100}
                   height={100}
                   className="w-20 h-20"
