@@ -119,9 +119,6 @@ export const subscribeActions = publicActionsClient
           <li>Notre adresse email PayPal : <strong>yacinezitouni94@yahoo.fr</strong></li>
           <li>Votre compte sera activé immédiatement</li>
         </ol>
-        <div style="text-align: center;">
-          <a href="${process.env.PAYMENT_LINK ?? "#"}" class="btn" target="_blank">Payer maintenant via PayPal</a>
-        </div>
       </div>
 
       <h3>📩 Pour toute question, contactez-nous :</h3>
