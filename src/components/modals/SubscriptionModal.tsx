@@ -70,12 +70,12 @@ const SubscriptionModal = ({ isOpen, onClose, plan }: SubscriptionModalProps) =>
       });
     } finally {
       setIsSubmitting(false);
-      handleWhatsApp()
+      handleWhatsApp(message)
     }
   };
 
-  const handleWhatsApp = () => {
-    const encoded = encodeURIComponent(whatsAppMessage);
+  const handleWhatsApp = (message?:string) => {
+    const encoded = encodeURIComponent(message??whatsAppMessage);
     window.open(`https://wa.me/${whatsupNumber}?text=${encoded}`, '_blank');
   };
 
