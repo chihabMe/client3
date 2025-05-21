@@ -144,7 +144,7 @@ const SubscriptionModal = ({ isOpen, onClose, plan }: SubscriptionModalProps) =>
               </div>
             </DialogDescription>
             <div className="mt-6 flex space-x-4 flex space-y-2 sm:space-y-0 flex-col sm:flex-row">
-              <Button onClick={handleWhatsApp} className="bg-[#25D366] w-full md:w-auto hover:bg-[#25D366]/90 text-white py-2 px-4 rounded-xl">
+              <Button onClick={()=>handleWhatsApp()} className="bg-[#25D366] w-full md:w-auto hover:bg-[#25D366]/90 text-white py-2 px-4 rounded-xl">
                 Envoyer via WhatsApp
               </Button>
               <Button variant="outline" onClick={handleClose} className="py-2 w-full md:w-auto  px-4 rounded-xl">
