@@ -62,7 +62,7 @@ const SubscriptionModal = ({ isOpen, onClose, plan }: SubscriptionModalProps) =>
       });
 
       setIsSuccess(true);
-    } catch (error) {
+    } catch  {
       toast({
         title: "Erreur",
         description: "Une erreur s'est produite. Veuillez réessayer.",

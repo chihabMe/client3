@@ -31,7 +31,7 @@ const Footer = () => {
                 />
               </div>
               <p className="text-gray-400 text-sm">
-                L'expérience de streaming ultime avec des options de divertissement illimitées à portée de main.
+                L&lsquo;expérience de streaming ultime avec des options de divertissement illimitées à portée de main.
               </p>
             </div>
 
@@ -93,7 +93,7 @@ const Footer = () => {
               Politique de confidentialité
             </a>
             <a href="#" className="text-gray-500 hover:text-[#0055A4] text-sm">
-              Conditions d'utilisation
+              Conditions d&lsquo;utilisation
             </a>
             <a href="#" className="text-gray-500 hover:text-[#0055A4] text-sm">
               Paramètres des cookies
