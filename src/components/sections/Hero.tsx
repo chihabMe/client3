@@ -116,7 +116,7 @@ const Hero = () => (
               transition={{ boxShadow: { repeat: Infinity, duration: 2 } }}
             >
               <Button
-                className="bg-[#0055A4] text-white hover:bg-[#0055A4]/90 text-base md:text-lg font-medium w-full px-6 py-5 md:px-8 md:py-6 rounded-lg"
+                className="bg-[#0055A4] text-white hover:bg-[#0055A4]/90 text-base md:text-lg font-medium w-full px-6 py-5 cursor-pointer md:px-8 md:py-6 rounded-lg"
                 size="lg"
               >
                 Profitez maintenant
@@ -132,7 +132,7 @@ const Hero = () => (
             <Link href="#ultimate-pricing">
               <Button
                 size="lg"
-                className="bg-transparent text-white border border-gray-50/80 text-base md:text-lg font-medium w-full px-6 py-5 md:px-8 md:py-6 rounded-lg"
+                className="bg-transparent cursor-pointer text-white border border-gray-50/80 text-base md:text-lg font-medium w-full px-6 py-5 md:px-8 md:py-6 rounded-lg"
               >
                 1 jour d’essai gratuit
               </Button>

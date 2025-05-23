@@ -91,7 +91,7 @@ const Header = () => {
             transition={{ delay: 0.6, type: "spring" }}
           >
             <Link href={"/#ultimate-pricing"}>
-              <Button className="bg-[#0055A4] cursor-pointer text-white hover:bg-[#0055A4]/90 ml-4 rounded-2xl">
+              <Button className="bg-[#0055A4] px-4 py-2 cursor-pointer text-white hover:bg-[#0055A4]/90 ml-4 rounded-2xl">
                 Commencer
               </Button>
             </Link>
@@ -197,7 +197,7 @@ const Header = () => {
                 }}
               >
                 <Link href={"/#ultimate-pricing"}>
-                  <Button className="bg-[#0055A4] text-white hover:bg-[#0055A4]/90 rounded-2xl w-64 h-14 text-lg mt-8">
+                  <Button className="bg-[#0055A4] text-white px-4 py-2 hover:bg-[#0055A4]/90 rounded-2xl w-64 h-14 text-lg mt-8">
                     Commencer
                   </Button>
                 </Link>
