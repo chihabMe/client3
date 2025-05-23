@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Providers from "@/components/Providers";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,6 +17,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+    <head>
+    <Script
+defer src="https://cloud.umami.is/script.js" data-website-id="ef64fec0-87ba-4f08-8be4-06df0d499fe4"
+    />
+    </head>
       <body className={`antialiased`}>
         <Providers>
           <Header />
