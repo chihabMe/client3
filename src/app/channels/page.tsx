@@ -1,22 +1,29 @@
 "use client" // Keep if using Next.js app router and client-side logic is needed
 
 import { useState, useEffect } from "react"
-import { Search, Globe, ChevronDown } from 'lucide-react'
-import { Button } from "@/components/ui/button"
+import { Search, Globe  } from 'lucide-react'
+// import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+// import {
+//   DropdownMenu,
+//   DropdownMenuContent,
+//   DropdownMenuRadioGroup,
+//   DropdownMenuRadioItem,
+//   DropdownMenuTrigger,
+// } from "@/components/ui/dropdown-menu"
 import channelsData from "@/data/channels.json"
 
-type ChannelType = "sports" | "movies" | "news" | "entertainment" | "documentaries" | "kids"
+// Updated ChannelType to match French keys
+export type ChannelType =
+  | "sports"
+  | "films"
+  | "actualités"
+  | "divertissement"
+  | "documentaires"
+  | "enfants"
 
 export default function ChannelsPage() {
-  const [selectedCountry, setSelectedCountry] = useState<string>("All")
+  const [selectedCountry] = useState<string>("All")
   const [selectedType, setSelectedType] = useState<ChannelType | "all">("all")
   const [searchQuery, setSearchQuery] = useState<string>("")
   const [loading, setLoading] = useState<boolean>(true)
@@ -43,7 +50,9 @@ export default function ChannelsPage() {
 
     let filteredChannels = allChannels
     if (selectedType !== "all") {
-      filteredChannels = filteredChannels.filter((channel) => channel.type === selectedType)
+      filteredChannels = filteredChannels.filter(
+        (channel) => channel.type === selectedType
+      )
     }
     if (searchQuery) {
       const query = searchQuery.toLowerCase()
@@ -51,7 +60,7 @@ export default function ChannelsPage() {
         (channel) =>
           channel.name.toLowerCase().includes(query) ||
           channel.country.toLowerCase().includes(query) ||
-          channel.type.toLowerCase().includes(query),
+          channel.type.toLowerCase().includes(query)
       )
     }
     return filteredChannels
@@ -67,13 +76,14 @@ export default function ChannelsPage() {
   }
 
   const getChannelsByType = () => {
+    // Initialize all French types
     const grouped: Record<ChannelType, Array<{ country: string; name: string }>> = {
       sports: [],
-      movies: [],
-      news: [],
-      entertainment: [],
-      documentaries: [],
-      kids: [],
+      films: [],
+      actualités: [],
+      divertissement: [],
+      documentaires: [],
+      enfants: [],
     }
     getFilteredChannels().forEach((channel) => {
       grouped[channel.type].push({ country: channel.country, name: channel.name })
@@ -83,14 +93,15 @@ export default function ChannelsPage() {
 
   const getCountries = () => ["All", ...channelsData.countries.map((c) => c.name)]
 
+  // Update channelTypes dropdown to French labels
   const channelTypes: Array<{ value: ChannelType | "all"; label: string }> = [
-    { value: "all", label: "All Types" },
+    { value: "all", label: "Tous les types" },
     { value: "sports", label: "Sports" },
-    { value: "movies", label: "Movies" },
-    { value: "news", label: "News" },
-    { value: "entertainment", label: "Entertainment" },
-    { value: "documentaries", label: "Documentaries" },
-    { value: "kids", label: "Kids" },
+    { value: "films", label: "Films" },
+    { value: "actualités", label: "Actualités" },
+    { value: "divertissement", label: "Divertissement" },
+    { value: "documentaires", label: "Documentaires" },
+    { value: "enfants", label: "Enfants" },
   ]
 
   if (loading) {
@@ -98,7 +109,7 @@ export default function ChannelsPage() {
       <div className="min-h-screen bg-white text-black flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4">Loading channels...</p>
+          <p className="mt-4">Chargement des chaînes...</p>
         </div>
       </div>
     )
@@ -106,10 +117,11 @@ export default function ChannelsPage() {
 
   return (
     <div className="min-h-screen bg-white text-black">
+    <div className="bg-gray-800 h-30 sm:h-40 md:h-50"/>
       <section className="container mx-auto pt-40 py-12 px-4 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">All Channels</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">Toutes les chaînes</h1>
         <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-          Browse our extensive collection of premium channels from around the world, all available in one subscription.
+          Parcourez notre vaste collection de chaînes premium du monde entier, toutes disponibles sous un seul abonnement.
         </p>
 
         <div className="flex flex-col md:flex-row gap-4 max-w-3xl mx-auto mb-12">
@@ -117,31 +129,13 @@ export default function ChannelsPage() {
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
             <input
               type="text"
-              placeholder="Search channels..."
+              placeholder="Rechercher des chaînes..."
               className="w-full bg-white border border-gray-300 rounded-md py-2 pl-10 pr-4 text-black focus:outline-none focus:ring-2 focus:ring-blue-600"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="bg-white border-gray-300 text-black hover:bg-gray-100 flex items-center gap-2">
-                <Globe className="h-4 w-4" />
-                <span>{selectedCountry}</span>
-                <ChevronDown className="h-4 w-4 ml-2" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-white border border-gray-300 text-black">
-              <DropdownMenuRadioGroup value={selectedCountry} onValueChange={setSelectedCountry}>
-                {getCountries().map((country) => (
-                  <DropdownMenuRadioItem key={country} value={country} className="cursor-pointer hover:bg-gray-100">
-                    {country}
-                  </DropdownMenuRadioItem>
-                ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
         </div>
       </section>
 
@@ -187,7 +181,7 @@ export default function ChannelsPage() {
                 ))
               ) : (
                 <div>
-                  <h2 className="text-2xl font-bold mb-6 capitalize">{type.label}</h2>
+                  <h2 className="text-2xl font-bold mb-6">{channelTypes.find(ct => ct.value===type.value)?.label}</h2>
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                     {getChannelsByType()[type.value as ChannelType].map((channel, index) => (
                       <div
