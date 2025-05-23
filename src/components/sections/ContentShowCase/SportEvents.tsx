@@ -92,8 +92,9 @@ export default function SportEvents() {
                   <Image
                     src={item.src}
                     alt={item.alt}
+                    quality={80}
                     width={400}
-                    height={550}
+                    height={500}
                     className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
                   />
                   {item.badge && (
