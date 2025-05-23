@@ -88,13 +88,13 @@ export default function SportEvents() {
                 key={idx}
                 className="min-w-[300px] md:min-w-[400px]"
               >
-                <div className="relative overflow-hidden rounded-lg shadow-lg h-[450px] md:h-[550px]">
+                <div className="relative overflow-hidden rounded-lg shadow-lg h-[420px] md:h-[430px]">
                   <Image
                     src={item.src}
                     alt={item.alt}
                     quality={80}
-                    width={400}
-                    height={500}
+                    width={350}
+                    height={430}
                     className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
                   />
                   {item.badge && (
