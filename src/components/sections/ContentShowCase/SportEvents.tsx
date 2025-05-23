@@ -91,7 +91,7 @@ export default function SportEvents() {
                 <div className="relative overflow-hidden rounded-lg shadow-lg h-[420px] md:h-[430px]">
                   <Image
                     src={item.src}
-                    alt={item.alt}
+                    alt={item.alt ?? `image ${item.badge} `  }
                     quality={80}
                     width={350}
                     height={430}

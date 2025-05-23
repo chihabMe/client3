@@ -144,7 +144,7 @@ const ContentShowcase = async () => {
                       <div className="space-y-2">
                         <div className="flex items-center justify-between">
                           <h4 className="text-white font-bold text-xl line-clamp-1">{show.title}</h4>
-                          <span className="bg-blue-500 text-white font-semibold px-2 py-1 rounded-md text-sm">
+                          <span className="bg-blue-800 text-white font-semibold px-2 py-1 rounded-md text-sm">
                             {show.vote_average.toFixed(1)}★
                           </span>
                         </div>
