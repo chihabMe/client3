@@ -42,7 +42,7 @@ const Header = () => {
 
   return (
     <motion.header
-      className="fixed top-0 left-0  right-0 z-50 py-1 px-6 md:px-12"
+      className="fixed top-0 left-0 bg-gray-400  right-0 z-50 py-1 px-6 md:px-12"
       style={{
         backgroundColor: headerBg,
         backdropFilter: `blur(${headerBlur}px)`,
