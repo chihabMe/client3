@@ -44,17 +44,17 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/features" className="hover:text-[#0055A4] transition-colors">
+                  <Link href="/#features" className="hover:text-[#0055A4] transition-colors">
                     Fonctionnalités
                   </Link>
                 </li>
                 <li>
-                  <Link href="/faq" className="hover:text-[#0055A4] transition-colors">
+                  <Link href="/#faq" className="hover:text-[#0055A4] transition-colors">
                     FAQ
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:text-[#0055A4] transition-colors">
+                  <Link target="_blank" href={`https://wa.me/${whatsupNumber}`} className="hover:text-[#0055A4] transition-colors">
                     Contact
                   </Link>
                 </li>

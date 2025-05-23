@@ -35,9 +35,9 @@ const Header = () => {
   const navItems = [
     { href: "/", label: "Accueil" },
     { href: "/channels", label: "Chaînes" },
-    { href: "#features", label: "Fonctionnalités" },
-    { href: "#pricing", label: "Tarifs" },
-    { href: "#faq", label: "FAQ" },
+    { href: "/#features", label: "Fonctionnalités" },
+    { href: "/#ultimate-pricing", label: "Tarifs" },
+    { href: "/#faq", label: "FAQ" },
   ];
 
   return (
