@@ -7,8 +7,8 @@ import { useEffect, useRef } from "react";
 
 const sportImages = [
   { src: "/sport_events/sport1.webp", alt: "Football players from various leagues" },
-  { src: "/sport_events/sport3.webp", alt: "Serie A football players", badge: "SERIE A" },
   { src: "/sport_events/sport4.webp", alt: "Premier League football players" },
+  { src: "/sport_events/sport3.webp", alt: "Serie A football players", badge: "SERIE A" },
   { src: "/sport_events/sport5.webp", alt: "Champions League football players" },
   { src: "/sport_events/sport6.webp", alt: "Sport image 6" },
   { src: "/sport_events/sport7.webp", alt: "Sport image 7" },
