@@ -37,7 +37,7 @@ const Hero = () => (
           alt="Hero background"
           fill
           priority
-          quality={85}
+          quality={65}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
           className="object-cover object-center"
           style={{ objectPosition: "center 30%" }}

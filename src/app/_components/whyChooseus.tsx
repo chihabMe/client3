@@ -1,8 +1,6 @@
-"use client";
-import React, { useRef } from "react";
+import React from "react";
 import { Tv, Film, Zap, MonitorSmartphone } from "lucide-react";
 import * as motion from "motion/react-m";
-import { useInView } from "motion/react";
 
 interface FeatureProps {
   title: string;
@@ -13,14 +11,11 @@ interface FeatureProps {
 }
 
 function Feature({ title, description, icon, highlight, index }: FeatureProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
     <motion.div
-      ref={ref}
       initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       transition={{
         duration: 0.6,
         delay: 0.1 * index,
@@ -31,7 +26,7 @@ function Feature({ title, description, icon, highlight, index }: FeatureProps) {
       <motion.h3
         className="text-xl font-bold mb-3"
         initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.1 * index + 0.2 }}
       >
         {title}
@@ -39,7 +34,7 @@ function Feature({ title, description, icon, highlight, index }: FeatureProps) {
       <motion.p
         className="text-gray-800 mb-6 flex-grow"
         initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+        whileInView={  { opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.1 * index + 0.3 }}
       >
         {description.split(highlight || "").map((part, i, arr) => {
@@ -56,7 +51,7 @@ function Feature({ title, description, icon, highlight, index }: FeatureProps) {
         <motion.div
           className="w-6 h-6 text-gray-800"
           initial={{ x: -10, opacity: 0 }}
-          animate={isInView ? { x: 0, opacity: 1 } : { x: -10, opacity: 0 }}
+          whileInView={ { x: 0, opacity: 1 }}
           transition={{
             type: "spring",
             stiffness: 300,
@@ -82,8 +77,8 @@ function Feature({ title, description, icon, highlight, index }: FeatureProps) {
         <motion.div
           className="text-[#ff3e3e] w-12 h-12 flex items-center justify-center"
           initial={{ scale: 0, rotate: -30 }}
-          animate={
-            isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -30 }
+          whileInView={
+             { scale: 1, rotate: 0 }
           }
           transition={{
             type: "spring",
@@ -100,17 +95,15 @@ function Feature({ title, description, icon, highlight, index }: FeatureProps) {
 }
 
 export default function WhyChooseUs() {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
   return (
-    <section className="py-20 px-4  relative overflow-hidden" ref={sectionRef}>
+    <section className="py-20 px-4  relative overflow-hidden" >
       <div className="container text-black mx-auto relative z-10">
         <div className="text-center mb-16">
           <motion.h2
             className="text-3xl md:text-4xl font-bold"
             initial={{ opacity: 0, y: -20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             Pourquoi Choisir Notre Abonnement IPTV ?
@@ -119,7 +112,7 @@ export default function WhyChooseUs() {
           <motion.div
             className="w-24 h-1 bg-gradient-to-r from-[#0055A4]/0 via-[#0055A4] to-[#0055A4]/0 mx-auto mt-6"
             initial={{ width: 0 }}
-            animate={isInView ? { width: "6rem" } : { width: 0 }}
+            whileInView={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.3 }}
           />
         </div>

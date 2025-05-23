@@ -63,7 +63,12 @@ const ContentShowcase = async () => {
 
   return (
     <section id="features" className="py-20 bg-white">
+
+        <div className="mt-20 ">
+          <SportEvents />
+        </div>
       <div className="max-w-screen-3xl mx-auto px-4 md:px-8">
+
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6  text-black    leading-tight">
             Regardez vos films, séries TV et chaînes en direct
@@ -154,9 +159,6 @@ const ContentShowcase = async () => {
         </div>
 
         {/* Sports Section */}
-        <div className="mt-20 ">
-          <SportEvents />
-        </div>
       </div>
     </section>
   )

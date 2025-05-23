@@ -131,7 +131,7 @@ export default function ChannelsPage() {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#00ff2a] mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#0055A4] mx-auto"></div>
           <p className="mt-4">Loading channels...</p>
         </div>
       </div>
@@ -197,7 +197,7 @@ export default function ChannelsPage() {
               <TabsTrigger
                 key={type.value}
                 value={type.value}
-                className="data-[state=active]:bg-[#00ff2a] data-[state=active]:text-black"
+                className="data-[state=active]:bg-[#0055A4]  data-[state=active]:text-white"
               >
                 {type.label}
               </TabsTrigger>
@@ -220,9 +220,6 @@ export default function ChannelsPage() {
                           key={`${country}-${channel.name}-${index}`}
                           className="bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors cursor-pointer"
                         >
-                          <div className="aspect-square bg-gray-800 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
-                            <div className="text-[#00ff2a] text-4xl font-bold">{channel.name.charAt(0)}</div>
-                          </div>
                           <h3 className="font-semibold text-white">{channel.name}</h3>
                           <p className="text-xs text-gray-400 capitalize">{channel.type}</p>
                         </div>
@@ -240,9 +237,6 @@ export default function ChannelsPage() {
                         key={`${channel.country}-${channel.name}-${index}`}
                         className="bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors cursor-pointer"
                       >
-                        <div className="aspect-square bg-gray-800 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
-                          <div className="text-[#00ff2a] text-4xl font-bold">{channel.name.charAt(0)}</div>
-                        </div>
                         <h3 className="font-semibold text-white">{channel.name}</h3>
                         <p className="text-xs text-gray-400">{channel.country}</p>
                       </div>
