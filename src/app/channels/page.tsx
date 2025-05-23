@@ -1,4 +1,4 @@
-"use client"
+"use client" // Keep if using Next.js app router and client-side logic is needed
 
 import { useState, useEffect } from "react"
 import { Search, Globe, ChevronDown } from 'lucide-react'
@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/dropdown-menu"
 import channelsData from "@/data/channels.json"
 
-// Define types based on the JSON structure
 type ChannelType = "sports" | "movies" | "news" | "entertainment" | "documentaries" | "kids"
 
 export default function ChannelsPage() {
@@ -23,41 +22,29 @@ export default function ChannelsPage() {
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    // Simulate loading time to show the loading state
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 500)
-    
+    const timer = setTimeout(() => setLoading(false), 500)
     return () => clearTimeout(timer)
   }, [])
 
-  // Filter channels based on selected country, type, and search query
   const getFilteredChannels = () => {
     let filteredCountries = channelsData.countries
-
-    // Filter by country if not "All"
     if (selectedCountry !== "All") {
-      filteredCountries = filteredCountries.filter((country) => country.name === selectedCountry)
+      filteredCountries = filteredCountries.filter((c) => c.name === selectedCountry)
     }
-
-    // Create a flat array of channel objects with country, type, and name
-    const allChannels = filteredCountries.flatMap((country) => {
-      return Object.entries(country.channelTypes).flatMap(([type, channels]) => {
-        return channels.map((channel) => ({
+    const allChannels = filteredCountries.flatMap((country) =>
+      Object.entries(country.channelTypes).flatMap(([type, channels]) =>
+        channels.map((channel) => ({
           country: country.name,
           type: type as ChannelType,
           name: channel,
         }))
-      })
-    })
+      )
+    )
 
-    // Filter by type if not "all"
     let filteredChannels = allChannels
     if (selectedType !== "all") {
       filteredChannels = filteredChannels.filter((channel) => channel.type === selectedType)
     }
-
-    // Filter by search query
     if (searchQuery) {
       const query = searchQuery.toLowerCase()
       filteredChannels = filteredChannels.filter(
@@ -67,32 +54,20 @@ export default function ChannelsPage() {
           channel.type.toLowerCase().includes(query),
       )
     }
-
     return filteredChannels
   }
 
-  // Group channels by country for display
   const getChannelsByCountry = () => {
-    const filteredChannels = getFilteredChannels()
-    const channelsByCountry: Record<string, Array<{ type: ChannelType; name: string }>> = {}
-
-    filteredChannels.forEach((channel) => {
-      if (!channelsByCountry[channel.country]) {
-        channelsByCountry[channel.country] = []
-      }
-      channelsByCountry[channel.country].push({
-        type: channel.type,
-        name: channel.name,
-      })
+    const grouped: Record<string, Array<{ type: ChannelType; name: string }>> = {}
+    getFilteredChannels().forEach((channel) => {
+      if (!grouped[channel.country]) grouped[channel.country] = []
+      grouped[channel.country].push({ type: channel.type, name: channel.name })
     })
-
-    return channelsByCountry
+    return grouped
   }
 
-  // Group channels by type for display
   const getChannelsByType = () => {
-    const filteredChannels = getFilteredChannels()
-    const channelsByType: Record<ChannelType, Array<{ country: string; name: string }>> = {
+    const grouped: Record<ChannelType, Array<{ country: string; name: string }>> = {
       sports: [],
       movies: [],
       news: [],
@@ -100,23 +75,14 @@ export default function ChannelsPage() {
       documentaries: [],
       kids: [],
     }
-
-    filteredChannels.forEach((channel) => {
-      channelsByType[channel.type].push({
-        country: channel.country,
-        name: channel.name,
-      })
+    getFilteredChannels().forEach((channel) => {
+      grouped[channel.type].push({ country: channel.country, name: channel.name })
     })
-
-    return channelsByType
+    return grouped
   }
 
-  // Get all available countries for the dropdown
-  const getCountries = () => {
-    return ["All", ...channelsData.countries.map((country) => country.name)]
-  }
+  const getCountries = () => ["All", ...channelsData.countries.map((c) => c.name)]
 
-  // Get all channel types for the tabs
   const channelTypes: Array<{ value: ChannelType | "all"; label: string }> = [
     { value: "all", label: "All Types" },
     { value: "sports", label: "Sports" },
@@ -129,9 +95,9 @@ export default function ChannelsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+      <div className="min-h-screen bg-white text-black flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#0055A4] mx-auto"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600 mx-auto"></div>
           <p className="mt-4">Loading channels...</p>
         </div>
       </div>
@@ -139,22 +105,20 @@ export default function ChannelsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-white text-black">
       <section className="container mx-auto pt-40 py-12 px-4 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">All Channels</h1>
-        <p className="text-gray-400 max-w-2xl mx-auto mb-8">
+        <p className="text-gray-600 max-w-2xl mx-auto mb-8">
           Browse our extensive collection of premium channels from around the world, all available in one subscription.
         </p>
 
-        {/* Search and Filter */}
         <div className="flex flex-col md:flex-row gap-4 max-w-3xl mx-auto mb-12">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
             <input
               type="text"
               placeholder="Search channels..."
-              className="w-full bg-gray-900 border border-gray-800 rounded-md py-2 pl-10 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-[#00ff2a] focus:border-transparent"
+              className="w-full bg-white border border-gray-300 rounded-md py-2 pl-10 pr-4 text-black focus:outline-none focus:ring-2 focus:ring-blue-600"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -162,19 +126,16 @@ export default function ChannelsPage() {
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button
-                variant="outline"
-                className="bg-gray-900 border-gray-800 text-white hover:bg-gray-800 flex items-center gap-2"
-              >
+              <Button variant="outline" className="bg-white border-gray-300 text-black hover:bg-gray-100 flex items-center gap-2">
                 <Globe className="h-4 w-4" />
                 <span>{selectedCountry}</span>
                 <ChevronDown className="h-4 w-4 ml-2" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-gray-900 border-gray-800 text-white">
+            <DropdownMenuContent className="bg-white border border-gray-300 text-black">
               <DropdownMenuRadioGroup value={selectedCountry} onValueChange={setSelectedCountry}>
                 {getCountries().map((country) => (
-                  <DropdownMenuRadioItem key={country} value={country} className="cursor-pointer hover:bg-gray-800">
+                  <DropdownMenuRadioItem key={country} value={country} className="cursor-pointer hover:bg-gray-100">
                     {country}
                   </DropdownMenuRadioItem>
                 ))}
@@ -184,7 +145,6 @@ export default function ChannelsPage() {
         </div>
       </section>
 
-      {/* Channel Types Tabs */}
       <section className="container mx-auto px-4 mb-8">
         <Tabs
           defaultValue="all"
@@ -192,23 +152,21 @@ export default function ChannelsPage() {
           onValueChange={(value) => setSelectedType(value as ChannelType | "all")}
           className="w-full"
         >
-          <TabsList className="grid grid-cols-2 md:grid-cols-7 bg-gray-900 p-1 rounded-lg mb-8">
+          <TabsList className="grid grid-cols-2 md:grid-cols-7 bg-gray-200 p-1 rounded-lg mb-8">
             {channelTypes.map((type) => (
               <TabsTrigger
                 key={type.value}
                 value={type.value}
-                className="data-[state=active]:bg-[#0055A4]  data-[state=active]:text-white"
+                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white"
               >
                 {type.label}
               </TabsTrigger>
             ))}
           </TabsList>
 
-          {/* Content for each tab */}
           {channelTypes.map((type) => (
             <TabsContent key={type.value} value={type.value} className="mt-0">
               {type.value === "all" ? (
-                // Display by country when "All Types" is selected
                 Object.entries(getChannelsByCountry()).map(([country, channels]) => (
                   <div key={country} className="mb-12">
                     <h2 className="text-2xl font-bold mb-6 flex items-center">
@@ -218,27 +176,26 @@ export default function ChannelsPage() {
                       {channels.map((channel, index) => (
                         <div
                           key={`${country}-${channel.name}-${index}`}
-                          className="bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors cursor-pointer"
+                          className="bg-gray-100 rounded-lg p-4 hover:bg-gray-200 transition-colors cursor-pointer"
                         >
-                          <h3 className="font-semibold text-white">{channel.name}</h3>
-                          <p className="text-xs text-gray-400 capitalize">{channel.type}</p>
+                          <h3 className="font-semibold text-black">{channel.name}</h3>
+                          <p className="text-xs text-gray-500 capitalize">{channel.type}</p>
                         </div>
                       ))}
                     </div>
                   </div>
                 ))
               ) : (
-                // Display by type for specific type tabs
                 <div>
                   <h2 className="text-2xl font-bold mb-6 capitalize">{type.label}</h2>
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                     {getChannelsByType()[type.value as ChannelType].map((channel, index) => (
                       <div
                         key={`${channel.country}-${channel.name}-${index}`}
-                        className="bg-gray-900 rounded-lg p-4 hover:bg-gray-800 transition-colors cursor-pointer"
+                        className="bg-gray-100 rounded-lg p-4 hover:bg-gray-200 transition-colors cursor-pointer"
                       >
-                        <h3 className="font-semibold text-white">{channel.name}</h3>
-                        <p className="text-xs text-gray-400">{channel.country}</p>
+                        <h3 className="font-semibold text-black">{channel.name}</h3>
+                        <p className="text-xs text-gray-500">{channel.country}</p>
                       </div>
                     ))}
                   </div>
