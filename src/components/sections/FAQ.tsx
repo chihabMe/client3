@@ -1,8 +1,5 @@
-"use client";
-
 import React from "react";
 import * as motion from "motion/react-m";
-import { fadeIn, staggerContainer } from "@/lib/motions";
 import {
   Accordion,
   AccordionContent,
@@ -10,19 +7,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import faqData from "@/data/faq.json";
-import { useScrollAnimation } from "@/hook/use-scroll-animation";
 
 const FAQ = () => {
-  const { ref, controls } = useScrollAnimation(0.2);
 
   return (
     <section id="faq" className="py-20 ">
       <div className="container mx-auto px-6">
         <motion.div
-          ref={ref}
-          variants={fadeIn}
           initial="hidden"
-          animate={controls}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
@@ -34,16 +26,13 @@ const FAQ = () => {
         </motion.div>
 
         <motion.div
-          variants={staggerContainer}
           initial="hidden"
-          animate={controls}
           className="max-w-3xl mx-auto"
         >
           <Accordion type="single" collapsible className="w-full space-y-4">
             {faqData.questions.map((faq, index) => (
               <motion.div
                 key={faq.id}
-                variants={fadeIn}
                 custom={index}
                 transition={{ delay: index * 0.1 }}
               >

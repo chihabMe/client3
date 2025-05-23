@@ -1,5 +1,5 @@
+import { fadeIn } from "@/lib/motions";
 import * as motion from "motion/react-m";
-import { fadeIn } from "../Pricing";
 
 const PricingHeader = () => {
   return (

@@ -1,8 +1,8 @@
 import * as motion from "motion/react-m";
 import pricingData from "@/data/pricing.json";
 import PricingHeader from "./pricingHeader";
-import { fadeIn, staggerContainer } from "../Pricing";
 import PricingCard from "./PricingCard";
+import { fadeIn, staggerContainer } from "@/lib/motions";
 
 export interface PricingPlan {
   id: string;

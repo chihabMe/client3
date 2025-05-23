@@ -2,7 +2,7 @@ import React from "react";
 
 import Hero from "@/components/sections/Hero";
 import ContentShowcase from "@/components/sections/ContentShowcase";
-import SocialProof from "@/components/sections/SocialProof";
+//import SocialProof from "@/components/sections/SocialProof";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Compatibility from "@/components/sections/Compatibility";
 import FAQ from "@/components/sections/FAQ";
@@ -21,7 +21,6 @@ const Index = () => {
         <KeyStats />
         <WhyChooseUs />
         <HowItWorks />
-        <SocialProof />
         <Compatibility />
         <FAQ />
       </main>

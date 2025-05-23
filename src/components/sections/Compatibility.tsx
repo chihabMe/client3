@@ -1,12 +1,8 @@
-"use client"
 import * as motion from "motion/react-m"
 import { fadeIn, staggerContainer } from "@/lib/motions"
-import { useScrollAnimation } from "@/hook/use-scroll-animation"
 import Image from "next/image"
 import { Smartphone} from "lucide-react"
 
-const Compatibility = () => {
-  const { ref, controls } = useScrollAnimation(0.2)
 
   const devices = [
     {
@@ -58,11 +54,13 @@ const Compatibility = () => {
       color: "",
     },
   ]
+const Compatibility = () => {
+
 
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-6">
-        <motion.div ref={ref} variants={fadeIn} initial="hidden" animate={controls} className="text-center mb-16">
+        <motion.div  variants={fadeIn} initial="hidden" whileInView={"visible"} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text    text-black">
             Disponible sur tous vos appareils
           </h2>
@@ -74,7 +72,7 @@ const Compatibility = () => {
         <motion.div
           variants={staggerContainer}
           initial="hidden"
-          animate={controls}
+          whileInView={"visible"}
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8"
         >
           {devices.map((device, index) => (

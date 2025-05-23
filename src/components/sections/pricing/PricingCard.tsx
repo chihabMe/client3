@@ -10,9 +10,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { PricingPlan } from "./PricingSection";
-import { fadeIn } from "../Pricing";
 import SubscriptionModal from "@/components/modals/SubscriptionModal";
 import { useState } from "react";
+import { fadeIn } from "@/lib/motions";
 
 interface PricingCardProps {
   plan: PricingPlan;

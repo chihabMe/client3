@@ -1,9 +1,7 @@
-"use client";
 
 import React from "react";
 import * as motion from "motion/react-m";
 import { fadeIn, staggerContainer } from "@/lib/motions";
-import { useScrollAnimation } from "@/hook/use-scroll-animation";
 
 const steps = [
   {
@@ -81,16 +79,14 @@ const steps = [
 ];
 
 const HowItWorks = () => {
-  const { ref, controls } = useScrollAnimation(0.2);
 
   return (
     <section className="py-20 ">
       <div className="container mx-auto px-6">
         <motion.div
-          ref={ref}
           variants={fadeIn}
           initial="hidden"
-          animate={controls}
+          whileInView={"visible"}
           className="text-center mb-16"
         >
           <h2 className="text-3xl text-black md:text-4xl font-bold mb-4 text-gradient">
@@ -108,7 +104,7 @@ const HowItWorks = () => {
         <motion.div
           variants={staggerContainer}
           initial="hidden"
-          animate={controls}
+          whileInView={"visible"}
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {steps.map((step) => (
