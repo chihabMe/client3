@@ -91,7 +91,7 @@ export default function ChannelsPage() {
     return grouped
   }
 
-  const getCountries = () => ["All", ...channelsData.countries.map((c) => c.name)]
+  // const getCountries = () => ["All", ...channelsData.countries.map((c) => c.name)]
 
   // Update channelTypes dropdown to French labels
   const channelTypes: Array<{ value: ChannelType | "all"; label: string }> = [
