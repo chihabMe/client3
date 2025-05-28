@@ -17,15 +17,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-    <head>
-    <Script
-defer src="https://cloud.umami.is/script.js" data-website-id="ef64fec0-87ba-4f08-8be4-06df0d499fe4"
-    />
-  <Script 
-  defer src="https://cloud.umami.is/script.js" data-website-id="267d941e-5055-4446-97c7-aba47ea8f9b7"
+      <head>
+        <meta name="google-site-verification" content="toPhn3zTF7Y1TKXt1x3B0jw_KDHWXQyn_vWVEIak-eI" />
+        <Script
+          defer src="https://cloud.umami.is/script.js" data-website-id="ef64fec0-87ba-4f08-8be4-06df0d499fe4"
+        />
+        <Script
+          defer src="https://cloud.umami.is/script.js" data-website-id="267d941e-5055-4446-97c7-aba47ea8f9b7"
 
-  />
-    </head>
+        />
+      </head>
       <body className={`antialiased`}>
         <Providers>
           <Header />
