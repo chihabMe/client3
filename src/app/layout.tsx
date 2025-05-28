@@ -4,6 +4,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Providers from "@/components/Providers";
 import Script from "next/script";
+import { Analytics } from '@vercel/analytics/next';
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -35,6 +37,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
