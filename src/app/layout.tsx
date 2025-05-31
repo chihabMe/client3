@@ -21,6 +21,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="google-site-verification" content="toPhn3zTF7Y1TKXt1x3B0jw_KDHWXQyn_vWVEIak-eI" />
+        <Script defer src="https://cloud.umami.is/script.js" data-website-id="4fc504fc-d39a-455c-944f-fe7412e13fab" />
+        {/*
         <Script
           defer src="https://cloud.umami.is/script.js" data-website-id="ef64fec0-87ba-4f08-8be4-06df0d499fe4"
         />
@@ -30,6 +32,7 @@ export default function RootLayout({
           defer src="https://cloud.umami.is/script.js" data-website-id="267d941e-5055-4446-97c7-aba47ea8f9b7"
 
         />
+        */}
       </head>
       <body className={`antialiased`}>
         <Providers>
