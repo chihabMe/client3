@@ -102,16 +102,6 @@ export function AdminHeader() {
         )}
       </div>
 
-      <div className="ml-auto flex items-center gap-2 px-4">
-        <Button variant="ghost" size="icon">
-          <Bell className="h-4 w-4" />
-          <span className="sr-only">Notifications</span>
-        </Button>
-        <Button variant="outline" size="sm">
-          <Settings className="w-4 h-4 mr-2" />
-          Paramètres
-        </Button>
-      </div>
     </header>
   )
 }

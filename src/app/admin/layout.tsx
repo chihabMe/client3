@@ -1,7 +1,7 @@
 import type React from "react"
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar"
-import { AdminSidebar } from "@/components/admin-nav"
-import { AdminHeader } from "@/components/admin-header"
+import { AdminSidebar } from "./_components/AdminSidebar"
+import { AdminHeader } from "./_components/AdminHeader"
 
 interface AdminLayoutProps {
   children: React.ReactNode

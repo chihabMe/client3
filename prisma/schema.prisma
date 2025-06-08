@@ -45,6 +45,7 @@ model VerificationToken {
 }
 
 // New models for storing contacts and orders
+
 model Contact {
   id          String   @id @default(cuid())
   fullName    String

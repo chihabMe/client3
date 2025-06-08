@@ -2,7 +2,6 @@
 
 import { prisma } from "@/lib/db";
 import { revalidatePath } from "next/cache";
-import { z } from "zod";
 
 // Admin actions for orders
 export async function deleteOrder(orderId: string) {
@@ -18,19 +17,6 @@ export async function deleteOrder(orderId: string) {
   }
 }
 
-export async function updateOrderStatus(orderId: string, status: string) {
-  try {
-    await prisma.order.update({
-      where: { id: orderId },
-      data: { status: status as any },
-    });
-    revalidatePath("/admin/orders");
-    return { success: true, message: "Statut mis à jour avec succès" };
-  } catch (error) {
-    console.error("Error updating order status:", error);
-    return { success: false, message: "Erreur lors de la mise à jour" };
-  }
-}
 
 // Admin actions for contacts
 export async function deleteContact(contactId: string) {

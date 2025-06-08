@@ -1,36 +1,33 @@
-"use client";
+"use client"
 
-import React, { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
-import { Menu, X } from "lucide-react";
-import SpecialOfferHeader from "@/components/layout/SpecialOfferHeader";
-import Link from "next/link";
-import Image from "next/image";
+import { useState, useEffect } from "react"
+import { Button } from "@/components/ui/button"
+import { motion, useScroll, useTransform, AnimatePresence } from "motion/react"
+import { Menu, X } from "lucide-react"
+import SpecialOfferHeader from "@/components/layout/SpecialOfferHeader"
+import Link from "next/link"
+import Image from "next/image"
+import ContactModal from "../modals/ContactModal"
 
 const Header = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { scrollY } = useScroll();
-  const headerBg = useTransform(
-    scrollY,
-    [0, 100],
-    ["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 0.8)"]
-  );
-  const headerBlur = useTransform(scrollY, [0, 100], [0, 8]);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { scrollY } = useScroll()
+  const headerBg = useTransform(scrollY, [0, 100], ["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 0.8)"])
+  const headerBlur = useTransform(scrollY, [0, 100], [0, 8])
 
   const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
+    setMobileMenuOpen(!mobileMenuOpen)
+  }
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
-        setMobileMenuOpen(false);
+        setMobileMenuOpen(false)
       }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   const navItems = [
     { href: "/", label: "Accueil" },
@@ -38,7 +35,7 @@ const Header = () => {
     { href: "/#features", label: "Fonctionnalités" },
     { href: "/#ultimate-pricing", label: "Tarifs" },
     { href: "/#faq", label: "FAQ" },
-  ];
+  ]
 
   return (
     <motion.header
@@ -56,13 +53,7 @@ const Header = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Image
-            src="/logo.png"
-            width={130}
-            height={130}
-            className=" w-30 h-20 md:w-40 md:h-30 "
-            alt="logo image"
-          />
+          <Image src="/logo.png" width={130} height={130} className=" w-30 h-20 md:w-40 md:h-30 " alt="logo image" />
         </motion.div>
 
         {/* Navigation Desktop */}
@@ -85,6 +76,21 @@ const Header = () => {
               {item.label}
             </motion.a>
           ))}
+
+          {/* Contact Us Button */}
+          <motion.div
+            className="cursor-pointer"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: navItems.length * 0.1 + 0.2 }}
+            whileHover={{
+              transition: { duration: 0.2 },
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ContactModal />
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -108,11 +114,7 @@ const Header = () => {
           transition={{ delay: 0.3 }}
           whileTap={{ scale: 0.9 }}
         >
-          {mobileMenuOpen ? (
-            <X className="h-6 w-6 text-[#0055A4]" />
-          ) : (
-            <Menu className="h-6 w-6 text-[#0055A4]" />
-          )}
+          {mobileMenuOpen ? <X className="h-6 w-6 text-[#0055A4]" /> : <Menu className="h-6 w-6 text-[#0055A4]" />}
         </motion.button>
       </div>
 
@@ -181,6 +183,25 @@ const Header = () => {
                   {item.label}
                 </motion.a>
               ))}
+
+              {/* Contact Us Button in Mobile Menu */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 20,
+                    },
+                  },
+                }}
+              >
+                <ContactModal className="text-2xl font-medium" />
+              </motion.div>
+
               <motion.div
                 variants={{
                   hidden: { opacity: 0, scale: 0 },
@@ -207,7 +228,7 @@ const Header = () => {
         )}
       </AnimatePresence>
     </motion.header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
