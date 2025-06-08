@@ -2,6 +2,7 @@
 import { resend } from "@/lib/email";
 import { z } from "zod";
 import { publicActionsClient } from "@/lib/safe-actions";
+import { prisma } from "@/lib/db";
 
 const subscribeSchema = z.object({
   fullName: z.string().min(2, { message: "Le nom doit contenir au moins 2 caractères." }),
@@ -12,17 +13,41 @@ const subscribeSchema = z.object({
   price: z.string(),
 });
 
+const contactSchema = z.object({
+  fullName: z.string().min(2, { message: "Le nom doit contenir au moins 2 caractères." }),
+  email: z.string().email({ message: "Veuillez entrer une adresse email valide." }),
+  phoneNumber: z.string().optional(),
+  subject: z.string().optional(),
+  message: z.string().min(10, { message: "Le message doit contenir au moins 10 caractères." }),
+});
+
 export const subscribeActions = publicActionsClient
   .schema(subscribeSchema)
   .action(async ({ parsedInput }) => {
-    const { fullName, email, planName, duration, price } = parsedInput;
-    const orderId = Math.floor(Math.random() * 900000 + 100000); // Ex: 6 chiffres aléatoires
+    const { fullName, email, phoneNumber, planName, duration, price } = parsedInput;
+    
+    try {
+      // Generate a 6-digit order ID
+      const orderId = Math.floor(Math.random() * 900000 + 100000).toString();
+      
+      // Store the order in database
+      const savedOrder = await prisma.order.create({
+        data: {
+          fullName,
+          email,
+          phoneNumber,
+          planName,
+          duration,
+          price,
+        }
+      });
 
-    await resend.emails.send({
-      to: email,
-      from: process.env.EMAIL_FROM ?? "",
-      subject: `Confirmation de commande #${orderId}`,
-      html: `
+      // Send confirmation email
+      await resend.emails.send({
+        to: email,
+        from: process.env.EMAIL_FROM ?? "",
+        subject: `Confirmation de commande #${orderId}`,
+        html: `
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -106,7 +131,7 @@ export const subscribeActions = publicActionsClient
         <ul>
           <li><strong>Forfait :</strong> ${planName}</li>
           <li><strong>Durée :</strong> ${duration}</li>
-          <li><strong>Prix :</strong> ${price} €</li>
+          <li><strong>Prix :</strong> ${price} €</li>
         </ul>
       </div>
 
@@ -115,7 +140,7 @@ export const subscribeActions = publicActionsClient
         <p>Pour une activation rapide, nous vous recommandons PayPal qui vous offre sécurité, protection et activation instantanée de votre service.</p>
         <ol>
           <li>Accédez à PayPal</li>
-          <li>Dans le souci d’éviter la suspension de notre site ainsi que le blocage de tout abonnement, nous vous invitons à saisir la formule « <strong>Service numérique 12 mois</strong> » dans la case de justification du paiement (« Pourquoi ce paiement »).</li>
+          <li>Dans le souci d'éviter la suspension de notre site ainsi que le blocage de tout abonnement, nous vous invitons à saisir la formule « <strong>Service numérique 12 mois</strong> » dans la case de justification du paiement (« Pourquoi ce paiement »).</li>
           <li>Notre adresse email PayPal : <strong>yacinezitouni94@yahoo.fr</strong></li>
           <li>Votre compte sera activé immédiatement</li>
         </ol>
@@ -129,17 +154,166 @@ export const subscribeActions = publicActionsClient
     </div>
 
     <div class="footer">
-      <p>L’équipe <strong>MEDIA FRANCE</strong></p>
+      <p>L'équipe <strong>MEDIA FRANCE</strong></p>
       <p style="font-size: 12px; margin-top: 15px;">© 2025 MEDIA FRANCE. Tous droits réservés.</p>
     </div>
   </div>
 </body>
 </html>
-      `,
-    });
+        `,
+      });
 
-    return {
-      status: "success",
-      message: `Merci ${fullName}, vous êtes maintenant abonné à notre service !`,
-    };
+      return {
+        status: "success",
+        message: `Merci ${fullName}, vous êtes maintenant abonné à notre service ! Numéro de commande: #${orderId}`,
+      };
+    } catch (error) {
+      console.error("Error processing subscription:", error);
+      return {
+        status: "error",
+        message: "Une erreur s'est produite lors du traitement de votre commande. Veuillez réessayer.",
+      };
+    }
+  });
+
+export const contactActions = publicActionsClient
+  .schema(contactSchema)
+  .action(async ({ parsedInput }) => {
+    const { fullName, email, phoneNumber, subject, message } = parsedInput;
+    
+    try {
+      // Store the contact message in database
+      const savedContact = await prisma.contact.create({
+        data: {
+          fullName,
+          email,
+          phoneNumber,
+          subject,
+          message,
+        }
+      });
+
+      // Send confirmation email to customer
+      await resend.emails.send({
+        to: email,
+        from: process.env.EMAIL_FROM ?? "",
+        subject: "Confirmation de réception de votre message",
+        html: `
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message reçu</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      background-color: #28a745;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .content {
+      padding: 30px;
+    }
+    .footer {
+      background-color: #f5f5f5;
+      padding: 20px;
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      border-top: 1px solid #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <div class="header">
+      <h1>Message reçu ✅</h1>
+    </div>
+
+    <div class="content">
+      <p>Bonjour <strong>${fullName}</strong>,</p>
+      <p>Nous avons bien reçu votre message et nous vous remercions de nous avoir contactés.</p>
+      <p>Notre équipe vous répondra dans les plus brefs délais.</p>
+      
+      <h3>📩 Pour toute urgence, contactez-nous :</h3>
+      <p>Email : <a href="mailto:bourouznadir@gmail.com">bourouznadir@gmail.com</a><br>
+      WhatsApp : <a href="https://wa.me/213773941700">+213773941700</a></p>
+
+      <p>Cordialement,</p>
+    </div>
+
+    <div class="footer">
+      <p>L'équipe <strong>MEDIA FRANCE</strong></p>
+      <p style="font-size: 12px; margin-top: 15px;">© 2025 MEDIA FRANCE. Tous droits réservés.</p>
+    </div>
+  </div>
+</body>
+</html>
+        `,
+      });
+
+      // Send notification email to admin
+      await resend.emails.send({
+        to: "bourouznadir@gmail.com", // Admin email
+        from: process.env.EMAIL_FROM ?? "",
+        subject: `Nouveau message de contact - ${subject || 'Sans sujet'}`,
+        html: `
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nouveau message de contact</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+  <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+    <h2 style="color: #1a73e8;">Nouveau message de contact</h2>
+    
+    <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <p><strong>Nom :</strong> ${fullName}</p>
+      <p><strong>Email :</strong> ${email}</p>
+      ${phoneNumber ? `<p><strong>Téléphone :</strong> ${phoneNumber}</p>` : ''}
+      ${subject ? `<p><strong>Sujet :</strong> ${subject}</p>` : ''}
+      <p><strong>Message :</strong></p>
+      <div style="background-color: white; padding: 15px; border-left: 4px solid #1a73e8; margin-top: 10px;">
+        ${message.replace(/\n/g, '<br>')}
+      </div>
+    </div>
+    
+    <p style="color: #666; font-size: 14px;">Message reçu le ${new Date().toLocaleString('fr-FR')}</p>
+  </div>
+</body>
+</html>
+        `,
+      });
+
+      return {
+        status: "success",
+        message: `Merci ${fullName}, votre message a été envoyé avec succès ! Nous vous répondrons très prochainement.`,
+        contactId: savedContact.id,
+      };
+    } catch (error) {
+      console.error("Error processing contact form:", error);
+      return {
+        status: "error",
+        message: "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer.",
+      };
+    }
   });
