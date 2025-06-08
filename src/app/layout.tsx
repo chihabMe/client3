@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+// import Header from "@/components/layout/Header";
+// import Footer from "@/components/layout/Footer";
 import Providers from "@/components/Providers";
 import Script from "next/script";
 import { Analytics } from '@vercel/analytics/next';
@@ -36,9 +36,7 @@ export default function RootLayout({
       </head>
       <body className={`antialiased`}>
         <Providers>
-          <Header />
           {children}
-          <Footer />
         </Providers>
         <Analytics />
       </body>
