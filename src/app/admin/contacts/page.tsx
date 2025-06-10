@@ -47,7 +47,7 @@ async function ContactsTable({ page }: { page: number }) {
             <TableHeader>
               <TableRow>
                 <TableHead>Statut</TableHead>
-                <TableHead>country</TableHead>
+                <TableHead>Pays</TableHead>
                 <TableHead>Contact</TableHead>
                 <TableHead>Message</TableHead>
                 <TableHead>Date</TableHead>

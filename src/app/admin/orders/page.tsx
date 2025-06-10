@@ -1,7 +1,5 @@
 import { Suspense } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -10,15 +8,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Package, Calendar, Euro, User, Phone, Mail } from "lucide-react";
+import { Package, Calendar, Euro, User, Phone, Mail, Map } from "lucide-react";
 import { getOrders } from "@/app/actoins/admin-actions";
 import { OrdersTableActions } from "./_components/OrdersTableActions";
 import { PaginationComponent } from "@/components/Pagination";
@@ -55,8 +46,8 @@ async function OrdersTable({ page }: { page: number }) {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Commande</TableHead>
                 <TableHead>Client</TableHead>
+                <TableHead>Pays</TableHead>
                 <TableHead>Forfait</TableHead>
                 <TableHead>Prix</TableHead>
                 <TableHead>Date</TableHead>
@@ -80,6 +71,12 @@ async function OrdersTable({ page }: { page: number }) {
                         <Phone className="h-3 w-3" />
                         <span>{order.phoneNumber}</span>
                       </div>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex items-center space-x-2 text-sm">
+                      <Map className="h-3 w-3 text-muted-foreground" />
+                      <span>{order.country || 'Non spécifié'}</span>
                     </div>
                   </TableCell>
                   <TableCell>
@@ -180,33 +177,6 @@ export default async function OrdersPage({ searchParams }: OrdersPageProps) {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{pagination.total}</div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">En Attente</CardTitle>
-            <Badge className="bg-yellow-100 text-yellow-800 text-xs">PENDING</Badge>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">-</div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Actives</CardTitle>
-            <Badge className="bg-green-100 text-green-800 text-xs">ACTIVE</Badge>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">-</div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Annulées</CardTitle>
-            <Badge className="bg-red-100 text-red-800 text-xs">CANCELLED</Badge>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">-</div>
           </CardContent>
         </Card>
       </div>

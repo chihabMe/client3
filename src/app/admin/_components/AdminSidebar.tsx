@@ -23,7 +23,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { LayoutDashboard, Package, MessageSquare, Settings, Users, BarChart3, LogOut, User } from "lucide-react"
+import { LayoutDashboard, Package, MessageSquare, Settings, LogOut, User } from "lucide-react"
+import { signOut } from "@/lib/auth"
 
 const navigation = [
   {
@@ -127,6 +128,7 @@ export function AdminSidebar() {
                   </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
+                {/*
                 <DropdownMenuItem>
                   <User className="mr-2 h-4 w-4" />
                   Profil
@@ -136,7 +138,10 @@ export function AdminSidebar() {
                   Paramètres
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
+*/}
+                <DropdownMenuItem onClick={async () => {
+                  await signOut()
+                }}>
                   <LogOut className="mr-2 h-4 w-4" />
                   Déconnexion
                 </DropdownMenuItem>
