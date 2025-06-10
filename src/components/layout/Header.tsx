@@ -199,7 +199,7 @@ const Header = () => {
                   },
                 }}
               >
-                <ContactModal className="text-2xl font-medium" />
+                <ContactModal />
               </motion.div>
 
               <motion.div

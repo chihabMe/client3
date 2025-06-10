@@ -1,4 +1,4 @@
-import { getUserOrRedirectToLogin } from "@/lib/auth"
+// import { getUserOrRedirectToLogin } from "@/lib/auth"
 import { Suspense } from "react";
 import { DashboardStats } from "./_components/DashboardStats";
 import { RecentOrders } from "./_components/RecentOrders";

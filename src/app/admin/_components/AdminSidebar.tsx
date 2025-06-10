@@ -23,7 +23,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { LayoutDashboard, Package, MessageSquare, Settings, LogOut, User } from "lucide-react"
+import { LayoutDashboard, Package, MessageSquare, LogOut } from "lucide-react"
 import { signOut } from "@/lib/auth"
 
 const navigation = [

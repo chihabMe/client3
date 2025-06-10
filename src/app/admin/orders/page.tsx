@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Table,
   TableBody,
@@ -15,9 +15,9 @@ import { OrdersTableActions } from "./_components/OrdersTableActions";
 import { PaginationComponent } from "@/components/Pagination";
 
 interface OrdersPageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
-  };
+  }>;
 }
 
 
@@ -32,7 +32,7 @@ async function OrdersTable({ page }: { page: number }) {
           <Package className="h-12 w-12 text-muted-foreground mb-4" />
           <h3 className="text-lg font-semibold mb-2">Aucune commande trouvée</h3>
           <p className="text-muted-foreground text-center">
-            Il n'y a aucune commande à afficher pour le moment.
+            Il n&apos;y a aucune commande à afficher pour le moment.
           </p>
         </CardContent>
       </Card>
@@ -157,7 +157,8 @@ function OrdersTableSkeleton() {
 }
 
 export default async function OrdersPage({ searchParams }: OrdersPageProps) {
-  const page = Number(searchParams.page) || 1;
+  const props = await searchParams
+  const page = Number(props.page || 1);
   const { pagination } = await getOrders(page, 10);
 
   return (

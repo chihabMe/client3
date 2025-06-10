@@ -49,7 +49,7 @@ export default function ContactModal() {
       toast.success(response.data.message)
       form.reset()
       setOpen(false)
-    } else if (response?.data.success === false) {
+    } else if (response?.data?.success === false) {
       toast.error(response.data.message)
     }
   }

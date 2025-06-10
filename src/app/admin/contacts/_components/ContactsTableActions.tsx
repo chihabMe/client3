@@ -63,6 +63,7 @@ export function ContactsTableActions({ contact }: ContactsTableActionsProps) {
         toast.error(result.message);
       }
     } catch (error) {
+      console.error(error)
       toast.error("Une erreur est survenue");
     } finally {
       setIsLoading(false);
@@ -79,6 +80,7 @@ export function ContactsTableActions({ contact }: ContactsTableActionsProps) {
         toast.error(result.message);
       }
     } catch (error) {
+      console.error(error)
       toast.error("Une erreur est survenue");
     } finally {
       setIsLoading(false);

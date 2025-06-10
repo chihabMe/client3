@@ -1,4 +1,4 @@
-import { PrismaClient } from "@/generated/prisma";
+import { PrismaClient } from "@prisma/client";
 import { hashPassword } from "@/lib/passwords";
 const db = new PrismaClient()
 // import { productImage, products, users } from "./schema";

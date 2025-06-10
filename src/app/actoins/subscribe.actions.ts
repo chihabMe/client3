@@ -14,14 +14,14 @@ const subscribeSchema = z.object({
   price: z.string(),
 });
 
-const contactSchema = z.object({
-  fullName: z.string().min(2, { message: "Le nom doit contenir au moins 2 caractères." }),
-  email: z.string().email({ message: "Veuillez entrer une adresse email valide." }),
-  phoneNumber: z.string().optional(),
-  subject: z.string().optional(),
-  message: z.string().min(10, { message: "Le message doit contenir au moins 10 caractères." }),
-});
-
+// const contactSchema = z.object({
+//   fullName: z.string().min(2, { message: "Le nom doit contenir au moins 2 caractères." }),
+//   email: z.string().email({ message: "Veuillez entrer une adresse email valide." }),
+//   phoneNumber: z.string().optional(),
+//   subject: z.string().optional(),
+//   message: z.string().min(10, { message: "Le message doit contenir au moins 10 caractères." }),
+// });
+//
 export const subscribeActions = publicActionsClient
   .schema(subscribeSchema)
   .action(async ({ parsedInput }) => {

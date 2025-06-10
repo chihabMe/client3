@@ -20,14 +20,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { MoreHorizontal, Trash2, Edit, Eye, RefreshCw } from "lucide-react";
+import { MoreHorizontal, Trash2 } from "lucide-react";
 import { deleteOrder } from "@/app/actoins/admin-actions";
 import { toast } from "sonner";
 
@@ -65,6 +58,7 @@ export function OrdersTableActions({ order }: OrdersTableActionsProps) {
         toast.error(result.message);
       }
     } catch (error) {
+      console.error(error)
       toast.error("Une erreur est survenue lors de la suppression");
     } finally {
       setIsLoading({ ...isLoading, delete: false });

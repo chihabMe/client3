@@ -1,7 +1,6 @@
 import { Suspense } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -32,7 +31,7 @@ async function ContactsTable({ page }: { page: number }) {
           <MessageSquare className="h-12 w-12 text-muted-foreground mb-4" />
           <h3 className="text-lg font-semibold mb-2">Aucun message trouvé</h3>
           <p className="text-muted-foreground text-center">
-            Il n'y a aucun message de contact à afficher pour le moment.
+            Il n&apos;y a aucun message de contact à afficher pour le moment.
           </p>
         </CardContent>
       </Card>

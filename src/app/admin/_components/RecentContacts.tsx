@@ -1,9 +1,10 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { MessageSquare, Mail, Check, X } from "lucide-react"
+import { MessageSquare, Mail } from "lucide-react"
 
-import { getContacts, markContactAsRead } from "@/app/actoins/admin-actions"
+import { getContacts } from "@/app/actoins/admin-actions"
 import Link from "next/link"
+import { ContactReadToggle } from "./ContactRedToggle"
 
 export default async function RecentContacts() {
   const { contacts } = await getContacts(1, 5)
@@ -47,15 +48,9 @@ export default async function RecentContacts() {
                   <p className="text-sm mt-1 line-clamp-2">{contact.message}</p>
                 </div>
                 <div className="flex flex-col space-y-1">
-                  <form action={markContactAsRead.bind(null, contact.id, !contact.isRead)}>
-                    <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                      {contact.isRead ? (
-                        <X className="h-4 w-4 text-gray-500" />
-                      ) : (
-                        <Check className="h-4 w-4 text-green-500" />
-                      )}
-                    </Button>
-                  </form>
+
+                  <ContactReadToggle isRead={contact.isRead} contactId={contact.id} />
+
                   <Button variant="ghost" size="sm" className="h-8 w-8 p-0" asChild>
                     <Link href={`mailto:${contact.email}`}>
                       <Mail className="h-4 w-4" />

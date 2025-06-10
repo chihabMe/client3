@@ -2,12 +2,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Package,
   MessageSquare,
-  TrendingUp,
-  Euro,
-  Mail,
-  CheckCircle,
-  Clock,
-  User
 } from "lucide-react";
 import { getOrders, getContacts } from "@/app/actoins/admin-actions";
 
@@ -60,11 +54,6 @@ export async function DashboardStats() {
             <p className="text-xs text-muted-foreground">
               {stat.description}
             </p>
-            {stat.change && (
-              <p className="text-xs text-muted-foreground mt-1">
-                <span className="text-green-500">{stat.change}</span>
-              </p>
-            )}
           </CardContent>
         </Card>
       ))}
