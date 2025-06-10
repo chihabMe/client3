@@ -11,6 +11,7 @@ import {
 import { Package } from "lucide-react";
 import { getOrders } from "@/app/actoins/admin-actions";
 import Link from "next/link";
+import { OrdersTableActions } from "../orders/_components/OrdersTableActions";
 
 export async function RecentOrders() {
   const { orders } = await getOrders(1, 5);

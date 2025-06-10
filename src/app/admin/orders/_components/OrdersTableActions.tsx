@@ -33,7 +33,6 @@ import { toast } from "sonner";
 
 interface Order {
   id: string;
-  orderId: string;
   fullName: string;
   email: string;
   phoneNumber: string;
@@ -84,12 +83,6 @@ export function OrdersTableActions({ order }: OrdersTableActionsProps) {
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
-          <DropdownMenuItem
-            onClick={() => navigator.clipboard.writeText(order.orderId)}
-          >
-            <Eye className="mr-2 h-4 w-4" />
-            Copier l'ID
-          </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem
             onClick={() => setShowDeleteDialog(true)}
@@ -108,7 +101,7 @@ export function OrdersTableActions({ order }: OrdersTableActionsProps) {
             <AlertDialogTitle>Êtes-vous sûr ?</AlertDialogTitle>
             <AlertDialogDescription>
               Cette action ne peut pas être annulée. Cela supprimera définitivement
-              la commande #{order.orderId} de {order.fullName}.
+              la commande de {order.fullName}.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>

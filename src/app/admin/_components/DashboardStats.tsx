@@ -22,16 +22,8 @@ export async function DashboardStats() {
   const totalContacts = contactsData.pagination.total;
   const unreadContacts = contactsData.contacts.filter(c => !c.isRead).length;
 
-  // Calculate total revenue from all orders
-  const totalRevenue = ordersData.orders.reduce((sum, order) => {
-    return sum + parseFloat(order.price);
-  }, 0);
 
   // Calculate conversion rate (orders/contacts)
-  const conversionRate = totalContacts > 0
-    ? Math.round((totalOrders / totalContacts) * 100)
-    : 0;
-
   // Get latest order time
   const latestOrder = ordersData.orders[0]?.createdAt;
   const latestOrderTime = latestOrder
@@ -44,29 +36,13 @@ export async function DashboardStats() {
       value: totalOrders,
       icon: Package,
       description: `Dernière à ${latestOrderTime}`,
-      change: "+12% ce mois"
     },
     {
       title: "Messages",
       value: totalContacts,
       icon: MessageSquare,
       description: `${unreadContacts} non lus`,
-      change: "+8% ce mois"
     },
-    {
-      title: "Revenus",
-      value: `${totalRevenue.toFixed(0)}€`,
-      icon: Euro,
-      description: "Toutes commandes",
-      change: "+24% ce mois"
-    },
-    {
-      title: "Taux de conversion",
-      value: `${conversionRate}%`,
-      icon: TrendingUp,
-      description: "Messages → Commandes",
-      change: "+2% ce mois"
-    }
   ];
 
   return (
