@@ -4,6 +4,7 @@ import { z } from "zod";
 import { publicActionsClient } from "@/lib/safe-actions";
 import { prisma } from "@/lib/db";
 import { getClientCountry } from "@/lib/ip-tools";
+import { revalidatePath } from "next/cache";
 
 const subscribeSchema = z.object({
   fullName: z.string().min(2, { message: "Le nom doit contenir au moins 2 caractères." }),
@@ -44,6 +45,8 @@ export const subscribeActions = publicActionsClient
           price,
         }
       });
+      revalidatePath("/admin")
+      revalidatePath("/admin/orders")
 
       // Send confirmation email
       await resend.emails.send({

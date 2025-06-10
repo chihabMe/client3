@@ -45,6 +45,8 @@ export const submitContactAction = publicActionsClient.schema(contactFormSchema)
 
     // Revalidate any relevant paths if needed
     revalidatePath("/")
+    revalidatePath("/admin")
+    revalidatePath("/admin/contacts")
 
     return { success: true, message: "Message envoyé avec succès!" }
   } catch (error) {
