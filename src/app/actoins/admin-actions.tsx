@@ -109,3 +109,28 @@ export async function getContacts(page: number = 1, limit: number = 10) {
     };
   }
 }
+export const getReadCount = async () => {
+  try {
+    return await prisma.contact.count({
+      where: {
+        isRead: true
+      }
+    });
+  } catch (error) {
+    console.error("Error fetching read contacts count:", error);
+    return 0;
+  }
+}
+
+export const getUnReadCount = async () => {
+  try {
+    return await prisma.contact.count({
+      where: {
+        isRead: false
+      }
+    });
+  } catch (error) {
+    console.error("Error fetching unread contacts count:", error);
+    return 0;
+  }
+}

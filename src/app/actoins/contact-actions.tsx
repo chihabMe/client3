@@ -4,6 +4,8 @@ import { z } from "zod"
 import { revalidatePath } from "next/cache"
 import { publicActionsClient } from "@/lib/safe-actions"
 import { prisma } from "@/lib/db"
+import { getClientCountry } from "@/lib/ip-tools"
+
 
 // You'll need to import your Prisma client here
 // import { prisma } from '@/lib/prisma'
@@ -26,11 +28,12 @@ export const submitContactAction = publicActionsClient.schema(contactFormSchema)
   try {
 
 
+    const country = await getClientCountry()
     await prisma.contact.create({
       data: {
-
         fullName: parsedInput.fullName,
         email: parsedInput.email,
+        country: country ?? "None",
         phoneNumber: parsedInput.phoneNumber,
         message: parsedInput.message,
 

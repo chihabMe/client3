@@ -11,15 +11,15 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Skeleton } from "@/components/ui/skeleton";
-import { MessageSquare, User, Mail, Phone, Calendar, MessageCircle } from "lucide-react";
-import { getContacts } from "@/app/actoins/admin-actions";
+import { MessageSquare, User, Mail, Phone, Calendar } from "lucide-react";
+import { getContacts, getReadCount, getUnReadCount } from "@/app/actoins/admin-actions";
 import { ContactsTableActions } from "./_components/ContactsTableActions";
 import { PaginationComponent } from "@/components/Pagination";
 
 interface ContactsPageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
-  };
+  }>;
 }
 
 async function ContactsTable({ page }: { page: number }) {
@@ -47,8 +47,8 @@ async function ContactsTable({ page }: { page: number }) {
             <TableHeader>
               <TableRow>
                 <TableHead>Statut</TableHead>
+                <TableHead>country</TableHead>
                 <TableHead>Contact</TableHead>
-                <TableHead>Sujet</TableHead>
                 <TableHead>Message</TableHead>
                 <TableHead>Date</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
@@ -66,6 +66,11 @@ async function ContactsTable({ page }: { page: number }) {
                     </Badge>
                   </TableCell>
                   <TableCell>
+                    <div className="font-medium max-w-[200px] truncate">
+                      {contact.country || "Aucun "}
+                    </div>
+                  </TableCell>
+                  <TableCell>
                     <div className="space-y-1">
                       <div className="flex items-center space-x-2">
                         <User className="h-3 w-3 text-muted-foreground" />
@@ -81,11 +86,6 @@ async function ContactsTable({ page }: { page: number }) {
                           <span>{contact.phoneNumber}</span>
                         </div>
                       )}
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <div className="font-medium max-w-[200px] truncate">
-                      {contact.subject || "Aucun sujet"}
                     </div>
                   </TableCell>
                   <TableCell>
@@ -137,7 +137,6 @@ function ContactsTableSkeleton() {
             <TableRow>
               <TableHead>Statut</TableHead>
               <TableHead>Contact</TableHead>
-              <TableHead>Sujet</TableHead>
               <TableHead>Message</TableHead>
               <TableHead>Date</TableHead>
               <TableHead className="text-right">Actions</TableHead>
@@ -162,8 +161,12 @@ function ContactsTableSkeleton() {
 }
 
 export default async function ContactsPage({ searchParams }: ContactsPageProps) {
-  const page = Number(searchParams.page) || 1;
+  const params = await searchParams
+  const page = Number(params.page) || 1;
   const { pagination } = await getContacts(page, 10);
+
+  const redContactsCount = await getReadCount()
+  const unRedContactsCount = await getUnReadCount()
 
   return (
     <div className="container mx-auto py-8 space-y-8">
@@ -190,7 +193,7 @@ export default async function ContactsPage({ searchParams }: ContactsPageProps) 
             <Badge className="bg-blue-100 text-blue-800 text-xs">NOUVEAU</Badge>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">-</div>
+            <div className="text-2xl font-bold">{unRedContactsCount}</div>
           </CardContent>
         </Card>
         <Card>
@@ -199,7 +202,7 @@ export default async function ContactsPage({ searchParams }: ContactsPageProps) 
             <Badge className="bg-gray-100 text-gray-800 text-xs">LU</Badge>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">-</div>
+            <div className="text-2xl font-bold">{redContactsCount}</div>
           </CardContent>
         </Card>
       </div>
