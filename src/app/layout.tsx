@@ -20,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+
         <meta name="google-site-verification" content="toPhn3zTF7Y1TKXt1x3B0jw_KDHWXQyn_vWVEIak-eI" />
         <Script defer src="https://cloud.umami.is/script.js" data-website-id="4fc504fc-d39a-455c-944f-fe7412e13fab" />
         {/*
@@ -33,6 +34,30 @@ export default function RootLayout({
 
         />
         */}
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17160239824"
+          strategy="afterInteractive"
+        />
+
+        {/* Initialize gtag */}
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-17160239824');
+        `}
+        </Script>
+
+        {/* Fire conversion event */}
+        <Script id="gtag-conversion" strategy="afterInteractive">
+          {`
+          gtag('event', 'conversion', {
+            send_to: 'AW-17160239824/ey9iCITJ0tUaEND10fY_'
+          });
+        `}
+        </Script>
       </head>
       <body className={`antialiased`}>
         <Providers>
