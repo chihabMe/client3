@@ -64,6 +64,21 @@ export default function RootLayout({
           {children}
         </Providers>
         <Analytics />
+
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17253746070"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17253746070');
+          `}
+        </Script>
+
       </body>
     </html>
   );
