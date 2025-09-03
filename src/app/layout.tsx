@@ -40,24 +40,25 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
 
-        {/* Initialize gtag */}
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'AW-17160239824');
-        `}
-        </Script>
+   <Script id="conversion-script" strategy="afterInteractive">
+            {`
+              function gtag_report_conversion(url) {
+                var callback = function () {
+                  if (typeof(url) != 'undefined') {
+                    window.location = url;
+                  }
+                };
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17253746070/LarCCJ_njZMbEJaLnaNA',
+                    'event_callback': callback
+                });
+                return false;
+              }
+            `}
+          </Script>
 
-        {/* Fire conversion event */}
-        <Script id="gtag-conversion" strategy="afterInteractive">
-          {`
-          gtag('event', 'conversion', {
-            send_to: 'AW-17160239824/ey9iCITJ0tUaEND10fY_'
-          });
-        `}
-        </Script>
+
+
       </head>
       <body className={`antialiased`}>
         <Providers>
