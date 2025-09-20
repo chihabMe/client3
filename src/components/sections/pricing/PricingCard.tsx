@@ -49,7 +49,7 @@ const PricingCard = ({ plan }: PricingCardProps) => {
           <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
           <div className="mt-4 flex justify-center items-baseline">
             <span className="text-5xl font-extrabold text-black">
-              ${plan.price}
+              €{plan.price}
             </span>
             <span className="ml-1 text-gray-800">/{plan.period}</span>
           </div>
