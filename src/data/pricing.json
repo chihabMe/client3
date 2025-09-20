@@ -23,7 +23,7 @@
       "name": "Premium",
       "price": 39.99,
       "period": "12 mois",
-      "description": "12 mois +3 mois gratuit",
+      "description": "12 mois ",
       "features": [
         "Full HD 4K streaming",
         "+40 000 Chaînes TV & VOD",
@@ -32,8 +32,7 @@
         "Compatibilité large",
         "Mises à jour automatiques",
         "Zapping rapide",
-        "Garantie 30 jours",
-        "+ 3 mois gratuits"
+        "Garantie 30 jours"
       ],
       "highlighted": false,
       "cta": "Go Premium"
@@ -43,7 +42,7 @@
       "name": "Ultimate",
       "price": 50,
       "period": "12 mois",
-      "description": "12 mois +3 mois gratuit",
+      "description": "12 mois ",
       "features": [
         "+60 000 Chaînes TV & VOD",
         "Résolutions : SD, HD, Full HD, 4K",
@@ -52,8 +51,7 @@
         "Netflix, Disney+, Prime, beIN, Canal+",
         "Mises à jour automatiques",
         "VPN Premium inclus",
-        "Garantie 30 jours",
-        "+ 3 mois gratuits"
+        "Garantie 30 jours"
       ],
       "highlighted": true,
       "cta": "Go Ultimate"
