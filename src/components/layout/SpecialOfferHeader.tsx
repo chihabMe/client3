@@ -13,8 +13,7 @@ export default function SpecialOfferHeader() {
       <p className="text-sm md:text-xl">
         Offre spéciale :{" "}
         <span className="text-red-500 font-bold">
-          Profitez d&apos;une vitesse exceptionnelle et d&apos;un contenu de
-          haute qualité
+          Profitez d&apos;un contenu de haute qualité
         </span>{" "}
         en choisissant le plan annuel –{" "}
         <Link
