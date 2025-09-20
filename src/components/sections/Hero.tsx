@@ -134,7 +134,7 @@ const Hero = () => (
                 size="lg"
                 className="bg-transparent cursor-pointer text-white border border-gray-50/80 text-base md:text-lg font-medium w-full px-6 py-5 md:px-8 md:py-6 rounded-lg"
               >
-                1 heure d'essai gratuit
+                1 heure d&apos;essai gratuit
               </Button>
             </Link>
           </motion.div>
