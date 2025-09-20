@@ -1,6 +1,24 @@
 {
   "plans": [
     {
+      "id": "Free-Trial",
+      "name": "Essai Gratuit",
+      "price": 0,
+      "period": "1 heure",
+      "description": "Accès limité pendant 1 heure",
+      "features": [
+        "Full HD 4K streaming",
+        "+40 000 Chaînes TV & VOD",
+        "EPG (Guide TV)",
+        "15 jours replay",
+        "Compatibilité large",
+        "Mises à jour automatiques",
+        "Zapping rapide"
+      ],
+      "highlighted": false,
+      "cta": "Essayer Gratuitement"
+    },
+    {
       "id": "Premium",
       "name": "Premium",
       "price": 39.99,
