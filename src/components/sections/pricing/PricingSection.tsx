@@ -41,7 +41,8 @@ const PricingSection = () => {
           transition={{ delay: 0.6 }}
           className="text-center text-gray-800 mt-10"
         >
-          Toutes les offres incluent 3 mois gratuits.
+          Toutes les offres incluent des mods stables, rapides et de haute
+          qualité.
         </motion.p>
       </div>
     </section>

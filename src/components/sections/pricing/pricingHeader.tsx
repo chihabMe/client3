@@ -14,8 +14,7 @@ const PricingHeader = () => {
         Paiement rapide via PayPal – aucun risque, aucune complication.
       </h2>
       <p className="text-gray-800 max-w-2xl mx-auto">
-        Ne ratez pas cette offre ! Abonnez-vous pour 12 mois et recevez 3 mois
-        offerts.
+        Ne ratez pas cette offre ! Abonnez-vous pour 12 mois.
       </p>
     </motion.div>
   );
