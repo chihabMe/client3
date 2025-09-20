@@ -12,8 +12,10 @@ export default function SpecialOfferHeader() {
     >
       <p className="text-sm md:text-xl">
         Offre spéciale :{" "}
-        <span className="text-red-500  font-bold">3 mois offerts</span> en
-        choisissant le plan annuel –{" "}
+        <span className="text-red-500 font-bold">
+          Profitez d'une vitesse exceptionnelle et d'un contenu de haute qualité
+        </span>{" "}
+        en choisissant le plan annuel –{" "}
         <Link
           href="/#ultimate-pricing"
           className="underline hover:text-[#00ff2a]"
