@@ -4,8 +4,7 @@ import "./globals.css";
 // import Footer from "@/components/layout/Footer";
 import Providers from "@/components/Providers";
 import Script from "next/script";
-import { Analytics } from '@vercel/analytics/next';
-
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,9 +19,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-
-        <meta name="google-site-verification" content="toPhn3zTF7Y1TKXt1x3B0jw_KDHWXQyn_vWVEIak-eI" />
-        <Script defer src="https://cloud.umami.is/script.js" data-website-id="4fc504fc-d39a-455c-944f-fe7412e13fab" />
+        <meta
+          name="google-site-verification"
+          content="toPhn3zTF7Y1TKXt1x3B0jw_KDHWXQyn_vWVEIak-eI"
+        />
+        <Script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="4fc504fc-d39a-455c-944f-fe7412e13fab"
+        />
         {/*
         <Script
           defer src="https://cloud.umami.is/script.js" data-website-id="ef64fec0-87ba-4f08-8be4-06df0d499fe4"
@@ -35,43 +40,13 @@ export default function RootLayout({
         />
         */}
 
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17160239824"
-          strategy="afterInteractive"
-        />
-
-   <Script id="conversion-script" strategy="afterInteractive">
-            {`
-              function gtag_report_conversion(url) {
-                var callback = function () {
-                  if (typeof(url) != 'undefined') {
-                    window.location = url;
-                  }
-                };
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-17253746070/LarCCJ_njZMbEJaLnaNA',
-                    'event_callback': callback
-                });
-                return false;
-              }
-            `}
-          </Script>
-
-
-
-      </head>
-      <body className={`antialiased`}>
-        <Providers>
-          {children}
-        </Providers>
-        <Analytics />
-
+        {/* Google tag (gtag.js) */}
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-17253746070"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-tag" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -80,6 +55,16 @@ export default function RootLayout({
           `}
         </Script>
 
+        {/* Event snippet for Clic sortant conversion page */}
+        <Script id="conversion-event" strategy="afterInteractive">
+          {`
+            gtag('event', 'conversion', {'send_to': 'AW-17253746070/KcNQCM6blqgbEJaLnaNA'});
+          `}
+        </Script>
+      </head>
+      <body className={`antialiased`}>
+        <Providers>{children}</Providers>
+        <Analytics />
       </body>
     </html>
   );
