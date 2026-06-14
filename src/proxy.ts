@@ -6,7 +6,7 @@ import { authConfig } from './lib/auth.config';
 // Initialize NextAuth with only the edge-safe config
 const { auth } = NextAuth(authConfig);
 
-// Export the auth function as the default middleware
+// Export the auth function as the default proxy
 export default auth;
 
 // Keep your matcher configuration

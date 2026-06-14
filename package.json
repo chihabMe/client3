@@ -8,7 +8,7 @@
     "start": "next start",
     "db:se": "ts-node -r tsconfig-paths/register ./src/lib/seed",
     "password:hash": "tsx  ./src/lib/passwords",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -54,8 +54,8 @@
     "input-otp": "^1.2.4",
     "lucide-react": "^0.462.0",
     "motion": "^12.11.0",
-    "next": "15.3.2",
-    "next-auth": "5.0.0-beta.25",
+    "next": "16.2.9",
+    "next-auth": "5.0.0-beta.31",
     "next-safe-action": "^7.10.8",
     "next-themes": "^0.3.0",
     "posthog-js": "^1.250.2",
@@ -83,7 +83,7 @@
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",
     "eslint": "^9",
-    "eslint-config-next": "15.3.2",
+    "eslint-config-next": "16.2.9",
     "postcss": "^8.5.3",
     "prisma": "^6.9.0",
     "tailwindcss": "^4.1.6",
